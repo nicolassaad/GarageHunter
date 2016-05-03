@@ -9,15 +9,10 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
-
             android:id="@+id/toolbar"
-
             android:layout_width="match_parent"
-
-            android:layout_height="64dp"
-
-            android:background="@color/color_primary"
-
+            android:layout_height="54dp"
+            android:background="@color/color_primary_dark"
             android:minHeight="?attr/actionBarSize">
 
         </android.support.v7.widget.Toolbar>
@@ -29,9 +24,8 @@
             <com.example.nicolassaad.garagehunter.SlidingTabLayout
 
                 android:id="@+id/sliding_tabs"
-
                 android:layout_width="match_parent"
-
+                android:background="@color/accent_color"
                 android:layout_height="wrap_content">
 
             </com.example.nicolassaad.garagehunter.SlidingTabLayout>
@@ -43,14 +37,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
 </LinearLayout>
 

@@ -4,13 +4,9 @@ package com.example.nicolassaad.garagehunter;
  * Created by nicolassaad on 4/30/16.
  */
 import android.os.Bundle;
-
 import android.support.v4.app.Fragment;
-
 import android.view.LayoutInflater;
-
 import android.view.View;
-
 import android.view.ViewGroup;
 
 public class PostFragment extends Fragment {
@@ -28,5 +24,7 @@ public class PostFragment extends Fragment {
         return view;
 
     }
+
+
 
 }

@@ -17,11 +17,8 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
 
     SectionsPagerAdapter mSectionsPagerAdapter;
-
     ViewPager mViewPager;
-
     static final String LOG_TAG = "SlidingTabsBasicFragment";
-
     private SlidingTabLayout mSlidingTabLayout;
 
     @Override
@@ -31,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         Toolbar topToolBar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(topToolBar);
-        // TODO: 5/1/16 replace with your own logo 
-        topToolBar.setLogo(android.R.drawable.btn_star_big_on);
+
+        // TODO: 5/1/16 replace with your own logo
+//        topToolBar.setLogo(android.R.drawable.btn_star_big_on);
         topToolBar.setLogoDescription("logo");
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -43,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setViewPager(mViewPager);
+
     }
 
     @Override
@@ -93,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             Fragment fragment = null;
             switch (position){
                 case 0:
-                    fragment = new SearchFragment();
+                    fragment = new MapsFragment();
                     break;
                 case 1:
                     fragment = new PostFragment();
