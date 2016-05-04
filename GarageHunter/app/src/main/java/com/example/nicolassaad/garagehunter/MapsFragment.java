@@ -23,10 +23,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -59,6 +59,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchButton = (Button) view.findViewById(R.id.search_button);
         searchLayout = (LinearLayout) view.findViewById(R.id.search_layout);
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
+
 
         hideSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,19 +94,9 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 Toast.makeText(getActivity(), "You clicked Search", Toast.LENGTH_SHORT).show();
             }
         });
+
         return view;
     }
-
-//    @Override
-//    public void onActivityCreated(Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        FragmentManager fm = getChildFragmentManager();
-//        fragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
-//        if (fragment == null) {
-//            fragment = SupportMapFragment.newInstance();
-//            fm.beginTransaction().replace(R.id.map, fragment).commit();
-//        }
-//    }
 
     @Override
     public void onResume() {
@@ -134,13 +125,9 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             mMap = fragment.getMap();
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
-                setUpMap();
+               Log.d(TAG, "WE HAVE THE FUCKING MAP ARE YOU HAPPY NOW?");
             }
         }
-    }
-
-    private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
     }
 
     private void handleNewLocation(Location location) {
@@ -153,16 +140,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
         if (mMap != null) {
             mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("Current Location"));
-            MarkerOptions options = new MarkerOptions()
-                    .position(latLng)
-                    .title("I am here!");
-            mMap.addMarker(options);
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            CameraUpdate center =
-                    CameraUpdateFactory.newLatLng(new LatLng(currentLatitude,
-                            currentLongitude));
-            mMap.moveCamera(center);
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+
+            Log.d(TAG, currentLatitude + " " + currentLongitude);
+
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
         } else {
             Log.d(TAG, "mMap is null as FUCK");
         }
@@ -173,14 +156,17 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     public void onConnected(@Nullable Bundle bundle) {
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
-            Log.d("MainActivity", "Bowl Sheet");
             // ask for the permission
 //            requestPermissions();
+            Log.d(TAG, "Permissions are gone");
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    1);
             return;
         }
-        setUpMapIfNeeded();
         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (location == null) {
+            Log.d(TAG, "Loc is null");
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         } else {
             handleNewLocation(location);
