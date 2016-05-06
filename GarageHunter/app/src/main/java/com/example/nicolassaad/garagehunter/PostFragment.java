@@ -60,8 +60,8 @@ public class PostFragment extends Fragment {
 
                 clearEditTexts();
 
-//                Intent intent = new Intent(v.getContext(), MainActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -72,7 +72,7 @@ public class PostFragment extends Fragment {
         editTitle.setText("");
         editDesc.setText("");
         editAddress.setText("");
-        spinnerDay.setSelected(true);
+        spinnerDay.dispatchDisplayHint(View.VISIBLE);
 
     }
 }
