@@ -19,9 +19,9 @@
             android:id="@+id/post_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/enter_title"
             android:maxLines="1"
-            android:singleLine="true"
-            android:hint="@string/enter_title" />
+            android:singleLine="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_description"
             android:lines="6"
-            android:maxHeight="200dp"/>
+            android:maxHeight="200dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -47,9 +47,9 @@
             android:id="@+id/post_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/enter_address"
             android:maxLines="1"
-            android:singleLine="true"
-            android:hint="@string/enter_address" />
+            android:singleLine="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,35 +61,34 @@
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:entries="@array/spinnerItems"
-            android:hint="Search by Day">
-        </Spinner>
+            android:hint="Search by Day"></Spinner>
     </LinearLayout>
 
     <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal">-->
 
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginBottom="10dp"-->
-            <!--android:layout_marginTop="-27dp"-->
-            <!--android:background="@color/accent_color"-->
-            <!--android:gravity="bottom|center_horizontal"-->
-            <!--android:text="Add Pictures"-->
-            <!--android:textAllCaps="false" />-->
+    <!--<Button-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="10dp"-->
+    <!--android:layout_marginTop="-27dp"-->
+    <!--android:background="@color/accent_color"-->
+    <!--android:gravity="bottom|center_horizontal"-->
+    <!--android:text="Add Pictures"-->
+    <!--android:textAllCaps="false" />-->
 
     <!--</LinearLayout>-->
 
     <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
 
-        <!--<ImageView-->
-            <!--android:layout_width="90dp"-->
-            <!--android:layout_height="90dp"-->
-            <!--android:src="@drawable/grumpy" />-->
+    <!--<ImageView-->
+    <!--android:layout_width="90dp"-->
+    <!--android:layout_height="90dp"-->
+    <!--android:src="@drawable/grumpy" />-->
 
     <!--</LinearLayout>-->
 
@@ -100,14 +99,16 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="start|bottom">
+            android:gravity="bottom">
 
             <Button
                 android:id="@+id/post_back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:background="@color/accent_color"
                 android:clickable="true"
                 android:paddingBottom="10dp"
@@ -116,17 +117,12 @@
                 android:paddingTop="10dp"
                 android:text="@string/go_back"
                 android:textAllCaps="false" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="end|bottom">
 
             <Button
                 android:id="@+id/preview_post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:background="@color/accent_color"
                 android:clickable="true"
                 android:paddingBottom="10dp"
@@ -135,6 +131,23 @@
                 android:paddingTop="10dp"
                 android:text="@string/preview_post"
                 android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="@color/accent_color"
+                android:clickable="true"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/post"
+                android:textAllCaps="false" />
+
+
         </RelativeLayout>
 
     </LinearLayout>

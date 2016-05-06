@@ -11,7 +11,8 @@
     <string name="enter_description">Enter Description</string>
     <string name="enter_address">Enter Address</string>
     <string name="go_back">Go Back</string>
-    <string name="preview_post">Post</string>
+    <string name="post">Post</string>
+    <string name="preview_post">Preview Post</string>
     <string name="search">Search</string>
     <string name="hide_search">Hide Search</string>
     <string name="search_by_keyword">Search By Keyword</string>
@@ -26,4 +27,5 @@
         <item>Sunday</item>
         <item>The Weekend</item>
     </string-array>
+    <string name="title_activity_sale">SaleActivity</string>
 </resources>

@@ -18,7 +18,7 @@ import com.firebase.client.Firebase;
 
 public class PostFragment extends Fragment {
     private Button backButton;
-    private Button previewButton;
+    private Button postButton;
     private EditText editTitle;
     private EditText editDesc;
     private EditText editAddress;
@@ -35,7 +35,7 @@ public class PostFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
 
         backButton = (Button) view.findViewById(R.id.post_back_button);
-        previewButton = (Button) view.findViewById(R.id.preview_post);
+        postButton = (Button) view.findViewById(R.id.post);
         editAddress = (EditText) view.findViewById(R.id.post_address);
         editTitle = (EditText) view.findViewById(R.id.post_title);
         editDesc = (EditText) view.findViewById(R.id.post_desc);
@@ -51,7 +51,7 @@ public class PostFragment extends Fragment {
             }
         });
 
-        previewButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GarageSale garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
