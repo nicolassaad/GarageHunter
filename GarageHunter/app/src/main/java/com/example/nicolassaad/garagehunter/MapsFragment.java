@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -39,9 +40,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     private Button hideSearchButton;
     private Button searchButton;
+    public static LinearLayout searchLayout;
+    private Spinner searchByDay;
+
     private int buttonCounter;
-    private LinearLayout searchLayout;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+
     private LocationRequest mLocationRequest;
     private GoogleMap mMap;
     private GoogleApiClient mGoogleApiClient;
@@ -59,7 +63,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchButton = (Button) view.findViewById(R.id.search_button);
         searchLayout = (LinearLayout) view.findViewById(R.id.search_layout);
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
-
+        searchByDay = (Spinner) view.findViewById(R.id.search_day_spinner);
 
         hideSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +79,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 }
             }
         });
+
 
         mGoogleApiClient = new GoogleApiClient.Builder(getContext())
                 .addConnectionCallbacks(this)
@@ -94,7 +99,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 Toast.makeText(getActivity(), "You clicked Search", Toast.LENGTH_SHORT).show();
             }
         });
-
         return view;
     }
 
@@ -103,12 +107,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         super.onResume();
         setUpMapIfNeeded();
         mGoogleApiClient.connect();
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-
         if (mGoogleApiClient.isConnected()) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             mGoogleApiClient.disconnect();
@@ -118,27 +122,30 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
-            Log.d("MainActivity", "Setting up Bowl Sheet");
+            Log.d("MainActivity", "Setting up if needed running");
             // Try to obtain the map from the SupportMapFragment.
             FragmentManager fm = getChildFragmentManager();
             fragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
             mMap = fragment.getMap();
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
-               Log.d(TAG, "WE HAVE THE FUCKING MAP ARE YOU HAPPY NOW?");
+                Log.d(TAG, "Map is not null");
             }
         }
     }
 
     private void handleNewLocation(Location location) {
         Log.d(TAG, location.toString());
-        Log.d("MainActivity", "Handling new Bowl Sheet");
+        Log.d("MainActivity", "Handling new location");
 
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
 
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+
+        // TODO: 5/4/16 THIS SEEMS LIKE WHERE THE MARKERS KEEP GETTING ADDED
         if (mMap != null) {
+            mMap.clear();
             mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("Current Location"));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
@@ -147,10 +154,9 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         } else {
-            Log.d(TAG, "mMap is null as FUCK");
+            Log.d(TAG, "Map is null");
         }
     }
-
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
@@ -166,7 +172,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (location == null) {
-            Log.d(TAG, "Loc is null");
+            Log.d(TAG, "Location is null");
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         } else {
             handleNewLocation(location);
@@ -175,7 +181,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     @Override
     public void onConnectionSuspended(int i) {
-
     }
 
     @Override
@@ -212,5 +217,5 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     }
 
-
 }
+

@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:elevation="12dp"
         android:visibility="visible">
 
         <android.support.design.widget.TextInputLayout
@@ -33,22 +32,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:hint="Search By Day"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
             <!-- This search will use Google Maps to find areas
@@ -56,24 +39,28 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Search By Location" />
+                android:maxLines="1"
+                android:singleLine="true"
+                android:hint="@string/search_by_location" />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingLeft="16dp"-->
+            <!--android:paddingRight="16dp">-->
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Search By Keyword" />
-        </LinearLayout>
+            <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:maxLines="1"-->
+                <!--android:singleLine="true"-->
+                <!--android:hint="@string/search_by_keyword" />-->
+        <!--</LinearLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -94,7 +81,14 @@
                 android:textAllCaps="false"
                 android:layout_alignParentRight="true"
                 android:background="@color/accent_color"
-                android:text="Search" />
+                android:text="@string/search" />
+            <Spinner
+                android:id="@+id/search_day_spinner"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:entries="@array/spinnerItems"
+                />
 
         </RelativeLayout>
     </LinearLayout>
@@ -112,6 +106,7 @@
             android:layout_marginTop="-5dp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
+            android:elevation="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/accent_color"
@@ -119,7 +114,7 @@
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
             android:gravity="bottom"
-            android:text="Hide Search" />
+            android:text="@string/hide_search" />
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
