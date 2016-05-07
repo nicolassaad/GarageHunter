@@ -74,7 +74,6 @@
                 android:text="@string/go_back"
                 android:textAllCaps="false" />
 
-            <!--<Button-->
             <!--android:id="@+id/post"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
@@ -94,3 +93,4 @@
     </LinearLayout>
 
 </LinearLayout>
+

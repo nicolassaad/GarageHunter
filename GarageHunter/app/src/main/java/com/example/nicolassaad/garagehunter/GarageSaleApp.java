@@ -14,5 +14,5 @@ public class GarageSaleApp extends Application {
         super.onCreate();
         Firebase.setAndroidContext(this);
     }
-
 }
+
