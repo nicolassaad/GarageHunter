@@ -1,0 +1,60 @@
+FINAL PROJECT TO DO LIST:
+BY BRANCH:
+
+GOOGLE-MAPS: 
+	Work on finding out how a user will supply the app with coordinates that will be 
+	stored on Firebase, and then displayed on Google Maps or on a cardview when a user's 
+	search matches the post's criteria. 
+
+	DONE*Get rid of the multiple user location markers that appear
+
+WIRE-FRAME DESIGN: 
+	Create PreviewActivity layout. User previews their post here.
+	PreviewActivity will send user back to MainActivity when post is complete.
+	Connect navigation of all activities together.
+		Tapping search with Keywords entered should take user to a KeySearchActivity (containing a Recycler-View of cards)
+		Tapping search with a Day of the Week entered should filter the map by that Day
+		Tapping search with a Location entered should navigate the map to the location that the user specified
+
+CARD-LAYOUT:
+	Used for Recycler-View which is used for the Keyword search. Searching specific keywords queries
+	the title and description and all posts that match will be populated in the Recycler-View
+	(pictures?)
+
+RECYCLER-VIEW:
+	Holds the cardview, used for searching keywords
+
+FIREBASE:
+	Create a database that holds a title, description, location, and date on Firebase and connect it to your app (pictures?)
+
+DATABASE-SETUP: (Making it possible for users to store data that can then be queried by other users)
+	Design a class with getters and setters for title, desc, location, and date.
+
+LOCATION-SEARCH-FUNC:
+	Figure out how to enter a city in an edittext which would update the map to animate the camera to that city
+
+DAY-SEARCH-FUNC:
+	This search should filter the posts by day on the map
+
+KEYWORD-SEARCH-FUNC:
+	This involves the Recylcer-View and Cardview. Hitting search will take you to a recycler view with a list of cards of user posts.
+
+KEYWORD-SEARCH-TOOLBAR:
+	Make the icon in the toolbar search for keywords (or have a spinner drop down by day?)
+
+TOOLBAR-SETTINGS:
+	Create settings for app here. Create a SettingsActivity?
+
+MULTIPLE-DEVICES:
+	Create landscape view and tablet view
+
+OTHERS:
+-(Making garage sale data into map markers that populate the map)
+-(Dealing with Images)
+-(Firebase chat functionality?)
+-(Localization functionality?)
+-(ListView of garage sale items that selling user can edit (add/remove) as theyre being sold. It should update with Firebase in realtime
+
+
+
+

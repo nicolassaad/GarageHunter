@@ -60,7 +60,9 @@
             android:id="@+id/post_spinner"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:entries="@array/spinnerItems">
+            android:entries="@array/spinnerItems"
+            android:hint="Search by Day">
+
 
         </Spinner>
     </LinearLayout>

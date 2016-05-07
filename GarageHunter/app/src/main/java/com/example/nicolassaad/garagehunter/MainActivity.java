@@ -19,36 +19,41 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
-    static final String LOG_TAG = "SlidingTabsBasicFragment";
+    MenuItem searchIcon;
     private SlidingTabLayout mSlidingTabLayout;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar topToolBar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(topToolBar);
 
         // TODO: 5/1/16 replace with your own logo
-//        topToolBar.setLogo(android.R.drawable.btn_star_big_on);
+        topToolBar.setLogo(android.R.drawable.btn_star_big_on);
         topToolBar.setLogoDescription("logo");
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
-        mSlidingTabLayout.setViewPager(mViewPager);
+        setUpViewPager();
 
     }
+
+    // Set up the ViewPager with the sections adapter.
+    private void setUpViewPager() {
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        mSlidingTabLayout.setViewPager(mViewPager);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        this.menu = menu;
         return true;
     }
 
@@ -63,6 +68,15 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         if (id == R.id.action_settings) {
             return true;
         }
+        searchIcon = menu.findItem(R.id.search_icon);
+        searchIcon.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        });
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -115,9 +129,9 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             Locale l = Locale.getDefault();
             switch (position) {
                 case 0:
-                    return "Search for Garage Sales ".toUpperCase(l);
+                    return getString(R.string.search_tab).toUpperCase(l);
                 case 1:
-                    return "Post a Sale ".toUpperCase(l);
+                    return getString(R.string.post_tab).toUpperCase(l);
             }
             return null;
         }
