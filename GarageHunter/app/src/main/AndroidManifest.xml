@@ -47,6 +47,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+<<<<<<< HEAD
+=======
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -54,6 +56,7 @@
             android:name=".SaleActivity"
             android:label="@string/title_activity_sale"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+>>>>>>> master
     </application>
 
 </manifest>
