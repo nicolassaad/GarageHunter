@@ -14,11 +14,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -30,6 +35,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.Iterator;
 
 /**
  * Created by nicolassaad on 5/2/16.
@@ -50,6 +57,9 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private GoogleMap mMap;
     private GoogleApiClient mGoogleApiClient;
     private SupportMapFragment fragment;
+
+    private Query query;
+    private Firebase mFirebase;
 
     public MapsFragment() {
     }
@@ -80,7 +90,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             }
         });
 
-
         mGoogleApiClient = new GoogleApiClient.Builder(getContext())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -93,12 +102,45 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 .setInterval(10 * 1000)        // 10 seconds, in milliseconds
                 .setFastestInterval(1 * 1000); // 1 second, in milliseconds
 
+        mFirebase = new Firebase("https://garagesalehunter.firebaseio.com/");
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "You clicked Search", Toast.LENGTH_SHORT).show();
+
             }
         });
+
+        searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                query = mFirebase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // TODO: 5/6/16 WHILE LOOP NEEDED TO ITERATE THROUGH ALL RESULTS AND DISPLAY THEM
+                        Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+                        while (iterator.hasNext()) {
+                            GarageSale daySearch = iterator.next().getValue(GarageSale.class);
+                            Log.d("MapsFragment", daySearch.toString());
+                        }
+                        // TODO: 5/6/16 ADD MARKER ON MAP HERE
+
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         return view;
     }
 
@@ -143,7 +185,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
-        // TODO: 5/4/16 THIS SEEMS LIKE WHERE THE MARKERS KEEP GETTING ADDED
         if (mMap != null) {
             mMap.clear();
             mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("Current Location"));

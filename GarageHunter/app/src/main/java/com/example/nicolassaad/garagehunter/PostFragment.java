@@ -55,7 +55,7 @@ public class PostFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 GarageSale garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
-                editAddress.getText().toString(), spinnerDay.getSelectedItem().toString());
+                editAddress.getText().toString(), 0, 0, spinnerDay.getSelectedItem().toString());
                 mFirebaseRef.push().setValue(garageSale);
 
                 clearEditTexts();
