@@ -41,7 +41,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Search By Location" />
+                android:hint="@string/search_by_location" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                 android:gravity="bottom|center_horizontal"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="Search"
+                android:text="@string/search"
                 android:textAllCaps="false" />
 
         </RelativeLayout>
