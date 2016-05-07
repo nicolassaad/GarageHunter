@@ -1,5 +1,6 @@
 package com.example.nicolassaad.garagehunter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         if (id == R.id.action_settings) {
             return true;
         }
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
 
         return super.onOptionsItemSelected(item);
     }
