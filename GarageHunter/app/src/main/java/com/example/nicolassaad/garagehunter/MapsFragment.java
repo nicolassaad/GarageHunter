@@ -73,7 +73,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchButton = (Button) view.findViewById(R.id.search_button);
         searchLayout = (LinearLayout) view.findViewById(R.id.search_layout);
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
-        searchByDay = (Spinner) view.findViewById(R.id.search_day_spinner);
+        searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
+
 
         hideSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +108,36 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+            }
+        });
+
+        searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                query = mFirebase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // TODO: 5/6/16 WHILE LOOP NEEDED TO ITERATE THROUGH ALL RESULTS AND DISPLAY THEM
+                        Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+                        while (iterator.hasNext()) {
+                            GarageSale daySearch = iterator.next().getValue(GarageSale.class);
+                            Log.d("MapsFragment", daySearch.toString());
+                        }
+                        // TODO: 5/6/16 ADD MARKER ON MAP HERE
+
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
@@ -257,6 +288,5 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             Log.i(TAG, "Location services connection failed with code " + connectionResult.getErrorCode());
         }
     }
-
 }
 

@@ -11,6 +11,4 @@
         android:title="@string/search"
         app:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_search"/>
-
-
 </menu>

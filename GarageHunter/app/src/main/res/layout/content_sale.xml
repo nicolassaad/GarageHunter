@@ -75,6 +75,7 @@
                 android:textAllCaps="false" />
 
             <!--<Button-->
+<<<<<<< HEAD
                 <!--android:id="@+id/post"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
@@ -88,9 +89,28 @@
                 <!--android:paddingTop="10dp"-->
                 <!--android:text="@string/post"-->
                 <!--android:textAllCaps="false" />-->
+=======
+            <!--android:id="@+id/post"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/accent_color"-->
+            <!--android:clickable="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginBottom="55dp"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:text="@string/post"-->
+            <!--android:textAllCaps="false" />-->
+>>>>>>> master
 
         </RelativeLayout>
 
     </LinearLayout>
 
+<<<<<<< HEAD
 </LinearLayout>
+=======
+</LinearLayout>
+>>>>>>> master

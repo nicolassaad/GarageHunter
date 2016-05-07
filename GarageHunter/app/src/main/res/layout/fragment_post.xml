@@ -63,6 +63,7 @@
             android:entries="@array/spinnerItems"
             android:hint="Search by Day">
 
+
         </Spinner>
     </LinearLayout>
 
