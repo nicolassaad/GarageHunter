@@ -9,8 +9,8 @@
         android:id="@+id/search_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:elevation="12dp"
+        android:orientation="vertical"
         android:visibility="visible">
 
         <android.support.design.widget.TextInputLayout
@@ -19,31 +19,15 @@
             android:layout_height="wrap_content">
 
             <!--<EditText-->
-                <!--android:id="@+id/etUsername"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:ems="10"-->
-                <!--android:hint="Username" />-->
+            <!--android:id="@+id/etUsername"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:ems="10"-->
+            <!--android:hint="Username" />-->
 
         </android.support.design.widget.TextInputLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:hint="Search By Day"
-                />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,47 +38,59 @@
             <!-- This search will use Google Maps to find areas
             for the user -->
             <EditText
+                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Search By Location" />
+                android:hint="@string/search_by_location" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:paddingLeft="16dp"-->
+        <!--android:paddingRight="16dp">-->
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Search By Keyword" />
-        </LinearLayout>
+        <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="Search By Keyword" />-->
+        <!--</LinearLayout>-->
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
+
+            <Spinner
+                android:id="@+id/search_by_day"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:entries="@array/spinnerItems"
+                android:layout_toLeftOf="@id/search_button"
+                android:layout_toStartOf="@id/search_button"/>
 
             <Button
                 android:id="@+id/search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="-27dp"
+                android:background="@color/accent_color"
+                android:gravity="bottom|center_horizontal"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:layout_marginTop="-27dp"
-                android:gravity="bottom|center_horizontal"
-                android:textAllCaps="false"
-                android:layout_alignParentRight="true"
-                android:background="@color/accent_color"
-                android:text="Search" />
+                android:text="@string/search"
+                android:textAllCaps="false" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -108,18 +104,18 @@
         when search criteria is hidden -->
         <Button
             android:id="@+id/hide_search_button"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="-5dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="-5dp"
             android:background="@color/accent_color"
+            android:gravity="bottom"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:gravity="bottom"
-            android:text="Hide Search" />
+            android:paddingStart="10dp"
+            android:text="@string/hide_search" />
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
