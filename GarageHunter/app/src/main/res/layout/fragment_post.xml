@@ -121,7 +121,6 @@
                 android:text="@string/go_back"
                 android:textAllCaps="false" />
 
-
             <Button
                 android:id="@+id/preview_post"
                 android:layout_width="wrap_content"
