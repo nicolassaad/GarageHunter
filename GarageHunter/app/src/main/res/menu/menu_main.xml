@@ -8,13 +8,15 @@
         app:showAsAction="never" />
     <item
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:id="@+id/search_icon"
 =======
         android:id="@+id/search_toolbar_icon"
 >>>>>>> master
+=======
+        android:id="@+id/search_icon"
+>>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
         android:title="@string/search"
         app:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_search"/>
-
-
 </menu>

@@ -150,7 +150,6 @@
                 android:paddingTop="10dp"
                 android:text="@string/post"
                 android:textAllCaps="false" />
-
         </RelativeLayout>
 
     </LinearLayout>

@@ -9,14 +9,21 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
 =======
+=======
+>>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+<<<<<<< HEAD
 >>>>>>> master
+=======
+
+>>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
 
     <application
         android:name=".GarageSaleApp"
@@ -56,6 +63,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity
             android:name=".SaleActivity"
             android:label="@string/title_activity_sale"
@@ -67,6 +75,9 @@
 =======
         </activity>
 >>>>>>> master
+=======
+        </activity>
+>>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
     </application>
 
 </manifest>

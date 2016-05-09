@@ -74,6 +74,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
         searchByDay = (Spinner) view.findViewById(R.id.search_day_spinner);
 
+
         hideSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +89,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 }
             }
         });
-
 
         mGoogleApiClient = new GoogleApiClient.Builder(getContext())
                 .addConnectionCallbacks(this)
@@ -141,35 +141,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             }
         });
 
-        searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                query = mFirebase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // TODO: 5/6/16 WHILE LOOP NEEDED TO ITERATE THROUGH ALL RESULTS AND DISPLAY THEM
-                        Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
-                        while (iterator.hasNext()) {
-                            GarageSale daySearch = iterator.next().getValue(GarageSale.class);
-                            Log.d(TAG, daySearch.toString());
-                        }
-                        // TODO: 5/6/16 ADD MARKER ON MAP HERE
-
-                    }
-
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-
-                    }
-                });
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         return view;
     }
 
@@ -215,6 +186,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
         // TODO: 5/4/16 THIS SEEMS LIKE WHERE THE MARKERS KEEP GETTING ADDED
+
 
         if (mMap != null) {
             mMap.clear();

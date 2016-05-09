@@ -1,4 +1,6 @@
 ***find out how Google Maps turns an address into Latitude and Longitude coordinates
+***figure out how to navigate from PreviewActivity to PostFragment using intents.
+	Make sure user fills out all fields before being allowed to either post or preview (pics optional?)
 
 FINAL PROJECT TO DO LIST:
 BY BRANCH:

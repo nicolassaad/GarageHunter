@@ -12,7 +12,10 @@ public class GarageSale {
     }
 
     public GarageSale(String title, String description, String address, int lat, int lon, String weekday) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
         this.title = title;
         this.description = description;
         this.address = address;
@@ -74,3 +77,7 @@ public class GarageSale {
         this.lon = lon;
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda

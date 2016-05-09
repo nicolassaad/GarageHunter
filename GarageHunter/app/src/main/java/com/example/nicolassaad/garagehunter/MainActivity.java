@@ -78,6 +78,9 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             }
         });
 
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
         return super.onOptionsItemSelected(item);
     }
 
