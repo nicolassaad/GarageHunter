@@ -77,8 +77,7 @@
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
                 android:text="@string/go_back"
-                android:textAllCaps="false"
-                android:visibility="invisible"/>
+                android:textAllCaps="false" />
 
             <!--<Button-->
             <!--android:id="@+id/post"-->

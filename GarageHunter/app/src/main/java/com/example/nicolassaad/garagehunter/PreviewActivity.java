@@ -1,6 +1,5 @@
 package com.example.nicolassaad.garagehunter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -43,9 +42,10 @@ public class PreviewActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toPostIntent = new Intent(PreviewActivity.this, MainActivity.class);
-                toPostIntent.putStringArrayListExtra(PostFragment.PREVIEW_KEY, previewItems);
-                startActivity(toPostIntent);
+                onBackPressed();
+//                Intent toPostIntent = new Intent(PreviewActivity.this, MainActivity.class);
+//                toPostIntent.putStringArrayListExtra(PostFragment.PREVIEW_KEY, previewItems);
+//                startActivity(toPostIntent);
             }
         });
 

@@ -72,8 +72,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchButton = (Button) view.findViewById(R.id.search_button);
         searchLayout = (LinearLayout) view.findViewById(R.id.search_layout);
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
-        searchByDay = (Spinner) view.findViewById(R.id.search_day_spinner);
-
+        searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
 
         hideSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override

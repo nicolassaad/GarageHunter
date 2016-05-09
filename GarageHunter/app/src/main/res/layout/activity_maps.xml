@@ -9,14 +9,6 @@
         android:id="@+id/search_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        android:elevation="12dp"
->>>>>>> master
-=======
-        android:elevation="12dp"
->>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
         android:orientation="vertical"
         android:visibility="visible">
 
@@ -48,43 +40,15 @@
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:maxLines="1"
                 android:singleLine="true"
                 android:hint="@string/search_by_location" />
-=======
-                android:hint="@string/search_by_location" />
-
->>>>>>> master
-=======
-                android:hint="@string/search_by_location" />
-
->>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!--<LinearLayout-->
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:paddingLeft="16dp"-->
-            <!--android:paddingRight="16dp">-->
-
-            <!--<EditText-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:maxLines="1"-->
-                <!--android:singleLine="true"-->
-                <!--android:hint="@string/search_by_keyword" />-->
-        <!--</LinearLayout>-->
-=======
-=======
->>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:orientation="horizontal"-->
@@ -96,11 +60,6 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:hint="Search By Keyword" />-->
         <!--</LinearLayout>-->
-
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -125,29 +84,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="-27dp"
-                android:background="@color/accent_color"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                android:text="@string/search" />
-            <Spinner
-                android:id="@+id/search_day_spinner"
-                android:layout_alignParentLeft="true"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:entries="@array/spinnerItems"
-                />
-=======
-=======
->>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
                 android:gravity="bottom|center_horizontal"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/search"
-                android:textAllCaps="false" />
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
+                android:background="@color/accent_color"
+                android:text="@string/search" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -161,37 +100,17 @@
         when search criteria is hidden -->
         <Button
             android:id="@+id/hide_search_button"
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:layout_marginLeft="55dp"
             android:layout_marginTop="-5dp"
-            android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:elevation="10dp"
-=======
->>>>>>> master
-=======
->>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="-5dp"
             android:background="@color/accent_color"
-            android:gravity="bottom"
-            android:paddingBottom="10dp"
-            android:paddingEnd="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:paddingBottom="10dp"
             android:gravity="bottom"
-=======
-            android:paddingStart="10dp"
->>>>>>> master
-=======
-            android:paddingStart="10dp"
->>>>>>> 8ebcdd2b433bf0039a40e0240aa7a0e8cf01feda
             android:text="@string/hide_search" />
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
