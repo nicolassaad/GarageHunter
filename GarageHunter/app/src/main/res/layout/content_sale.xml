@@ -17,8 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+<<<<<<< HEAD
         android:textSize="28sp"
         android:text="@string/title"
+=======
+        android:textSize="28dp"
+        android:text="Title"
+>>>>>>> master
         android:textColor="@color/black_color"
         android:textStyle="bold"
         android:layout_marginBottom="15dp"/>
@@ -26,29 +31,49 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:gravity="start"
         android:textSize="18sp"
+=======
+        android:gravity="left"
+        android:textSize="18dp"
+>>>>>>> master
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+<<<<<<< HEAD
         android:text="@string/description"
+=======
+        android:text="Description"
+>>>>>>> master
         android:layout_marginBottom="15dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+<<<<<<< HEAD
         android:textSize="18sp"
         android:text="@string/address"
+=======
+        android:textSize="18dp"
+        android:text="Address"
+>>>>>>> master
         android:layout_marginBottom="15dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:gravity="start"
         android:textSize="18sp"
         android:text="@string/day_of_week"
+=======
+        android:gravity="left"
+        android:textSize="18dp"
+        android:text="Day of Week"
+>>>>>>> master
         android:layout_marginBottom="15dp"/>
 
     <LinearLayout
@@ -75,6 +100,7 @@
                 android:textAllCaps="false" />
 
             <!--<Button-->
+<<<<<<< HEAD
                 <!--android:id="@+id/post"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
@@ -88,9 +114,28 @@
                 <!--android:paddingTop="10dp"-->
                 <!--android:text="@string/post"-->
                 <!--android:textAllCaps="false" />-->
+=======
+            <!--android:id="@+id/post"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/accent_color"-->
+            <!--android:clickable="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginBottom="55dp"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:text="@string/post"-->
+            <!--android:textAllCaps="false" />-->
+>>>>>>> master
 
         </RelativeLayout>
 
     </LinearLayout>
 
+<<<<<<< HEAD
 </LinearLayout>
+=======
+</LinearLayout>
+>>>>>>> master

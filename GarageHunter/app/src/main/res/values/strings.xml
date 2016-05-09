@@ -28,9 +28,13 @@
         <item>The Weekend</item>
     </string-array>
     <string name="title_activity_sale">SaleActivity</string>
+<<<<<<< HEAD
     <string name="title_activity_preview">PreviewActivity</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="address">Address</string>
     <string name="day_of_week">Day of Week</string>
 </resources>
+=======
+</resources>
+>>>>>>> master

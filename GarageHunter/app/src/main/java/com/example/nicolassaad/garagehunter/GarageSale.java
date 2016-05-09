@@ -11,7 +11,8 @@ public class GarageSale {
 
     }
 
-    public GarageSale(String title, String description, String address, int lat, int lon,  String weekday) {
+    public GarageSale(String title, String description, String address, int lat, int lon, String weekday) {
+
         this.title = title;
         this.description = description;
         this.address = address;

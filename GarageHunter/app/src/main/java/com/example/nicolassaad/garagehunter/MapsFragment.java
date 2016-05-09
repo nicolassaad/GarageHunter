@@ -18,8 +18,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -109,7 +107,37 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "You clicked Search", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                query = mFirebase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // TODO: 5/6/16 WHILE LOOP NEEDED TO ITERATE THROUGH ALL RESULTS AND DISPLAY THEM
+                        Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+                        while (iterator.hasNext()) {
+                            GarageSale daySearch = iterator.next().getValue(GarageSale.class);
+                            Log.d("MapsFragment", daySearch.toString());
+                        }
+                        // TODO: 5/6/16 ADD MARKER ON MAP HERE
+
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -187,6 +215,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
         // TODO: 5/4/16 THIS SEEMS LIKE WHERE THE MARKERS KEEP GETTING ADDED
+
         if (mMap != null) {
             mMap.clear();
             mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("Current Location"));
@@ -259,6 +288,5 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             Log.i(TAG, "Location services connection failed with code " + connectionResult.getErrorCode());
         }
     }
-
 }
 

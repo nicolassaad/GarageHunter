@@ -7,7 +7,11 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
+<<<<<<< HEAD
         android:id="@+id/search_icon"
+=======
+        android:id="@+id/search_toolbar_icon"
+>>>>>>> master
         android:title="@string/search"
         app:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_search"/>

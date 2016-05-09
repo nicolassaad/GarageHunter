@@ -21,15 +21,15 @@ import java.util.ArrayList;
 public class PostFragment extends Fragment {
     private Button backButton;
     private Button postButton;
+
     private Button previewButton;
+
     private EditText editTitle;
     private EditText editDesc;
     private EditText editAddress;
     private Spinner spinnerDay;
 
     public static final String PREVIEW_KEY = "PrevKey";
-
-    Firebase mFirebaseRef;
 
     GarageSale garageSale;
 
@@ -39,6 +39,9 @@ public class PostFragment extends Fragment {
     private String dayOfWeek;
 
     ArrayList<String> previewItems;
+
+
+    Firebase mFirebaseRef;
 
     public PostFragment() {
     }
@@ -50,7 +53,9 @@ public class PostFragment extends Fragment {
 
         backButton = (Button) view.findViewById(R.id.post_back_button);
         postButton = (Button) view.findViewById(R.id.post);
+
         previewButton = (Button) view.findViewById(R.id.preview_post);
+
         editAddress = (EditText) view.findViewById(R.id.post_address);
         editTitle = (EditText) view.findViewById(R.id.post_title);
         editDesc = (EditText) view.findViewById(R.id.post_desc);
