@@ -16,6 +16,8 @@ import android.widget.Spinner;
 
 import com.firebase.client.Firebase;
 
+import java.util.ArrayList;
+
 public class PostFragment extends Fragment {
     private Button backButton;
     private Button postButton;
@@ -25,7 +27,18 @@ public class PostFragment extends Fragment {
     private EditText editAddress;
     private Spinner spinnerDay;
 
+    public static final String PREVIEW_KEY = "PrevKey";
+
     Firebase mFirebaseRef;
+
+    GarageSale garageSale;
+
+    private String title;
+    private String desc;
+    private String address;
+    private String dayOfWeek;
+
+    ArrayList<String> previewItems;
 
     public PostFragment() {
     }
@@ -43,6 +56,8 @@ public class PostFragment extends Fragment {
         editDesc = (EditText) view.findViewById(R.id.post_desc);
         spinnerDay = (Spinner) view.findViewById(R.id.post_spinner);
 
+        previewItems = new ArrayList<>();
+
         mFirebaseRef = new Firebase("https://garagesalehunter.firebaseio.com");
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +71,7 @@ public class PostFragment extends Fragment {
         postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GarageSale garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
+                garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
                 editAddress.getText().toString(), 0, 0, spinnerDay.getSelectedItem().toString());
                 mFirebaseRef.push().setValue(garageSale);
 
@@ -70,12 +85,27 @@ public class PostFragment extends Fragment {
         previewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
+                settingPreviewIntent();
 
+                Intent toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
+                toPreviewIntent.putStringArrayListExtra(PREVIEW_KEY, previewItems);
+                startActivity(toPreviewIntent);
             }
         });
 
         return view;
+    }
+
+    private void settingPreviewIntent() {
+        title = editTitle.getText().toString();
+        desc = editDesc.getText().toString();
+        address = editAddress.getText().toString();
+        dayOfWeek = (String)spinnerDay.getSelectedItem();
+
+        previewItems.add(0, title);
+        previewItems.add(1, desc);
+        previewItems.add(2, address);
+        previewItems.add(3, dayOfWeek);
     }
 
     private void clearEditTexts() {

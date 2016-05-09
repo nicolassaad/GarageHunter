@@ -22,9 +22,11 @@
         android:text="@string/title"
         android:textColor="@color/black_color"
         android:textStyle="bold"
+        android:visibility="invisible"
         android:layout_marginBottom="15dp"/>
 
     <TextView
+        android:id="@+id/preview_desc_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
@@ -37,6 +39,7 @@
         android:layout_marginBottom="15dp"/>
 
     <TextView
+        android:id="@+id/preview_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -45,6 +48,7 @@
         android:layout_marginBottom="15dp"/>
 
     <TextView
+        android:id="@+id/preview_DOW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
@@ -62,7 +66,7 @@
             android:gravity="start|bottom">
 
             <Button
-                android:id="@+id/post_back_button"
+                android:id="@+id/preview_back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/accent_color"
@@ -73,7 +77,8 @@
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
                 android:text="@string/go_back"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:visibility="invisible"/>
 
             <!--<Button-->
             <!--android:id="@+id/post"-->
