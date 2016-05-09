@@ -7,11 +7,22 @@ public class GarageSale {
     private String title, description, address, weekday;
     private int lat, lon;
 
-    public GarageSale(String title, String description, String address, String weekday) {
+    public GarageSale() {
+
+    }
+
+    public GarageSale(String title, String description, String address, int lat, int lon,  String weekday) {
         this.title = title;
         this.description = description;
         this.address = address;
         this.weekday = weekday;
+        this.lat = lat;
+        this.lon = lon;
+    }
+
+    @Override
+    public String toString() {
+        return "GarageSale{title='" + title + "', description='" + description + "', address='" + address + "', lat='" + lat + "', lon='" + lon + "', weekday='" + weekday + "'}";
     }
 
     public String getTitle() {

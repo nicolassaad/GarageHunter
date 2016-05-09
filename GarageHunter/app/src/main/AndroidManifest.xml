@@ -43,6 +43,10 @@
         <activity
             android:name=".SaleActivity"
             android:label="@string/title_activity_sale"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".PreviewActivity"
+            android:label="@string/title_activity_preview"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 

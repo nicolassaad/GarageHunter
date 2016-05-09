@@ -10,10 +10,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.nicolassaad.garagehunter.SaleActivity"
-    tools:showIn="@layout/activity_sale">
+    tools:context="com.example.nicolassaad.garagehunter.PreviewActivity"
+    tools:showIn="@layout/activity_preview">
 
     <TextView
+        android:id="@+id/preview_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -75,19 +76,19 @@
                 android:textAllCaps="false" />
 
             <!--<Button-->
-                <!--android:id="@+id/post"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:background="@color/accent_color"-->
-                <!--android:clickable="true"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:layout_marginBottom="55dp"-->
-                <!--android:paddingBottom="10dp"-->
-                <!--android:paddingLeft="10dp"-->
-                <!--android:paddingRight="10dp"-->
-                <!--android:paddingTop="10dp"-->
-                <!--android:text="@string/post"-->
-                <!--android:textAllCaps="false" />-->
+            <!--android:id="@+id/post"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/accent_color"-->
+            <!--android:clickable="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginBottom="55dp"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:text="@string/post"-->
+            <!--android:textAllCaps="false" />-->
 
         </RelativeLayout>
 
