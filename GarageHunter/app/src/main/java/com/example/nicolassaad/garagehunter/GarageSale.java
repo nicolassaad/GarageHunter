@@ -5,13 +5,13 @@ package com.example.nicolassaad.garagehunter;
  */
 public class GarageSale {
     private String title, description, address, weekday;
-    private int lat, lon;
+    private double lat, lon;
 
     public GarageSale() {
 
     }
 
-    public GarageSale(String title, String description, String address, int lat, int lon, String weekday) {
+    public GarageSale(String title, String description, String address, double lat, double lon, String weekday) {
 
         this.title = title;
         this.description = description;
@@ -58,7 +58,7 @@ public class GarageSale {
         this.weekday = weekday;
     }
 
-    public int getLat() {
+    public double getLat() {
         return lat;
     }
 
@@ -66,7 +66,7 @@ public class GarageSale {
         this.lat = lat;
     }
 
-    public int getLon() {
+    public double getLon() {
         return lon;
     }
 

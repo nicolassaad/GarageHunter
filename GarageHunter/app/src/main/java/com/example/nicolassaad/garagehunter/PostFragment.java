@@ -5,8 +5,11 @@ package com.example.nicolassaad.garagehunter;
  */
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +19,10 @@ import android.widget.Spinner;
 
 import com.firebase.client.Firebase;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class PostFragment extends Fragment {
     private Button backButton;
@@ -76,8 +82,22 @@ public class PostFragment extends Fragment {
         postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                double lat= 0.0, lng= 0.0;
+                Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
+                address = editAddress.getText().toString();
+
+                try {
+                    List<Address> addresses = geocoder.getFromLocationName(address, 1);
+                    Log.d("PostFragment", addresses.get(0).getLatitude() + "");
+                    Log.d("PostFragment", addresses.get(0).getLongitude() + "");
+                    lat = addresses.get(0).getLatitude();
+                    lng = addresses.get(0).getLongitude();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
-                        editAddress.getText().toString(), 0, 0, spinnerDay.getSelectedItem().toString());
+                        editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString());
                 mFirebaseRef.push().setValue(garageSale);
 
                 clearEditTexts();
