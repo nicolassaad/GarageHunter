@@ -14,6 +14,7 @@
     tools:showIn="@layout/activity_sale">
 
     <TextView
+        android:id="@+id/sale_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -21,20 +22,23 @@
         android:text="@string/title"
         android:textColor="@color/black_color"
         android:textStyle="bold"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:visibility="invisible"/>
 
     <TextView
+        android:id="@+id/sale_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:textSize="18dp"
+        android:gravity="start"
+        android:textSize="18sp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"/>
-
+        android:layout_marginEnd="30dp"
+        android:text="@string/description"/>
 
     <TextView
+        android:id="@+id/sale_address_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -43,6 +47,7 @@
         android:layout_marginBottom="15dp"/>
 
     <TextView
+        android:id="@+id/sale_DOW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
@@ -60,12 +65,11 @@
             android:gravity="start|bottom">
 
             <Button
-                android:id="@+id/post_back_button"
+                android:id="@+id/sale_back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/accent_color"
                 android:clickable="true"
-                android:layout_marginBottom="55dp"
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"

@@ -1,6 +1,7 @@
 package com.example.nicolassaad.garagehunter;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -35,6 +36,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Iterator;
@@ -53,6 +55,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     private int buttonCounter;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+    public final static String SALE_KEY1 = "Title";
 
     private LocationRequest mLocationRequest;
     private GoogleMap mMap;
@@ -125,7 +128,16 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                             GarageSale daySearch = iterator.next().getValue(GarageSale.class);
                             Log.d("MapsFragment", daySearch.toString());
                                 // Displays markers for all matching entries
-                                mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
+                            mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
+                            mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                                @Override
+                                public void onInfoWindowClick(Marker marker) {
+                                    String toSaleTitle = marker.getTitle();
+                                    Intent toSaleIntent = new Intent(getContext(), SaleActivity.class);
+                                    toSaleIntent.putExtra(SALE_KEY1, toSaleTitle);
+                                    startActivity(toSaleIntent);
+                                }
+                            });
                         }
                     }
 
@@ -203,7 +215,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         if (mMap != null) {
             mMap.clear();
-            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("You Are Here").icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
 

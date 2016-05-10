@@ -26,7 +26,6 @@ public class PreviewActivity extends AppCompatActivity {
         TextView addressText = (TextView) findViewById(R.id.preview_address);
         TextView dayOfWeek = (TextView) findViewById(R.id.preview_DOW);
 
-
         final ArrayList<String> previewItems = getIntent().getStringArrayListExtra(PostFragment.PREVIEW_KEY);
         for (int j = 0; j < previewItems.size(); j++) {
             Log.d(TAG, previewItems.get(j));
@@ -44,10 +43,12 @@ public class PreviewActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
+        setViews();
     }
 
+    private void setViews() {
+
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
