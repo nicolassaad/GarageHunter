@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 
@@ -89,29 +90,36 @@ public class PostFragment extends Fragment {
                 Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
                 address = editAddress.getText().toString();
 
+                // TODO: 5/9/16 LET USER KNOW IF THEY ENTERED AN ADDRESS THAT IS INCORRECT
                 try {
                     List<Address> addresses = geocoder.getFromLocationName(address, 1);
-                    Log.d("PostFragment", addresses.get(0).getLatitude() + "");
-                    Log.d("PostFragment", addresses.get(0).getLongitude() + "");
-                    lat = addresses.get(0).getLatitude();
-                    lng = addresses.get(0).getLongitude();
+                    if (addresses.size() == 0) {
+                        Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
+                    } else {
+                        Log.d("PostFragment", addresses.get(0).getLatitude() + "");
+                        Log.d("PostFragment", addresses.get(0).getLongitude() + "");
+                        lat = addresses.get(0).getLatitude();
+                        lng = addresses.get(0).getLongitude();
+
+                        garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
+                                editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString());
+                        mFirebaseRef.push().setValue(garageSale);
+
+                        clearEditTexts();
+
+                        title = editTitle.getText().toString();
+
+                        Intent intent = new Intent(v.getContext(), MainActivity.class);
+                        intent.putExtra(LAT_KEY, lat);
+                        intent.putExtra(LNG_KEY, lng);
+                        intent.putExtra(TITLE_KEY, title);
+                        startActivity(intent);
+
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
-                        editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString());
-                mFirebaseRef.push().setValue(garageSale);
-
-                clearEditTexts();
-
-                title = editTitle.getText().toString();
-
-                Intent intent = new Intent(v.getContext(), MainActivity.class);
-                intent.putExtra(LAT_KEY, lat);
-                intent.putExtra(LNG_KEY, lng);
-                intent.putExtra(TITLE_KEY, title);
-                startActivity(intent);
             }
         });
 
