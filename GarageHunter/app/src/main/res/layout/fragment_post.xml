@@ -66,6 +66,7 @@
 
         </Spinner>
     </LinearLayout>
+<!-- THIS IS WHERE WE ADD PICTURES -->
 
     <!--<LinearLayout-->
     <!--android:layout_width="match_parent"-->

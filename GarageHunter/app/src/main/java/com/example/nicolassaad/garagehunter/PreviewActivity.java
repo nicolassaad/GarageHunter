@@ -22,7 +22,6 @@ public class PreviewActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TextView titleText = (TextView) findViewById(R.id.preview_title_text);
         TextView descText = (TextView) findViewById(R.id.preview_desc_text);
         TextView addressText = (TextView) findViewById(R.id.preview_address);
         TextView dayOfWeek = (TextView) findViewById(R.id.preview_DOW);
@@ -43,20 +42,10 @@ public class PreviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
-//                Intent toPostIntent = new Intent(PreviewActivity.this, MainActivity.class);
-//                toPostIntent.putStringArrayListExtra(PostFragment.PREVIEW_KEY, previewItems);
-//                startActivity(toPostIntent);
             }
         });
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
     }
 
     @Override

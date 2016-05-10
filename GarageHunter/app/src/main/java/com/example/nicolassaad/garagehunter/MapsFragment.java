@@ -32,6 +32,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -124,7 +125,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                             GarageSale daySearch = iterator.next().getValue(GarageSale.class);
                             Log.d("MapsFragment", daySearch.toString());
                                 // Displays markers for all matching entries
-                                mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()));
+                                mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
                         }
                     }
 
@@ -202,7 +203,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         if (mMap != null) {
             mMap.clear();
-            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("You Are Here"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("You Are Here").icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
 
