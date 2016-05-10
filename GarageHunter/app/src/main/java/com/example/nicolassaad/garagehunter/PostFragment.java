@@ -28,9 +28,7 @@ import java.util.Locale;
 public class PostFragment extends Fragment {
     private Button backButton;
     private Button postButton;
-
     private Button previewButton;
-
     private EditText editTitle;
     private EditText editDesc;
     private EditText editAddress;
@@ -50,7 +48,6 @@ public class PostFragment extends Fragment {
 
     ArrayList<String> previewItems;
 
-
     Firebase mFirebaseRef;
 
     public PostFragment() {
@@ -63,9 +60,7 @@ public class PostFragment extends Fragment {
 
         backButton = (Button) view.findViewById(R.id.post_back_button);
         postButton = (Button) view.findViewById(R.id.post);
-
         previewButton = (Button) view.findViewById(R.id.preview_post);
-
         editAddress = (EditText) view.findViewById(R.id.post_address);
         editTitle = (EditText) view.findViewById(R.id.post_title);
         editDesc = (EditText) view.findViewById(R.id.post_desc);
@@ -90,7 +85,6 @@ public class PostFragment extends Fragment {
                 Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
                 address = editAddress.getText().toString();
 
-                // TODO: 5/9/16 LET USER KNOW IF THEY ENTERED AN ADDRESS THAT IS INCORRECT
                 try {
                     List<Address> addresses = geocoder.getFromLocationName(address, 1);
                     if (addresses.size() == 0) {

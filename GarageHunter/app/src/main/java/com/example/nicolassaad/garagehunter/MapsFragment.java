@@ -90,17 +90,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             }
         });
 
-        mGoogleApiClient = new GoogleApiClient.Builder(getContext())
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-
-        // Create the LocationRequest object
-        mLocationRequest = LocationRequest.create()
-                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setInterval(10 * 1000)        // 10 seconds, in milliseconds
-                .setFastestInterval(1 * 1000); // 1 second, in milliseconds
+        settingLocationRequest();
+        settingGoogleApiClient();
 
         mFirebase = new Firebase("https://garagesalehunter.firebaseio.com/");
 
@@ -150,6 +141,22 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         });
 
         return view;
+    }
+
+    private void settingLocationRequest() {
+        mGoogleApiClient = new GoogleApiClient.Builder(getContext())
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }
+
+    private void settingGoogleApiClient() {
+        // Create the LocationRequest object
+        mLocationRequest = LocationRequest.create()
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setInterval(10 * 1000)        // 10 seconds, in milliseconds
+                .setFastestInterval(1 * 1000); // 1 second, in milliseconds
     }
 
     @Override
