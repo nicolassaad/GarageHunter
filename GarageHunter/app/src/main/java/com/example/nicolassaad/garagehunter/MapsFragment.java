@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -117,19 +118,27 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        // TODO: 5/6/16 WHILE LOOP NEEDED TO ITERATE THROUGH ALL RESULTS AND DISPLAY THEM
+
                         Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+                        mMap.clear();
+
+                        Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+                        if (location == null) {
+                            Log.d(TAG, "Location is null");
+                        } else {
+                            handleNewLocation(location);
+                        }
+
                         while (iterator.hasNext()) {
                             GarageSale daySearch = iterator.next().getValue(GarageSale.class);
                             Log.d("MapsFragment", daySearch.toString());
+                                // Displays markers for all matching entries
+                                mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()));
                         }
-                        // TODO: 5/6/16 ADD MARKER ON MAP HERE
-
                     }
 
                     @Override
                     public void onCancelled(FirebaseError firebaseError) {
-
                     }
                 });
             }
@@ -184,16 +193,13 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
-        // TODO: 5/4/16 THIS SEEMS LIKE WHERE THE MARKERS KEEP GETTING ADDED
-
-
         if (mMap != null) {
             mMap.clear();
-            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("Current Location"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("You Are Here"));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
 
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12).build();
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         } else {

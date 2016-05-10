@@ -62,7 +62,7 @@ public class GarageSale {
         return lat;
     }
 
-    public void setLat(int lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
@@ -70,7 +70,7 @@ public class GarageSale {
         return lon;
     }
 
-    public void setLon(int lon) {
+    public void setLon(double lon) {
         this.lon = lon;
     }
 }

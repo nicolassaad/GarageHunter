@@ -36,6 +36,9 @@ public class PostFragment extends Fragment {
     private Spinner spinnerDay;
 
     public static final String PREVIEW_KEY = "PrevKey";
+    public static final String LAT_KEY = "LatKey";
+    public static final String LNG_KEY = "LonKey";
+    public static final String TITLE_KEY = "TitleKey";
 
     GarageSale garageSale;
 
@@ -102,7 +105,12 @@ public class PostFragment extends Fragment {
 
                 clearEditTexts();
 
+                title = editTitle.getText().toString();
+
                 Intent intent = new Intent(v.getContext(), MainActivity.class);
+                intent.putExtra(LAT_KEY, lat);
+                intent.putExtra(LNG_KEY, lng);
+                intent.putExtra(TITLE_KEY, title);
                 startActivity(intent);
             }
         });
