@@ -161,7 +161,11 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                         if (location == null) {
                             Log.d(TAG, "Location is null");
                         } else {
-                            handleNewLocation(location);
+                            if (searchLocEdit.getText().toString().equals("")) {
+                                handleNewLocation(location);
+                            } else {
+                                handleNewLocNoCamAnim(location);
+                            }
                         }
 
                         while (iterator.hasNext()) {
@@ -272,6 +276,26 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
             CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        } else {
+            Log.d(TAG, "Map is null");
+        }
+    }
+
+    private void handleNewLocNoCamAnim(Location location) {
+        Log.d(TAG, location.toString());
+        Log.d("MainActivity", "Handling new location");
+
+        double currentLatitude = location.getLatitude();
+        double currentLongitude = location.getLongitude();
+
+        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+
+        if (mMap != null) {
+            mMap.clear();
+            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
+
+            Log.d(TAG, currentLatitude + " " + currentLongitude);
 
         } else {
             Log.d(TAG, "Map is null");
