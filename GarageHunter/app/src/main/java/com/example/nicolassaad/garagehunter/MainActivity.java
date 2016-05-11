@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         Toolbar topToolBar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(topToolBar);
 
-        // TODO: 5/1/16 replace with your own logo
-        topToolBar.setLogo(android.R.drawable.btn_star_big_on);
+        topToolBar.setLogo(R.mipmap.ic_garagehunter);
         topToolBar.setLogoDescription("logo");
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -68,15 +67,15 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         if (id == R.id.action_settings) {
             return true;
         }
-        searchIcon = menu.findItem(R.id.search_icon);
-        searchIcon.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-                return false;
-            }
-        });
+//        searchIcon = menu.findItem(R.id.search_icon);
+//        searchIcon.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+//                startActivity(intent);
+//                return false;
+//            }
+//        });
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

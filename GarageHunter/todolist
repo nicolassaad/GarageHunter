@@ -1,5 +1,13 @@
-***find out how Google Maps turns an address into Latitude and Longitude coordinates
-***figure out how to navigate from PreviewActivity to PostFragment using intents.
+
+***ALLOW THE USE OF IMAGES
+-----------ADD COMPETITIVE RESEARCH AND RESEARCH PLAN INTO REPO--------
+***GET SEARCH BY ADDRESS TO WORK ON SEARCHFRAGMENT
+***FIX BUG WHEN USER GOES BACK TO MAPFRAGMENT AND THE MARKERS FOR THE CURRENT DAY HAVE DISSAPEARED
+***GET THE USER DIRECTIONS TO SALE
+***ADD IN DATES FOR SALES AND HAVE THEM AUTO EXPIRE AFTER DATE HAS PASSED
+***ABILITY TO SHARE POSTS TO FACEBOOK???
+***Checking for internet connection?
+
 	Make sure user fills out all fields before being allowed to either post or preview (pics optional?)
 
 FINAL PROJECT TO DO LIST:

@@ -14,18 +14,6 @@
     tools:showIn="@layout/activity_sale">
 
     <TextView
-        android:id="@+id/sale_title_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textSize="28sp"
-        android:text="@string/title"
-        android:textColor="@color/black_color"
-        android:textStyle="bold"
-        android:layout_marginBottom="15dp"
-        android:visibility="invisible"/>
-
-    <TextView
         android:id="@+id/sale_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,25 +23,62 @@
         android:layout_marginRight="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
         android:text="@string/description"/>
 
-    <TextView
-        android:id="@+id/sale_address_text"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textSize="18sp"
-        android:text="@string/address"
-        android:layout_marginBottom="15dp"/>
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/sale_DOW"
-        android:layout_width="match_parent"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:text="@string/address_colon"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/sale_address_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:text="@string/address"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        android:textSize="18sp"
-        android:text="@string/day_of_week"
-        android:layout_marginBottom="15dp"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/day_colon"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/sale_DOW"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:gravity="start"
+            android:text="@string/day_of_week"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

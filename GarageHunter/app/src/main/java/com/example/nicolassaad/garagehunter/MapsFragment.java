@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,8 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -39,7 +43,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by nicolassaad on 5/2/16.
@@ -49,7 +56,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         LocationListener {
 
     private Button hideSearchButton;
-    private Button searchButton;
+    private EditText searchLocEdit;
     public static LinearLayout searchLayout;
     private Spinner searchByDay;
 
@@ -65,6 +72,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private Query query;
     private Firebase mFirebase;
 
+    private String address;
+
     public MapsFragment() {
     }
 
@@ -74,11 +83,11 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.activity_maps, container, false);
-        searchButton = (Button) view.findViewById(R.id.search_button);
+        Button searchButton = (Button) view.findViewById(R.id.search_button);
         searchLayout = (LinearLayout) view.findViewById(R.id.search_layout);
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
         searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
-
+        searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
         hideSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,12 +106,42 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         settingLocationRequest();
         settingGoogleApiClient();
 
+        // TODO: 5/10/16 copy code from postfragment geocoder, get search button to work
+
         mFirebase = new Firebase("https://garagesalehunter.firebaseio.com/");
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                double lat = 0.0, lng = 0.0;
+                Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
+                address = searchLocEdit.getText().toString();
+                try {
+                    List<Address> addresses = geocoder.getFromLocationName(address, 1);
+                    if (addresses.size() == 0) {
+                        Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
+                    } else {
+                        Log.d("PostFragment", addresses.get(0).getLatitude() + "");
+                        Log.d("PostFragment", addresses.get(0).getLongitude() + "");
+                        lat = addresses.get(0).getLatitude();
+                        lng = addresses.get(0).getLongitude();
 
+                        double currentLatitude = lat;
+                        double currentLongitude = lng;
+
+                        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+                        if (mMap != null) {
+                            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(13).build();
+                            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                        } else {
+                            Log.d(TAG, "Map is null");
+                        }
+
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

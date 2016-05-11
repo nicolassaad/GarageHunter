@@ -33,6 +33,8 @@
     <string name="description">Description</string>
     <string name="address">Address</string>
     <string name="day_of_week">Day of Week</string>
+    <string name="address_colon">ADDRESS:</string>
+    <string name="day_colon">DAY:</string>
 </resources>
 
 

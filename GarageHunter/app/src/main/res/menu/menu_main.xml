@@ -6,9 +6,9 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/search_icon"
-        android:title="@string/search"
-        app:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_menu_search"/>
+    <!--<item-->
+        <!--android:id="@+id/search_icon"-->
+        <!--android:title="@string/search"-->
+        <!--app:showAsAction="ifRoom"-->
+        <!--android:icon="@android:drawable/ic_menu_search"/>-->
 </menu>
