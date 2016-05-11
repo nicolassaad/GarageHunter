@@ -107,26 +107,27 @@
             android:layout_height="match_parent"
             android:gravity="bottom">
 
-            <Button
-                android:id="@+id/post_back_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:background="@color/accent_color"
-                android:clickable="true"
-                android:paddingBottom="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/go_back"
-                android:textAllCaps="false" />
+            <!--<Button-->
+                <!--android:id="@+id/post_back_button"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentStart="true"-->
+                <!--android:background="@color/accent_color"-->
+                <!--android:clickable="true"-->
+                <!--android:paddingBottom="10dp"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:paddingTop="10dp"-->
+                <!--android:text="@string/go_back"-->
+                <!--android:textAllCaps="false" />-->
 
             <Button
                 android:id="@+id/preview_post"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:background="@color/accent_color"
                 android:clickable="true"
                 android:paddingBottom="10dp"

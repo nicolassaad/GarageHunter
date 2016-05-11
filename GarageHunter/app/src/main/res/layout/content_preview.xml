@@ -24,7 +24,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:gravity="start"
-        android:text="@string/description"
+        android:hint="@string/description"
         android:textStyle="italic"
         android:textSize="18sp" />
 
@@ -52,6 +52,8 @@
             android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
             android:gravity="center_horizontal"
+            android:textStyle="italic"
+            android:hint="@string/no_address"
             android:textSize="18sp" />
 
     </LinearLayout>

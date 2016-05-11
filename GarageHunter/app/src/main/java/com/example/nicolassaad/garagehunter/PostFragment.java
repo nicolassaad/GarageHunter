@@ -58,7 +58,7 @@ public class PostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
 
-        backButton = (Button) view.findViewById(R.id.post_back_button);
+//        backButton = (Button) view.findViewById(R.id.post_back_button);
         postButton = (Button) view.findViewById(R.id.post);
         previewButton = (Button) view.findViewById(R.id.preview_post);
         editAddress = (EditText) view.findViewById(R.id.post_address);
@@ -70,13 +70,13 @@ public class PostFragment extends Fragment {
 
         mFirebaseRef = new Firebase("https://garagesalehunter.firebaseio.com");
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(v.getContext(), MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         postButton.setOnClickListener(new View.OnClickListener() {
             @Override

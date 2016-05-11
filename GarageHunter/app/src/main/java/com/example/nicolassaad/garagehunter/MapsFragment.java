@@ -1,6 +1,7 @@
 package com.example.nicolassaad.garagehunter;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -131,12 +133,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
                         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
                         if (mMap != null) {
+                            hideKeyboard(getActivity());
                             CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(13).build();
                             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                         } else {
                             Log.d(TAG, "Map is null");
                         }
-
                     }
 
                 } catch (IOException e) {
@@ -155,7 +157,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
                         Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
                         mMap.clear();
-
                         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                         if (location == null) {
                             Log.d(TAG, "Location is null");
@@ -226,6 +227,17 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             mGoogleApiClient.disconnect();
         }
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     private void setUpMapIfNeeded() {
