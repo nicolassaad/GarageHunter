@@ -13,11 +13,12 @@
     tools:context="com.example.nicolassaad.garagehunter.PreviewActivity"
     tools:showIn="@layout/activity_preview">
 
+    <!-- will be replaced with recycler view-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="@dimen/five">
 
         <ImageView
             android:id="@+id/preview_image_holder1"
@@ -45,16 +46,16 @@
         android:id="@+id/preview_desc_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/fifteen"
+        android:layout_marginEnd="@dimen/thirty"
+        android:layout_marginLeft="@dimen/thirty"
+        android:layout_marginRight="@dimen/thirty"
+        android:layout_marginStart="@dimen/thirty"
+        android:layout_marginTop="@dimen/ten"
         android:gravity="start"
         android:hint="@string/description"
         android:textStyle="italic"
-        android:textSize="18sp" />
+        android:textSize="@dimen/eighteen" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -65,24 +66,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginEnd="@dimen/ten"
+            android:layout_marginRight="@dimen/ten"
+            android:layout_marginTop="@dimen/fifteen"
             android:gravity="center_horizontal"
             android:text="@string/address_colon"
             android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="@dimen/eighteen" />
 
         <TextView
             android:id="@+id/preview_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginBottom="@dimen/fifteen"
+            android:layout_marginTop="@dimen/fifteen"
             android:gravity="center_horizontal"
             android:textStyle="italic"
             android:hint="@string/no_address"
-            android:textSize="18sp" />
+            android:textSize="@dimen/eighteen" />
 
     </LinearLayout>
 
@@ -94,19 +95,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="@dimen/ten"
+            android:layout_marginRight="@dimen/ten"
             android:text="@string/day_colon"
             android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="@dimen/eighteen" />
 
         <TextView
             android:id="@+id/preview_DOW"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="@dimen/fifteen"
             android:gravity="start"
-            android:textSize="18sp" />
+            android:textSize="@dimen/eighteen" />
     </LinearLayout>
 
 
@@ -126,10 +127,10 @@
                 android:background="@color/accent_color"
                 android:clickable="true"
 
-                android:paddingBottom="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="10dp"
+                android:paddingBottom="@dimen/ten"
+                android:paddingLeft="@dimen/ten"
+                android:paddingRight="@dimen/ten"
+                android:paddingTop="@dimen/ten"
                 android:text="@string/go_back"
                 android:textAllCaps="false" />
 
