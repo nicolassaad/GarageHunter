@@ -134,7 +134,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
                         if (mMap != null) {
                             hideKeyboard(getActivity());
-                            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(13).build();
+                            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12.0f).build();
                             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                         } else {
                             Log.d(TAG, "Map is null");
@@ -274,7 +274,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
 
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11).build();
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         } else {

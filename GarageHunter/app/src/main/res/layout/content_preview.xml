@@ -13,6 +13,34 @@
     tools:context="com.example.nicolassaad.garagehunter.PreviewActivity"
     tools:showIn="@layout/activity_preview">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/preview_image_holder1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/image_holder"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"/>
+        <ImageView
+            android:id="@+id/preview_image_holder2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/image_holder"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"/>
+        <ImageView
+            android:id="@+id/preview_image_holder3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/image_holder" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/preview_desc_text"
         android:layout_width="match_parent"
@@ -80,6 +108,7 @@
             android:gravity="start"
             android:textSize="18sp" />
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

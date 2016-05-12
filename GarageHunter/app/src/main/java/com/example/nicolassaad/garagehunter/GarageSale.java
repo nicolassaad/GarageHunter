@@ -4,14 +4,15 @@ package com.example.nicolassaad.garagehunter;
  * Created by nicolassaad on 5/6/16.
  */
 public class GarageSale {
-    private String title, description, address, weekday;
+    private String title, description, address, weekday, image1, image2, image3;
     private double lat, lon;
 
     public GarageSale() {
 
     }
 
-    public GarageSale(String title, String description, String address, double lat, double lon, String weekday) {
+    public GarageSale(String title, String description, String address, double lat, double lon, String weekday, String image1,
+                      String image2, String image3) {
 
         this.title = title;
         this.description = description;
@@ -19,6 +20,9 @@ public class GarageSale {
         this.weekday = weekday;
         this.lat = lat;
         this.lon = lon;
+        this.image1 = image1;
+        this.image2 = image2;
+        this.image3 = image3;
     }
 
     @Override
@@ -72,6 +76,30 @@ public class GarageSale {
 
     public void setLon(double lon) {
         this.lon = lon;
+    }
+
+    public String getImage1() {
+        return image1;
+    }
+
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+
+    public String getImage3() {
+        return image3;
+    }
+
+    public void setImage3(String image3) {
+        this.image3 = image3;
     }
 }
 
