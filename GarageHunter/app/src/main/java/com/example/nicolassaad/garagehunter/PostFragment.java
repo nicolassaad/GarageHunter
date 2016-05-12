@@ -134,22 +134,31 @@ public class PostFragment extends Fragment {
                                 imageFile1, imageFile2, imageFile3);
                         mFirebaseRef.push().setValue(garageSale);
 
-                        clearEditTexts();
+                        settingPreviewIntent();
 
-                        title = editTitle.getText().toString();
+                        if (image1 == null || image2 == null || image3 == null) {
+                            Toast.makeText(getContext(), "Please add all three pictures", Toast.LENGTH_SHORT).show();
+                        }
+                        if (settingPreviewIntent() == 1) {
+                            Intent intent = new Intent(v.getContext(), MainActivity.class);
+                            intent.putExtra(LAT_KEY, lat);
+                            intent.putExtra(LNG_KEY, lng);
+                            intent.putExtra(TITLE_KEY, title);
+                            startActivity(intent);
 
-                        Intent intent = new Intent(v.getContext(), MainActivity.class);
-                        intent.putExtra(LAT_KEY, lat);
-                        intent.putExtra(LNG_KEY, lng);
-                        intent.putExtra(TITLE_KEY, title);
-                        startActivity(intent);
+                        } else if (settingPreviewIntent() == -1) {
+                            Toast.makeText(getContext(), "Please add all three pictures", Toast.LENGTH_SHORT).show();
+                        } else if (settingPreviewIntent() == -2) {
+                            Toast.makeText(getContext(), "Please enter a title", Toast.LENGTH_SHORT).show();
+                        } else if (settingPreviewIntent() == -3) {
+                            Toast.makeText(getContext(), "Please enter an address", Toast.LENGTH_SHORT).show();
+                        } else {
+                            image1.setBackground(getResources().getDrawable(R.drawable.image_holder));
+                            image2.setBackground(getResources().getDrawable(R.drawable.image_holder));
+                            image3.setBackground(getResources().getDrawable(R.drawable.image_holder));
+                            clearEditTexts();
+                        }
 
-                        // TODO: 5/11/16 Put in its own method called clearImageHolders
-                        // TODO: 5/11/16 DO A NULL CHECK ON SETBACKGROUND METHODS. IF NULL THEN TOAST THE USER TO ENTER ALL THREE PICS
-
-                        image1.setBackground(getResources().getDrawable(R.drawable.image_holder));
-                        image2.setBackground(getResources().getDrawable(R.drawable.image_holder));
-                        image3.setBackground(getResources().getDrawable(R.drawable.image_holder));
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -161,10 +170,14 @@ public class PostFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 settingPreviewIntent();
+                if (settingPreviewIntent() == 1) {
+                    Intent toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
+                    toPreviewIntent.putStringArrayListExtra(PREVIEW_KEY, previewItems);
+                    startActivity(toPreviewIntent);
+                } else if (settingPreviewIntent() == -1) {
+                    Toast.makeText(getContext(), "Please add three pictures", Toast.LENGTH_LONG).show();
+                }
 
-                Intent toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
-                toPreviewIntent.putStringArrayListExtra(PREVIEW_KEY, previewItems);
-                startActivity(toPreviewIntent);
             }
         });
 
@@ -199,7 +212,7 @@ public class PostFragment extends Fragment {
         imageFile3 = Base64.encodeToString(byteArray3, Base64.DEFAULT);
     }
 
-    private void settingPreviewIntent() {
+    private int settingPreviewIntent() {
         title = editTitle.getText().toString();
         desc = editDesc.getText().toString();
         address = editAddress.getText().toString();
@@ -209,14 +222,26 @@ public class PostFragment extends Fragment {
         previewItems.add(1, desc);
         previewItems.add(2, address);
         previewItems.add(3, dayOfWeek);
-        previewItems.add(4, takenPhoto1.toString());
-        if (takenPhoto2 != null) {
+        if (takenPhoto1 == null || takenPhoto2 == null || takenPhoto3 == null) {
+            return -1;
+        } else {
+            previewItems.add(4, takenPhoto1.toString());
             previewItems.add(5, takenPhoto2.toString());
             previewItems.add(6, takenPhoto3.toString());
-        } else if (takenPhoto2 == null && takenPhoto3 == null) {
-            Toast.makeText(getContext(), "Please take three pictures of your item(s)", Toast.LENGTH_LONG).show();
         }
+        title = editTitle.getText().toString();
+        if (editTitle.getText().toString().isEmpty()) {
+            Toast.makeText(getContext(), "Please enter a title", Toast.LENGTH_SHORT).show();
+            return -2;
+        }
+        address = editAddress.getText().toString();
+        if (editAddress.getText().toString().isEmpty()) {
+            Toast.makeText(getContext(), "Please enter an address", Toast.LENGTH_SHORT).show();
+            return -3;
+        }
+        return 1;
     }
+
 
     private void clearEditTexts() {
         editTitle.setText("");
@@ -250,21 +275,21 @@ public class PostFragment extends Fragment {
                 if (counter == 0) {
                     takenPhoto1 = getPhotoFileUri(counter + photoFileName);
                     image1 = (ImageView) getActivity().findViewById(R.id.post_image_holder1);
-                    bMapScaled = Bitmap.createScaledBitmap(takenImage, 125, 160, true);
+                    bMapScaled = Bitmap.createScaledBitmap(takenImage, 465, 605, true);
                     image1.setImageBitmap(bMapScaled);
                     picsToString();
                     counter++;
                 } else if (counter == 1) {
                     takenPhoto2 = getPhotoFileUri(counter + photoFileName);
                     image2 = (ImageView) getActivity().findViewById(R.id.post_image_holder2);
-                    bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 125, 160, true);
+                    bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 465, 605, true);
                     image2.setImageBitmap(bMapScaled2);
                     picsToString2();
                     counter++;
                 } else if (counter == 2) {
                     takenPhoto3 = getPhotoFileUri(counter + photoFileName);
                     image3 = (ImageView) getActivity().findViewById(R.id.post_image_holder3);
-                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 125, 160, true);
+                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 465, 605, true);
                     image3.setImageBitmap(bMapScaled3);
                     addPic.setClickable(false);
                     addPic.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));

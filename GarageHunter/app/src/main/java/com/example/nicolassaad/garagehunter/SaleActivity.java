@@ -1,8 +1,10 @@
 package com.example.nicolassaad.garagehunter;
 
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.view.View;
@@ -16,7 +18,9 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class SaleActivity extends AppCompatActivity {
 
@@ -25,7 +29,9 @@ public class SaleActivity extends AppCompatActivity {
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
-
+    private ImagesAdapter mAdapter;
+    private RecyclerView recyclerView;
+    private List<String> imageList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +44,13 @@ public class SaleActivity extends AppCompatActivity {
         final TextView saleDOW = (TextView) findViewById(R.id.sale_DOW);
         final TextView saleAddress = (TextView) findViewById(R.id.sale_address_text);
         final TextView saleDesc = (TextView) findViewById(R.id.sale_desc);
-        image1 = (ImageView) findViewById(R.id.sale_image_holder1);
-        image2 = (ImageView) findViewById(R.id.sale_image_holder2);
-        image3 = (ImageView) findViewById(R.id.sale_image_holder3);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mAdapter = new ImagesAdapter(imageList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
 
         String saleTitle = getIntent().getStringExtra(MapsFragment.SALE_KEY1);
         setTitle(saleTitle);
@@ -59,23 +69,27 @@ public class SaleActivity extends AppCompatActivity {
 
                 String pic1 = daySearch.getImage1();
                 byte[] imageAsBytes = Base64.decode(pic1.getBytes(), Base64.DEFAULT);
-                image1.setImageBitmap(
-                        BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
+//                image1.setImageBitmap(
+//                        BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
 
                 String pic2 = daySearch.getImage2();
                 byte[] imageAsBytes2 = Base64.decode(pic2.getBytes(), Base64.DEFAULT);
-                image2.setImageBitmap(
-                        BitmapFactory.decodeByteArray(imageAsBytes2, 0, imageAsBytes2.length));
+//                image2.setImageBitmap(
+//                        BitmapFactory.decodeByteArray(imageAsBytes2, 0, imageAsBytes2.length));
 
                 String pic3 = daySearch.getImage3();
                 byte[] imageAsBytes3 = Base64.decode(pic3.getBytes(), Base64.DEFAULT);
-                image3.setImageBitmap(
-                        BitmapFactory.decodeByteArray(imageAsBytes3, 0, imageAsBytes3.length));
+//                image3.setImageBitmap(
+//                        BitmapFactory.decodeByteArray(imageAsBytes3, 0, imageAsBytes3.length));
 
                 saleAddress.setText(address);
                 saleDOW.setText(weekday);
                 saleDesc.setText(desc);
 
+                imageList.add(pic1);
+                imageList.add(pic2);
+                imageList.add(pic3);
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
