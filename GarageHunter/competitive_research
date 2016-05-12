@@ -1,0 +1,55 @@
+Final Project: Garage Sale Hunter
+Competitive and User Research:
+
+Rival Apps/Services:
+	Craigslist: Allows users to post used items of any kind for resale. Other users 
+	can then purchase these items by directly going through the seller. No app.
+
+	Ebay: Allows users to sell items online and lets other users make bids in an attempt 
+	to purchase the item. Ebay has a mobile app.
+
+	NextDoor.com: Allows users to create a social network that spans around their neighborhood, 
+	informing them of certain events including garage sales, babysitters needing work, and access
+	to local police reports.
+
+	Yard Sale Treasure Map App: This app is for letting users access craigslist garage sales on 
+	mobile devices. View your local sales in list format, view sale details and photos, get
+	directions, and take advantage of advanced organizational route planning features.
+
+	LetGo App: This app allows users to sell used items locally in their neighborhood quickly 
+	and easily. Users then can shop for items that other users are selling. 
+
+                	Let's users sell items   |  Users can buy items    | Displays multiple garage sales on a map| Details page for yard sale
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	    CraigsList:             yes          |           yes           |           no            				|        yes
+	    Ebay      :             yes          |			 yes		   |           no            				|		 no
+	    NextDoor  :             yes          |			 yes		   |           yes           				|		 no
+	    Yard Sale :				yes			 |			 yes		   |           yes           				|		 yes
+	    LetGo     :				yes          |			 yes		   |           yes           				|		 yes
+         									 |						   |  						 				|
+Garage Sale Hunter:             yes          |			 yes		   |           yes           				|		 yes
+
+
+                	Get directions to sale   |  Users create garage sales on Craiglist| Search for sale by keyword, day, distance, location
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+	    CraigsList:             yes          |           yes          				  |           yes (keyword, distance, location)      	      
+	    Ebay      :             no           |			 yes		   				  |           yes (keyword, location)         					 
+	    NextDoor  :             yes          |			 yes		  				  |           yes           					
+	    Yard Sale :				yes			 |			 yes		   				  |           yes           						 
+	    LetGo     :				yes          |			 yes		   				  |           yes           						 
+         									 |						   				  |  						 				
+Garage Sale Hunter:             yes          |			 yes		   				  |           yes           						 
+
+
+                	Users receive notification of sale in their area when one is posted   |  Lets users communicate with sellers
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	    CraigsList:             no        												  |			 yes								  	     
+	    Ebay      :             no        												  |			 yes							  	   
+	    NextDoor  :             no          											  |			 yes						      
+	    Yard Sale :				no			 											  |			 yes		   				         
+	    LetGo     :				no          											  |			 yes		  					  
+         									 									   		  |						     				  			
+Garage Sale Hunter:             yes         											  |			 yes		                          		
+
+
+
