@@ -85,7 +85,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private String address;
 
 
-
     public MapsFragment() {
     }
 
@@ -105,6 +104,16 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             @Override
             public void onClick(View view) {
                 mMap.clear();
+                if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
                 Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                 if (location == null) {
                     Log.d(TAG, "Location is null");
@@ -139,7 +148,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         mFirebase = new Firebase("https://garagesalehunter.firebaseio.com/");
 
-        searchButton.setOnClickListener(searchListners);
+        searchButton.setOnClickListener(searchListeners);
 // TODO: 5/13/16 MOVE INTO ITS OWN METHOD
         searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -161,7 +170,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     }
 
 
-    private void searchForLocation(){
+    private void searchForLocation() {
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
         address = searchLocEdit.getText().toString();
         try {
@@ -169,14 +178,15 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             if (addresses.size() == 0) {
                 Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
             } else {
-                addUserPostion(addresses);
+                addUserPosition(addresses);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    private void addUserPostion(List<Address> addresses){
+
+    private void addUserPosition(List<Address> addresses) {
         double lat = 0.0, lng = 0.0;
 
         Log.d("PostFragment", addresses.get(0).getLatitude() + "");
@@ -338,8 +348,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+//            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
+//            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         } else {
             Log.d(TAG, "Map is null");
@@ -405,7 +415,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     }
 
-    View.OnClickListener searchListners = new View.OnClickListener() {
+    View.OnClickListener searchListeners = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (CheckInternetConnection.isOnline(getContext())) {
@@ -424,6 +434,16 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
             Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
             mMap.clear();
+            if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
             Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
             if (location == null) {
                 Log.d(TAG, "Location is null");
