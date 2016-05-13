@@ -1,7 +1,8 @@
 package com.example.nicolassaad.garagehunter;
 
 /**
- * Created by nicolassaad on 5/6/16.
+ * This is a model class is designed to store data in the Firebase server
+ * using an object
  */
 public class GarageSale {
     private String title, description, address, weekday, image1, image2, image3;

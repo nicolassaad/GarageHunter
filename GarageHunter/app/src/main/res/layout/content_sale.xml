@@ -9,7 +9,6 @@
     tools:context="com.example.nicolassaad.garagehunter.SaleActivity"
     tools:showIn="@layout/activity_sale">
 
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -62,7 +61,8 @@
             android:layout_marginStart="@dimen/thirty"
             android:layout_marginTop="@dimen/ten"
             android:gravity="start"
-            android:text="@string/description"
+            android:textStyle="italic"
+            android:hint="@string/description"
             android:textSize="@dimen/eighteen" />
 
         <LinearLayout

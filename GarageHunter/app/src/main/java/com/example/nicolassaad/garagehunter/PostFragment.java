@@ -84,7 +84,6 @@ public class PostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
 
-//        backButton = (Button) view.findViewById(R.id.post_back_button);
         Button postButton = (Button) view.findViewById(R.id.post);
         Button previewButton = (Button) view.findViewById(R.id.preview_post);
         addPic = (Button) view.findViewById(R.id.add_pic_button);
@@ -96,14 +95,6 @@ public class PostFragment extends Fragment {
         previewItems = new ArrayList<>();
 
         mFirebaseRef = new Firebase("https://garagesalehunter.firebaseio.com");
-
-//        backButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(v.getContext(), MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         addPic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +119,10 @@ public class PostFragment extends Fragment {
                         Log.d("PostFragment", addresses.get(0).getLongitude() + "");
                         lat = addresses.get(0).getLatitude();
                         lng = addresses.get(0).getLongitude();
+
+                        picsToString();
+                        picsToString2();
+                        picsToString3();
 
                         garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
                                 editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString(),
@@ -177,7 +172,6 @@ public class PostFragment extends Fragment {
                 } else if (settingPreviewIntent() == -1) {
                     Toast.makeText(getContext(), "Please add three pictures", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
@@ -185,7 +179,6 @@ public class PostFragment extends Fragment {
     }
 
     private void picsToString() {
-        // TODO: 5/11/16 can be refactored using a for loop
         Bitmap bmp = Bitmap.createBitmap(bMapScaled); //image1
         ByteArrayOutputStream bYtE = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, bYtE);
@@ -212,6 +205,12 @@ public class PostFragment extends Fragment {
         imageFile3 = Base64.encodeToString(byteArray3, Base64.DEFAULT);
     }
 
+    /**
+     * This method stores the user's data into variables that will be passed to the PreviewActivity
+     * in an intent. Here, several checks are made to make sure that the user has taken 3 photos as well
+     * as entered a title and address
+     * @return
+     */
     private int settingPreviewIntent() {
         title = editTitle.getText().toString();
         desc = editDesc.getText().toString();
@@ -242,7 +241,10 @@ public class PostFragment extends Fragment {
         return 1;
     }
 
-
+    /**
+     * This method is run when the user presses the post button. It clears all the views so another
+     * post can be entered.
+     */
     private void clearEditTexts() {
         editTitle.setText("");
         editDesc.setText("");
@@ -250,6 +252,11 @@ public class PostFragment extends Fragment {
         spinnerDay.dispatchDisplayHint(View.VISIBLE);
     }
 
+    /**
+     * Method that launches the camera allowing the user to take a photo. Each gets stored separately
+     * but adding the counter to the photoFileName.
+     * @param view
+     */
     public void onLaunchCamera(View view) {
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -263,6 +270,13 @@ public class PostFragment extends Fragment {
         }
     }
 
+    /**
+     * Method that takes the image that the user took with the camera and assigns it to a certain
+     * view in the placeholder images based on a counter
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
@@ -277,14 +291,12 @@ public class PostFragment extends Fragment {
                     image1 = (ImageView) getActivity().findViewById(R.id.post_image_holder1);
                     bMapScaled = Bitmap.createScaledBitmap(takenImage, 465, 605, true);
                     image1.setImageBitmap(bMapScaled);
-                    picsToString();
                     counter++;
                 } else if (counter == 1) {
                     takenPhoto2 = getPhotoFileUri(counter + photoFileName);
                     image2 = (ImageView) getActivity().findViewById(R.id.post_image_holder2);
                     bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 465, 605, true);
                     image2.setImageBitmap(bMapScaled2);
-                    picsToString2();
                     counter++;
                 } else if (counter == 2) {
                     takenPhoto3 = getPhotoFileUri(counter + photoFileName);
@@ -293,7 +305,6 @@ public class PostFragment extends Fragment {
                     image3.setImageBitmap(bMapScaled3);
                     addPic.setClickable(false);
                     addPic.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
-                    picsToString3();
                     counter++;
                 }
             } else { // Result was a failure

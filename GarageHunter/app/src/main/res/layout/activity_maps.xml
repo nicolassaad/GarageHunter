@@ -29,12 +29,13 @@
             for the user -->
             <EditText
                 android:id="@+id/search_loc_edit"
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/search_by_location"
                 android:maxLines="1"
-                android:singleLine="true"
-                android:hint="@string/search_by_location" />
+                android:singleLine="true" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -52,19 +53,19 @@
                 android:id="@+id/search_by_day"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:entries="@array/spinnerItems"
                 android:layout_toLeftOf="@id/search_button"
-                android:layout_toStartOf="@id/search_button"/>
+                android:layout_toStartOf="@id/search_button"
+                android:entries="@array/spinnerItems" />
 
             <Button
                 android:id="@+id/search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="-27dp"
-                android:gravity="bottom|center_horizontal"
                 android:background="@color/accent_color"
+                android:gravity="bottom|center_horizontal"
                 android:text="@string/search" />
 
         </RelativeLayout>
@@ -79,17 +80,17 @@
         when search criteria is hidden -->
         <Button
             android:id="@+id/hide_search_button"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="-5dp"
-            android:paddingEnd="10dp"
-            android:elevation="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="-5dp"
             android:background="@drawable/search_show_hide"
+            android:elevation="10dp"
+            android:gravity="bottom"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:gravity="bottom"
             android:text="@string/hide_search" />
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -99,6 +100,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context="com.example.nicolassaad.garagehunter.MapsActivity" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/getuserlocbutt"
+            android:scaleType="center"
+            android:background="@android:color/transparent"/>
 
     </RelativeLayout>
 

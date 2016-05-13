@@ -6,10 +6,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
@@ -22,13 +20,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * This activity is where the Garage sale data that is queried gets populated by making
+ * a query to the Firebase server
+ */
 public class SaleActivity extends AppCompatActivity {
 
     private Query query;
     private Firebase mFirebase;
-    private ImageView image1;
-    private ImageView image2;
-    private ImageView image3;
     private ImagesAdapter mAdapter;
     private RecyclerView recyclerView;
     private List<String> imageList = new ArrayList<>();
@@ -68,17 +67,17 @@ public class SaleActivity extends AppCompatActivity {
                 String weekday = daySearch.getWeekday();
 
                 String pic1 = daySearch.getImage1();
-                byte[] imageAsBytes = Base64.decode(pic1.getBytes(), Base64.DEFAULT);
+//                byte[] imageAsBytes = Base64.decode(pic1.getBytes(), Base64.DEFAULT);
 //                image1.setImageBitmap(
 //                        BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
 
                 String pic2 = daySearch.getImage2();
-                byte[] imageAsBytes2 = Base64.decode(pic2.getBytes(), Base64.DEFAULT);
+//                byte[] imageAsBytes2 = Base64.decode(pic2.getBytes(), Base64.DEFAULT);
 //                image2.setImageBitmap(
 //                        BitmapFactory.decodeByteArray(imageAsBytes2, 0, imageAsBytes2.length));
 
                 String pic3 = daySearch.getImage3();
-                byte[] imageAsBytes3 = Base64.decode(pic3.getBytes(), Base64.DEFAULT);
+//                byte[] imageAsBytes3 = Base64.decode(pic3.getBytes(), Base64.DEFAULT);
 //                image3.setImageBitmap(
 //                        BitmapFactory.decodeByteArray(imageAsBytes3, 0, imageAsBytes3.length));
 
@@ -104,14 +103,7 @@ public class SaleActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
     }
 
 }

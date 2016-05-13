@@ -11,6 +11,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -90,6 +91,19 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
         searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
         searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.clear();
+                Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+                if (location == null) {
+                    Log.d(TAG, "Location is null");
+                } else {
+                        handleNewLocation(location);
+                }
+            }
+        });
         hideSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,8 +121,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         settingLocationRequest();
         settingGoogleApiClient();
-
-        // TODO: 5/10/16 copy code from postfragment geocoder, get search button to work
 
         mFirebase = new Firebase("https://garagesalehunter.firebaseio.com/");
 
@@ -167,11 +179,10 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                                 handleNewLocNoCamAnim(location);
                             }
                         }
-
                         while (iterator.hasNext()) {
                             GarageSale daySearch = iterator.next().getValue(GarageSale.class);
                             Log.d("MapsFragment", daySearch.toString());
-                                // Displays markers for all matching entries
+                            // Displays markers for all matching entries
                             mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
                             mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                                 @Override
@@ -193,10 +204,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
-
         return view;
     }
 
@@ -221,7 +230,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         super.onResume();
         setUpMapIfNeeded();
         mGoogleApiClient.connect();
-
     }
 
     @Override
@@ -233,6 +241,11 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     }
 
+    /**
+     * This method hides the softkeyboard automatically after use the search button is clicked
+     *
+     * @param activity
+     */
     public static void hideKeyboard(Activity activity) {
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         //Find the currently focused view, so we can grab the correct window token from it.
@@ -244,6 +257,9 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    /**
+     * This method runs on onResume an creates the map fragment if the map is null
+     */
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
@@ -259,6 +275,11 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     }
 
+    /**
+     * Adds the user marker into the user's location when the map fragment is being created
+     *
+     * @param location
+     */
     private void handleNewLocation(Location location) {
         Log.d(TAG, location.toString());
         Log.d("MainActivity", "Handling new location");
@@ -282,6 +303,14 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     }
 
+    /**
+     * This method is designed for when the user is searching a specific location.
+     * While the user is querying a specific place, this method runs which
+     * adds the user marker but doesn't position the camera on the user's location, allowing
+     * the user to search by day and stay on the location they were searching for.
+     *
+     * @param location
+     */
     private void handleNewLocNoCamAnim(Location location) {
         Log.d(TAG, location.toString());
         Log.d("MainActivity", "Handling new location");

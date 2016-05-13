@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
-    MenuItem searchIcon;
     private SlidingTabLayout mSlidingTabLayout;
     private Menu menu;
 
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         setUpViewPager();
-
     }
 
     // Set up the ViewPager with the sections adapter.
@@ -67,15 +65,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         if (id == R.id.action_settings) {
             return true;
         }
-//        searchIcon = menu.findItem(R.id.search_icon);
-//        searchIcon.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-//                startActivity(intent);
-//                return false;
-//            }
-//        });
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -135,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             return null;
         }
     }
-
 }
 
 
