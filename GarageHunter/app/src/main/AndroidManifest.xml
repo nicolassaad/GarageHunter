@@ -26,6 +26,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -50,12 +51,14 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".SaleActivity"
             android:label="@string/title_activity_sale"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             </activity>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".PreviewActivity"
             android:label="@string/title_activity_preview"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
