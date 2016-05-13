@@ -34,12 +34,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         topToolBar.setLogoDescription("logo");
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        setUpViewPager();
 
-        if (CheckInternetConnection.isOnline(this)) {
-            setUpViewPager();
-        } else {
+        if (!CheckInternetConnection.isOnline(this)) {
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
-            setUpViewPager();
         }
 
     }

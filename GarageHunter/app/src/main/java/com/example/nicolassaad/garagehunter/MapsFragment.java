@@ -84,6 +84,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     private String address;
 
+
+
     public MapsFragment() {
     }
 
@@ -98,7 +100,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
         searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
         searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
-        showNetworkNotAvailableNotification();
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +110,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                     Log.d(TAG, "Location is null");
                 } else {
                     if (CheckInternetConnection.isOnline(getContext())) {
+
                         handleNewLocation(location);
                     } else {
                         Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
@@ -137,48 +139,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         mFirebase = new Firebase("https://garagesalehunter.firebaseio.com/");
 
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CheckInternetConnection.isOnline(getContext())) {
-                } else {
-                    Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
-                    showNetworkNotAvailableNotification();
-                }
-                double lat = 0.0, lng = 0.0;
-
-                Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
-                address = searchLocEdit.getText().toString();
-                try {
-
-                    List<Address> addresses = geocoder.getFromLocationName(address, 1);
-                    if (addresses.size() == 0) {
-                        Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
-                    } else {
-                        Log.d("PostFragment", addresses.get(0).getLatitude() + "");
-                        Log.d("PostFragment", addresses.get(0).getLongitude() + "");
-                        lat = addresses.get(0).getLatitude();
-                        lng = addresses.get(0).getLongitude();
-
-                        double currentLatitude = lat;
-                        double currentLongitude = lng;
-
-                        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
-                        if (mMap != null) {
-                            hideKeyboard(getActivity());
-                            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12.0f).build();
-                            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                        } else {
-                            Log.d(TAG, "Map is null");
-                        }
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
+        searchButton.setOnClickListener(searchListners);
+// TODO: 5/13/16 MOVE INTO ITS OWN METHOD
         searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -188,43 +150,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                     showNetworkNotAvailableNotification();
                 }
                 query = mFirebase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
-                        mMap.clear();
-                        Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-                        if (location == null) {
-                            Log.d(TAG, "Location is null");
-                        } else {
-                            if (searchLocEdit.getText().toString().equals("")) {
-                                handleNewLocation(location);
-                            } else {
-                                handleNewLocNoCamAnim(location);
-                            }
-                        }
-                        while (iterator.hasNext()) {
-                            GarageSale daySearch = iterator.next().getValue(GarageSale.class);
-                            Log.d("MapsFragment", daySearch.toString());
-                            // Displays markers for all matching entries
-                            mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
-                            mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-                                @Override
-                                public void onInfoWindowClick(Marker marker) {
-                                    String toSaleTitle = marker.getTitle();
-                                    Intent toSaleIntent = new Intent(getContext(), SaleActivity.class);
-                                    toSaleIntent.putExtra(SALE_KEY1, toSaleTitle);
-                                    startActivity(toSaleIntent);
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-                    }
-                });
+                query.addListenerForSingleValueEvent(valueEventListener);
             }
 
             @Override
@@ -232,6 +158,43 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             }
         });
         return view;
+    }
+
+
+    private void searchForLocation(){
+        Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
+        address = searchLocEdit.getText().toString();
+        try {
+            List<Address> addresses = geocoder.getFromLocationName(address, 1);
+            if (addresses.size() == 0) {
+                Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
+            } else {
+                addUserPostion(addresses);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void addUserPostion(List<Address> addresses){
+        double lat = 0.0, lng = 0.0;
+
+        Log.d("PostFragment", addresses.get(0).getLatitude() + "");
+        Log.d("PostFragment", addresses.get(0).getLongitude() + "");
+        lat = addresses.get(0).getLatitude();
+        lng = addresses.get(0).getLongitude();
+
+        double currentLatitude = lat;
+        double currentLongitude = lng;
+
+        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+        if (mMap != null) {
+            hideKeyboard(getActivity());
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12.0f).build();
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        } else {
+            Log.d(TAG, "Map is null");
+        }
     }
 
     /**
@@ -293,7 +256,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     }
 
     /**
-     * This method hides the softkeyboard automatically after use the search button is clicked
+     * This searchForLocation hides the softkeyboard automatically after use the search button is clicked
      *
      * @param activity
      */
@@ -309,7 +272,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     }
 
     /**
-     * This method runs on onResume an creates the map fragment if the map is null
+     * This searchForLocation runs on onResume an creates the map fragment if the map is null
      */
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
@@ -334,7 +297,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private void handleNewLocation(Location location) {
         Log.d(TAG, location.toString());
         Log.d("MainActivity", "Handling new location");
-
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
 
@@ -355,8 +317,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     }
 
     /**
-     * This method is designed for when the user is searching a specific location.
-     * While the user is querying a specific place, this method runs which
+     * This searchForLocation is designed for when the user is searching a specific location.
+     * While the user is querying a specific place, this searchForLocation runs which
      * adds the user marker but doesn't position the camera on the user's location, allowing
      * the user to search by day and stay on the location they were searching for.
      *
@@ -371,15 +333,17 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
-        if (mMap != null) {
-            mMap.clear();
-            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
+//        if (mMap != null) {
+//            mMap.clear();
+//            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-        } else {
-            Log.d(TAG, "Map is null");
-        }
+//        } else {
+//            Log.d(TAG, "Map is null");
+//        }
     }
 
     @Override
@@ -440,5 +404,56 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             Log.i(TAG, "Location services connection failed with code " + connectionResult.getErrorCode());
         }
     }
+
+    View.OnClickListener searchListners = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (CheckInternetConnection.isOnline(getContext())) {
+                // do your search
+                searchForLocation();
+            } else {
+                Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                showNetworkNotAvailableNotification();
+            }
+        }
+    };
+
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+
+            Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+            mMap.clear();
+            Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+            if (location == null) {
+                Log.d(TAG, "Location is null");
+            } else {
+                if (searchLocEdit.getText().toString().equals("")) {
+                    handleNewLocation(location);
+                } else {
+                    handleNewLocNoCamAnim(location);
+                }
+            }
+            while (iterator.hasNext()) {
+                GarageSale daySearch = iterator.next().getValue(GarageSale.class);
+                Log.d("MapsFragment", daySearch.toString());
+                // Displays markers for all matching entries
+                mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
+                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                    @Override
+                    public void onInfoWindowClick(Marker marker) {
+                        String toSaleTitle = marker.getTitle();
+                        Intent toSaleIntent = new Intent(getContext(), SaleActivity.class);
+                        toSaleIntent.putExtra(SALE_KEY1, toSaleTitle);
+                        startActivity(toSaleIntent);
+                    }
+                });
+            }
+        }
+
+        @Override
+        public void onCancelled(FirebaseError firebaseError) {
+        }
+    };
 }
 

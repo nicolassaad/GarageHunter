@@ -70,6 +70,10 @@ public class PreviewActivity extends AppCompatActivity {
      * and images
      */
     private void setInfo() {
+        setTitle("");
+        descText.setText("");
+        addressText.setText("");
+        dayOfWeek.setText("");
         final ArrayList<String> previewItems = getIntent().getStringArrayListExtra(PostFragment.PREVIEW_KEY);
         for (int j = 0; j < previewItems.size(); j++) {
             Log.d(TAG, previewItems.get(j));

@@ -5,7 +5,7 @@ import android.app.Application;
 import com.firebase.client.Firebase;
 
 /**
- * This class sets the context that Firebase will work in
+ * This class sets the context that Firebase will work in.
  */
 public class GarageSaleApp extends Application {
 

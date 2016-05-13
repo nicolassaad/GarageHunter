@@ -113,7 +113,8 @@ public class PostFragment extends Fragment {
                 try {
                     List<Address> addresses = geocoder.getFromLocationName(address, 1);
                     if (addresses.size() == 0) {
-                        Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
+                        editAddress.setError("Please enter valid address");
+//                        Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
                     } else {
                         Log.d("PostFragment", addresses.get(0).getLatitude() + "");
                         Log.d("PostFragment", addresses.get(0).getLongitude() + "");
