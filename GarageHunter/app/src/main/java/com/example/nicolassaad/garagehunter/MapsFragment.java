@@ -2,9 +2,14 @@ package com.example.nicolassaad.garagehunter;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -15,6 +20,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +71,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     private int buttonCounter;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+    public static final int NOTIFICATION_NOT_AVAILABLE = 2;
     public final static String SALE_KEY1 = "Title";
 
     private LocationRequest mLocationRequest;
@@ -91,6 +98,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
         searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
         searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
+        showNetworkNotAvailableNotification();
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +114,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                         Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
                         handleNewLocation(location);
                     }
-
                 }
             }
         });
@@ -136,6 +143,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 if (CheckInternetConnection.isOnline(getContext())) {
                 } else {
                     Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                    showNetworkNotAvailableNotification();
                 }
                 double lat = 0.0, lng = 0.0;
 
@@ -177,6 +185,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 if (CheckInternetConnection.isOnline(getContext())) {
                 } else {
                     Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                    showNetworkNotAvailableNotification();
                 }
                 query = mFirebase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -223,6 +232,32 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             }
         });
         return view;
+    }
+
+    /**
+     * Notification that informs the user if they have no internet connectivity. It is triggered onCreate
+     * onResume and in every button in MapsFragment
+     */
+    private void showNetworkNotAvailableNotification() {
+
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        // use System.currentTimeMillis() to have a unique ID for the pending intent
+        PendingIntent pIntent = PendingIntent.getActivity(getContext(), (int) System.currentTimeMillis(), intent, 0);
+
+        NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle();
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getContext());
+        mBuilder.setStyle(bigPictureStyle.bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.ihatethisapp)));
+        mBuilder.setSmallIcon(R.drawable.icon);
+        mBuilder.setContentText("Network is Not available!");
+        mBuilder.setContentTitle("Network is Not available!");
+        mBuilder.setContentIntent(pIntent);
+        mBuilder.setPriority(Notification.PRIORITY_MAX);
+        mBuilder.setStyle(bigPictureStyle);
+
+        NotificationManager mNotificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+// NOTIFICATION_ID allows you to update the notification later on.
+        mNotificationManager.notify(NOTIFICATION_NOT_AVAILABLE, mBuilder.build());
     }
 
     private void settingLocationRequest() {
