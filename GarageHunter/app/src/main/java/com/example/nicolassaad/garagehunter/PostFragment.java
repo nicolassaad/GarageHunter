@@ -4,12 +4,15 @@ package com.example.nicolassaad.garagehunter;
  * Created by nicolassaad on 4/30/16.
  */
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -69,6 +72,8 @@ public class PostFragment extends Fragment {
 
     public final String APP_TAG = "MyCustomApp";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
+    private static final String CAMERA_PERMISSION = Manifest.permission.CAMERA;
+    private static final int PERMISSION_REQUEST_CODE = 12345;
     public String photoFileName = "photo.jpg";
     private int counter = 0;
 
@@ -91,7 +96,6 @@ public class PostFragment extends Fragment {
         editTitle = (EditText) view.findViewById(R.id.post_title);
         editDesc = (EditText) view.findViewById(R.id.post_desc);
         spinnerDay = (Spinner) view.findViewById(R.id.post_spinner);
-
         previewItems = new ArrayList<>();
 
         mFirebaseRef = new Firebase("https://garagesalehunter.firebaseio.com");
@@ -100,6 +104,7 @@ public class PostFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 onLaunchCamera(v);
+
             }
         });
 
@@ -259,6 +264,7 @@ public class PostFragment extends Fragment {
      * @param view
      */
     public void onLaunchCamera(View view) {
+        requestUserForPermission();
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(counter + photoFileName)); // set the image file name
@@ -340,4 +346,23 @@ public class PostFragment extends Fragment {
         String state = Environment.getExternalStorageState();
         return state.equals(Environment.MEDIA_MOUNTED);
     }
+    /**
+     * This method will request the user for camera permission
+     *
+     * If a phone is running older OS then Android M, we simply return because
+     * those phone are using the OLD permission model and permissions are granted at
+     * INSTALL time.
+     */
+    @TargetApi(23)
+    private void requestUserForPermission(){
+        int currentApiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentApiVersion < Build.VERSION_CODES.M){
+            // This OS version is lower then Android M, therefore we have old permission model and should not ask for permission
+            return;
+        }
+        String[] permissions = new String[]{CAMERA_PERMISSION};
+        requestPermissions(permissions, PERMISSION_REQUEST_CODE);
+
+    }
+
 }

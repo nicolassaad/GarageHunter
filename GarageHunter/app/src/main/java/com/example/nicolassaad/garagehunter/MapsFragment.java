@@ -333,17 +333,17 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
-//        if (mMap != null) {
-//            mMap.clear();
-//            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
+        if (mMap != null) {
+            mMap.clear();
+            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
             CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-//        } else {
-//            Log.d(TAG, "Map is null");
-//        }
+        } else {
+            Log.d(TAG, "Map is null");
+        }
     }
 
     @Override

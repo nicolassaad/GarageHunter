@@ -1,6 +1,9 @@
 package com.example.nicolassaad.garagehunter;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
     private SlidingTabLayout mSlidingTabLayout;
+    private static final String CAMERA_PERMISSION = Manifest.permission.CAMERA;
+    private static final int PERMISSION_REQUEST_CODE = 12345;
     private Menu menu;
 
     @Override
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         setUpViewPager();
 
+        requestUserForPermission();
         if (!CheckInternetConnection.isOnline(this)) {
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
         }
@@ -134,12 +140,27 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     protected void onResume() {
         super.onResume();
         if (CheckInternetConnection.isOnline(this)) {
-
         } else {
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
-
         }
+    }
 
+    /**
+     * This method will request the user for camera permission
+     *
+     * If a phone is running older OS then Android M, we simply return because
+     * those phone are using the OLD permission model and permissions are granted at
+     * INSTALL time.
+     */
+    @TargetApi(23)
+    private void requestUserForPermission(){
+        int currentApiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentApiVersion < Build.VERSION_CODES.M){
+            // This OS version is lower then Android M, therefore we have old permission model and should not ask for permission
+            return;
+        }
+        String[] permissions = new String[]{CAMERA_PERMISSION};
+        requestPermissions(permissions, PERMISSION_REQUEST_CODE);
     }
 }
 
