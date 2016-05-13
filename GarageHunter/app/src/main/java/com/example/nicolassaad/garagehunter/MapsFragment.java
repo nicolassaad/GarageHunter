@@ -100,7 +100,13 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 if (location == null) {
                     Log.d(TAG, "Location is null");
                 } else {
+                    if (CheckInternetConnection.isOnline(getContext())) {
                         handleNewLocation(location);
+                    } else {
+                        Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                        handleNewLocation(location);
+                    }
+
                 }
             }
         });
@@ -127,10 +133,16 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (CheckInternetConnection.isOnline(getContext())) {
+                } else {
+                    Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                }
                 double lat = 0.0, lng = 0.0;
+
                 Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
                 address = searchLocEdit.getText().toString();
                 try {
+
                     List<Address> addresses = geocoder.getFromLocationName(address, 1);
                     if (addresses.size() == 0) {
                         Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
@@ -162,6 +174,10 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (CheckInternetConnection.isOnline(getContext())) {
+                } else {
+                    Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                }
                 query = mFirebase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

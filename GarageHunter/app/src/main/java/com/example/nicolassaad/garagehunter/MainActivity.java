@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -34,7 +35,13 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        setUpViewPager();
+        if (CheckInternetConnection.isOnline(this)) {
+            setUpViewPager();
+        } else {
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
+            setUpViewPager();
+        }
+
     }
 
     // Set up the ViewPager with the sections adapter.
@@ -74,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        mViewPager.setCurrentItem(tab.getPosition());
+            mViewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override
@@ -98,10 +105,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             Fragment fragment = null;
             switch (position){
                 case 0:
-                    fragment = new MapsFragment();
+                        fragment = new MapsFragment();
                     break;
                 case 1:
-                    fragment = new PostFragment();
+                        fragment = new PostFragment();
                     break;
             }
             return fragment;
@@ -123,6 +130,18 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             }
             return null;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (CheckInternetConnection.isOnline(this)) {
+
+        } else {
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
+
+        }
+
     }
 }
 
