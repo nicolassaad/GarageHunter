@@ -117,18 +117,26 @@ public class PostFragment extends Fragment {
 
                 try {
                     List<Address> addresses = geocoder.getFromLocationName(address, 1);
-                    if (addresses.size() == 0) {
+                    if (addresses.size() == 0 && editTitle.getText().toString().isEmpty()) {
                         editAddress.setError("Please enter valid address");
-//                        Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
+                        editTitle.setError("Please enter a title");
+                    } else if (addresses.size() == 0) {
+                        editAddress.setError("Please enter a valid address");
+                    }else if (editTitle.getText().toString().isEmpty()) {
+                        editTitle.setError("Please enter a title");
                     } else {
                         Log.d("PostFragment", addresses.get(0).getLatitude() + "");
                         Log.d("PostFragment", addresses.get(0).getLongitude() + "");
                         lat = addresses.get(0).getLatitude();
                         lng = addresses.get(0).getLongitude();
 
+                    if (settingPreviewIntent() == -1) {
+                        Toast.makeText(getContext(), "Please add three pictures", Toast.LENGTH_LONG).show();
+                    } else {
                         picsToString();
                         picsToString2();
                         picsToString3();
+                    }
 
                         garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
                                 editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString(),
@@ -137,9 +145,9 @@ public class PostFragment extends Fragment {
 
                         settingPreviewIntent();
 
-                        if (image1 == null || image2 == null || image3 == null) {
-                            Toast.makeText(getContext(), "Please add all three pictures", Toast.LENGTH_SHORT).show();
-                        }
+//                        if (image1 == null || image2 == null || image3 == null) {
+//                            Toast.makeText(getContext(), "Please add all three pictures", Toast.LENGTH_SHORT).show();
+//                        }
                         if (settingPreviewIntent() == 1) {
                             Intent intent = new Intent(v.getContext(), MainActivity.class);
                             intent.putExtra(LAT_KEY, lat);
@@ -147,12 +155,14 @@ public class PostFragment extends Fragment {
                             intent.putExtra(TITLE_KEY, title);
                             startActivity(intent);
 
-                        } else if (settingPreviewIntent() == -1) {
-                            Toast.makeText(getContext(), "Please add all three pictures", Toast.LENGTH_SHORT).show();
                         } else if (settingPreviewIntent() == -2) {
+                                editTitle.setError("Please enter a title");
                             Toast.makeText(getContext(), "Please enter a title", Toast.LENGTH_SHORT).show();
                         } else if (settingPreviewIntent() == -3) {
                             Toast.makeText(getContext(), "Please enter an address", Toast.LENGTH_SHORT).show();
+                            editAddress.setError("Please enter an address");
+                        } else if (settingPreviewIntent() == -1) {
+                            Toast.makeText(getContext(), "Please add all three pictures", Toast.LENGTH_SHORT).show();
                         } else {
                             image1.setBackground(getResources().getDrawable(R.drawable.image_holder));
                             image2.setBackground(getResources().getDrawable(R.drawable.image_holder));
@@ -167,6 +177,7 @@ public class PostFragment extends Fragment {
             }
         });
 
+        // TODO: 5/16/16 REFACTOR NULL CHECKS INTO THEIR OWN METHOD THAT PREVIEW AND POST BUTTONS CAN BOTH USE 
         previewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,6 +188,9 @@ public class PostFragment extends Fragment {
                     startActivity(toPreviewIntent);
                 } else if (settingPreviewIntent() == -1) {
                     Toast.makeText(getContext(), "Please add three pictures", Toast.LENGTH_LONG).show();
+                } else if (settingPreviewIntent() == -2) {
+                    editTitle.setError("Please enter a title");
+//                    editAddress.setError("Please enter an address");
                 }
             }
         });
@@ -227,6 +241,7 @@ public class PostFragment extends Fragment {
         previewItems.add(1, desc);
         previewItems.add(2, address);
         previewItems.add(3, dayOfWeek);
+// TODO: 5/16/16 REFECTOR NULL CHECKS INTO THEIR OWN METHOD THAT BOTH POST AND PREVIEW BUTTON CAN CALL 
         if (takenPhoto1 == null || takenPhoto2 == null || takenPhoto3 == null) {
             return -1;
         } else {
@@ -234,16 +249,25 @@ public class PostFragment extends Fragment {
             previewItems.add(5, takenPhoto2.toString());
             previewItems.add(6, takenPhoto3.toString());
         }
+
         title = editTitle.getText().toString();
-        if (editTitle.getText().toString().isEmpty()) {
-            Toast.makeText(getContext(), "Please enter a title", Toast.LENGTH_SHORT).show();
+        address = editAddress.getText().toString();
+        if (editTitle.getText().toString().isEmpty() && editAddress.getText().toString().isEmpty()) {
+            editTitle.setError("Please enter a title");
+            editAddress.setError("Please enter an address");
             return -2;
         }
-        address = editAddress.getText().toString();
+
+        if (editTitle.getText().toString().isEmpty()) {
+            editTitle.setError("Please enter a title");
+            return -2;
+        }
+
         if (editAddress.getText().toString().isEmpty()) {
-            Toast.makeText(getContext(), "Please enter an address", Toast.LENGTH_SHORT).show();
+            editAddress.setError("Please enter an address");
             return -3;
         }
+
         return 1;
     }
 
@@ -296,19 +320,19 @@ public class PostFragment extends Fragment {
                 if (counter == 0) {
                     takenPhoto1 = getPhotoFileUri(counter + photoFileName);
                     image1 = (ImageView) getActivity().findViewById(R.id.post_image_holder1);
-                    bMapScaled = Bitmap.createScaledBitmap(takenImage, 465, 605, true);
+                    bMapScaled = Bitmap.createScaledBitmap(takenImage, 380, 494, true);
                     image1.setImageBitmap(bMapScaled);
                     counter++;
                 } else if (counter == 1) {
                     takenPhoto2 = getPhotoFileUri(counter + photoFileName);
                     image2 = (ImageView) getActivity().findViewById(R.id.post_image_holder2);
-                    bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 465, 605, true);
+                    bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 380, 494, true);
                     image2.setImageBitmap(bMapScaled2);
                     counter++;
                 } else if (counter == 2) {
                     takenPhoto3 = getPhotoFileUri(counter + photoFileName);
                     image3 = (ImageView) getActivity().findViewById(R.id.post_image_holder3);
-                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 465, 605, true);
+                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 380, 494, true);
                     image3.setImageBitmap(bMapScaled3);
                     addPic.setClickable(false);
                     addPic.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
