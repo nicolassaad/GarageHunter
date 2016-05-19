@@ -21,14 +21,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.example.nicolassaad.garagehunter.SlidingTabLayout
+            <com.nothingsoft.nicolassaad.garagehunter.SlidingTabLayout
 
                 android:id="@+id/sliding_tabs"
                 android:layout_width="match_parent"
                 android:background="@color/accent_color"
                 android:layout_height="wrap_content">
 
-            </com.example.nicolassaad.garagehunter.SlidingTabLayout>
+            </com.nothingsoft.nicolassaad.garagehunter.SlidingTabLayout>
 
         </LinearLayout>
 

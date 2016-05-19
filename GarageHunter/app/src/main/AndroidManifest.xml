@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nicolassaad.garagehunter">
+    package="com.nothingsoft.nicolassaad.garagehunter">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -19,14 +19,14 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".GarageSaleApp"
+        android:name="com.nothingsoft.nicolassaad.garagehunter.GarageSaleApp"
         android:allowBackup="true"
         android:icon="@drawable/garagesale_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name="com.nothingsoft.nicolassaad.garagehunter.MainActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_main"
@@ -53,14 +53,14 @@
             android:value="@integer/google_play_services_version" />
         <activity
             android:screenOrientation="portrait"
-            android:name=".SaleActivity"
+            android:name="com.nothingsoft.nicolassaad.garagehunter.SaleActivity"
             android:label="@string/title_activity_sale"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             </activity>
 
         <activity
             android:screenOrientation="portrait"
-            android:name=".PreviewActivity"
+            android:name="com.nothingsoft.nicolassaad.garagehunter.PreviewActivity"
             android:label="@string/title_activity_preview"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
