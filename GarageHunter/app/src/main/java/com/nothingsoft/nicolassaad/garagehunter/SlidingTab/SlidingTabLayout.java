@@ -1,4 +1,4 @@
-package com.nothingsoft.nicolassaad.garagehunter;
+package com.nothingsoft.nicolassaad.garagehunter.SlidingTab;
 
 /**
  * Created by nicolassaad on 4/30/16.

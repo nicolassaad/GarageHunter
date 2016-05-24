@@ -1,4 +1,4 @@
-package com.nothingsoft.nicolassaad.garagehunter;
+package com.nothingsoft.nicolassaad.garagehunter.Fragments;
 
 /**
  * Created by nicolassaad on 4/30/16.
@@ -7,6 +7,7 @@ package com.nothingsoft.nicolassaad.garagehunter;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -19,6 +20,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +33,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.nothingsoft.nicolassaad.garagehunter.MainActivity;
+import com.nothingsoft.nicolassaad.garagehunter.PreviewActivity;
+import com.nothingsoft.nicolassaad.garagehunter.Models.GarageSale;
+import com.nothingsoft.nicolassaad.garagehunter.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -71,17 +77,18 @@ public class PostFragment extends Fragment {
     ArrayList<String> previewItems;
 
     Firebase mFirebaseRef;
+    int counter = 0;
 
     public final String APP_TAG = "MyCustomApp";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     private static final String CAMERA_PERMISSION = Manifest.permission.CAMERA;
     private static final int PERMISSION_REQUEST_CODE = 12345;
     public String photoFileName = "photo.jpg";
-    private int counter = 0;
 
     private String imageFile1;
     private String imageFile2;
     private String imageFile3;
+    int hasPermission;
 
     public PostFragment() {
     }
@@ -98,19 +105,27 @@ public class PostFragment extends Fragment {
         editTitle = (EditText) view.findViewById(R.id.post_title);
         editDesc = (EditText) view.findViewById(R.id.post_desc);
         spinnerDay = (Spinner) view.findViewById(R.id.post_spinner);
-        previewItems = new ArrayList<>();
 
-        mFirebaseRef = new Firebase("https://garagesalehunter.firebaseio.com");
+        mFirebaseRef = new Firebase(getString(R.string.firebase_address));
 
         addPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onLaunchCamera(v);
+                hasPermission = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA);
+                if (hasPermission == PackageManager.PERMISSION_GRANTED) {
+                    onLaunchCamera(v);
+                }
 
+                if (hasPermission == PackageManager.PERMISSION_DENIED) {
+
+                    requestUserForPermission();
+                    Toast.makeText(getContext(), "After accepting Camera permissions tap the Add Pictures button again to add pics", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
-        postButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 double lat = 0.0, lng = 0.0;
@@ -139,7 +154,6 @@ public class PostFragment extends Fragment {
                             picsToString2();
                             picsToString3();
                         }
-
                         garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
                                 editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString(),
                                 imageFile1, imageFile2, imageFile3);
@@ -171,7 +185,6 @@ public class PostFragment extends Fragment {
                             image3.setBackground(getResources().getDrawable(R.drawable.image_holder));
                             clearEditTexts();
                         }
-
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -179,8 +192,9 @@ public class PostFragment extends Fragment {
             }
         });
 
-        // TODO: 5/16/16 REFACTOR NULL CHECKS INTO THEIR OWN METHOD THAT PREVIEW AND POST BUTTONS CAN BOTH USE 
-        previewButton.setOnClickListener(new View.OnClickListener() {
+        // TODO: 5/16/16 REFACTOR NULL CHECKS INTO THEIR OWN METHOD THAT PREVIEW AND POST BUTTONS CAN BOTH USE
+        previewButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 settingPreviewIntent();
@@ -189,21 +203,19 @@ public class PostFragment extends Fragment {
                     toPreviewIntent.putStringArrayListExtra(PREVIEW_KEY, previewItems);
                     startActivity(toPreviewIntent);
                 } else if (settingPreviewIntent() == -1) {
-                    Toast.makeText(getContext(), "Please add three pictures", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.please_add_pics, Toast.LENGTH_LONG).show();
                 } else if (settingPreviewIntent() == -2) {
-                    editTitle.setError("Please enter a title");
-//                    editAddress.setError("Please enter an address");
+                    editTitle.setError(getString(R.string.please_enter_title));
                 }
             }
         });
-
         return view;
     }
 
     private void picsToString() {
         Bitmap bmp = Bitmap.createBitmap(bMapScaled); //image1
         ByteArrayOutputStream bYtE = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, bYtE);
+        bmp.compress(Bitmap.CompressFormat.JPEG, 20, bYtE);
         bmp.recycle();
         byte[] byteArray = bYtE.toByteArray();
         imageFile1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
@@ -212,7 +224,7 @@ public class PostFragment extends Fragment {
     private void picsToString2() {
         Bitmap bmp2 = Bitmap.createBitmap(bMapScaled2); //image2
         ByteArrayOutputStream bYtE2 = new ByteArrayOutputStream();
-        bmp2.compress(Bitmap.CompressFormat.PNG, 100, bYtE2);
+        bmp2.compress(Bitmap.CompressFormat.JPEG, 20, bYtE2);
         bmp2.recycle();
         byte[] byteArray2 = bYtE2.toByteArray();
         imageFile2 = Base64.encodeToString(byteArray2, Base64.DEFAULT);
@@ -221,7 +233,7 @@ public class PostFragment extends Fragment {
     private void picsToString3() {
         Bitmap bmp3 = Bitmap.createBitmap(bMapScaled3); //image3
         ByteArrayOutputStream bYtE3 = new ByteArrayOutputStream();
-        bmp3.compress(Bitmap.CompressFormat.PNG, 100, bYtE3);
+        bmp3.compress(Bitmap.CompressFormat.JPEG, 20, bYtE3);
         bmp3.recycle();
         byte[] byteArray3 = bYtE3.toByteArray();
         imageFile3 = Base64.encodeToString(byteArray3, Base64.DEFAULT);
@@ -235,6 +247,7 @@ public class PostFragment extends Fragment {
      * @return
      */
     private int settingPreviewIntent() {
+        previewItems = new ArrayList<>();
         title = editTitle.getText().toString();
         desc = editDesc.getText().toString();
         address = editAddress.getText().toString();
@@ -251,6 +264,7 @@ public class PostFragment extends Fragment {
             previewItems.add(4, takenPhoto1.toString());
             previewItems.add(5, takenPhoto2.toString());
             previewItems.add(6, takenPhoto3.toString());
+
         }
 
         title = editTitle.getText().toString();
@@ -270,7 +284,6 @@ public class PostFragment extends Fragment {
             editAddress.setError("Please enter an address");
             return -3;
         }
-
         return 1;
     }
 
@@ -292,7 +305,6 @@ public class PostFragment extends Fragment {
      * @param view
      */
     public void onLaunchCamera(View view) {
-        requestUserForPermission();
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(counter + photoFileName)); // set the image file name
@@ -301,6 +313,7 @@ public class PostFragment extends Fragment {
         // So as long as the result is not null, it's safe to use the intent.
         if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
             // Start the image capture intent to take photo
+//            requestUserForPermission();
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
     }
@@ -325,7 +338,7 @@ public class PostFragment extends Fragment {
                 if (counter == 0) {
                     takenPhoto1 = getPhotoFileUri(counter + photoFileName);
                     image1 = (ImageView) getActivity().findViewById(R.id.post_image_holder1);
-                    bMapScaled = Bitmap.createScaledBitmap(takenImage, 380, 494, true);
+                    bMapScaled = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
                     // Calling the rotateImage method
                     bMapScaled = rotateImage(bMapScaled, takenPhoto1);
                     image1.setImageBitmap(bMapScaled);
@@ -333,14 +346,14 @@ public class PostFragment extends Fragment {
                 } else if (counter == 1) {
                     takenPhoto2 = getPhotoFileUri(counter + photoFileName);
                     image2 = (ImageView) getActivity().findViewById(R.id.post_image_holder2);
-                    bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 380, 494, true);
+                    bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
                     bMapScaled2 = rotateImage(bMapScaled2, takenPhoto2);
                     image2.setImageBitmap(bMapScaled2);
                     counter++;
                 } else if (counter == 2) {
                     takenPhoto3 = getPhotoFileUri(counter + photoFileName);
                     image3 = (ImageView) getActivity().findViewById(R.id.post_image_holder3);
-                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 380, 494, true);
+                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
                     bMapScaled3 = rotateImage(bMapScaled3, takenPhoto3);
                     image3.setImageBitmap(bMapScaled3);
                     counter++;
@@ -348,7 +361,7 @@ public class PostFragment extends Fragment {
                     addPic.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
                 }
             } else { // Result was a failure
-                Toast.makeText(getContext(), "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.pic_wasnt_taken, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -357,6 +370,7 @@ public class PostFragment extends Fragment {
      * rotateImage method takes in a bitmap and uri and returns a correctly rotated bitmap.
      * This method checks the orientation of the taken image and rotates it correctly for it to display
      * the right way
+     *
      * @param bMapScaled
      * @param takenPhoto
      * @return
@@ -369,16 +383,13 @@ public class PostFragment extends Fragment {
             Matrix matrix = new Matrix();
             if (orientation == 6) {
                 matrix.postRotate(90);
-            }
-            else if (orientation == 3) {
+            } else if (orientation == 3) {
                 matrix.postRotate(180);
-            }
-            else if (orientation == 8) {
+            } else if (orientation == 8) {
                 matrix.postRotate(270);
             }
             bMapScaled = Bitmap.createBitmap(bMapScaled, 0, 0, bMapScaled.getWidth(), bMapScaled.getHeight(), matrix, true); // rotating bitmap
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
         }
         return bMapScaled;
@@ -396,7 +407,7 @@ public class PostFragment extends Fragment {
 
             // Create the storage directory if it does not exist
             if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
-                Log.d(APP_TAG, "failed to create directory");
+                Log.d(APP_TAG, getString(R.string.failed_create_dir));
             }
 
             // Return the file target for the photo based on filename
@@ -413,7 +424,7 @@ public class PostFragment extends Fragment {
 
     /**
      * This method will request the user for camera permission
-     * <p>
+     * <p/>
      * If a phone is running older OS then Android M, we simply return because
      * those phone are using the OLD permission model and permissions are granted at
      * INSTALL time.

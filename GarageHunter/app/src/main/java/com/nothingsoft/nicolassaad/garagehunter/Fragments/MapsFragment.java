@@ -1,4 +1,4 @@
-package com.nothingsoft.nicolassaad.garagehunter;
+package com.nothingsoft.nicolassaad.garagehunter.Fragments;
 
 import android.Manifest;
 import android.app.Activity;
@@ -51,6 +51,11 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.nothingsoft.nicolassaad.garagehunter.MainActivity;
+import com.nothingsoft.nicolassaad.garagehunter.SaleActivity;
+import com.nothingsoft.nicolassaad.garagehunter.CheckInternetConnection;
+import com.nothingsoft.nicolassaad.garagehunter.Models.GarageSale;
+import com.nothingsoft.nicolassaad.garagehunter.R;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -222,7 +227,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         mBuilder.setStyle(bigPictureStyle.bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.ihatethisapp)));
         mBuilder.setSmallIcon(R.drawable.icon);
         mBuilder.setContentText("Network is Not available!");
-        mBuilder.setContentTitle("Network is Not available!");
+        mBuilder.setContentTitle("Please check your network connection!");
         mBuilder.setContentIntent(pIntent);
         mBuilder.setPriority(Notification.PRIORITY_MAX);
         mBuilder.setStyle(bigPictureStyle);
@@ -325,6 +330,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     }
 
+    // TODO: 5/19/16 THIS METHOD MIGHT BE USELESS
     /**
      * This searchForLocation is designed for when the user is searching a specific location.
      * While the user is querying a specific place, this searchForLocation runs which
@@ -347,8 +353,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
-//            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
-//            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         } else {
             Log.d(TAG, "Map is null");

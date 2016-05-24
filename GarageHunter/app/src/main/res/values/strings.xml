@@ -37,6 +37,12 @@
     <string name="day_colon">DAY:</string>
     <string name="no_address">No Address</string>
     <string name="add_pictures">Add Pictures</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="please_add_pics">Please add three pictures</string>
+    <string name="please_enter_title">Please enter a title</string>
+    <string name="pic_wasnt_taken">Picture wasn\'t taken!</string>
+    <string name="failed_create_dir">failed to create directory</string>
+    <string name="firebase_address">https://garagesalehunter.firebaseio.com</string>
 </resources>
 
 

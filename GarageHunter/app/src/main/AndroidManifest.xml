@@ -26,10 +26,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name="com.nothingsoft.nicolassaad.garagehunter.MainActivity"
-            android:screenOrientation="portrait"
+            android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,22 +47,25 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyB_OnvbCNJWzbNGg01bmEER_jJkq0hjJcw" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name="com.nothingsoft.nicolassaad.garagehunter.SaleActivity"
-            android:label="@string/title_activity_sale"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            </activity>
 
         <activity
+            android:name=".SaleActivity"
+            android:label="@string/title_activity_sale"
             android:screenOrientation="portrait"
-            android:name="com.nothingsoft.nicolassaad.garagehunter.PreviewActivity"
-            android:label="@string/title_activity_preview"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
+
+        <activity
+            android:name=".PreviewActivity"
+            android:label="@string/title_activity_preview"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.nothingsoft.nicolassaad.garagehunter;
+package com.nothingsoft.nicolassaad.garagehunter.Models;
 
 /**
  * This is a model class is designed to store data in the Firebase server

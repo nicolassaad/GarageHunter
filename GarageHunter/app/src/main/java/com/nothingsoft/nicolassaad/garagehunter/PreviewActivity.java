@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nothingsoft.nicolassaad.garagehunter.Fragments.PostFragment;
+import com.nothingsoft.nicolassaad.garagehunter.R;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -74,6 +76,9 @@ public class PreviewActivity extends AppCompatActivity {
         descText.setText("");
         addressText.setText("");
         dayOfWeek.setText("");
+        clearImages(image1);
+        clearImages(image2);
+        clearImages(image3);
         final ArrayList<String> previewItems = getIntent().getStringArrayListExtra(PostFragment.PREVIEW_KEY);
         for (int j = 0; j < previewItems.size(); j++) {
             Log.d(TAG, previewItems.get(j));
@@ -105,8 +110,18 @@ public class PreviewActivity extends AppCompatActivity {
         }
     }
 
+    private void clearImages(ImageView image) {
+        image.setBackground(getResources().getDrawable(R.drawable.image_holder));
+    }
+
     private void setViews() {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setInfo();
     }
 
     @Override

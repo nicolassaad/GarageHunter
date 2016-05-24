@@ -1,9 +1,7 @@
 package com.nothingsoft.nicolassaad.garagehunter;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.nothingsoft.nicolassaad.garagehunter.Fragments.MapsFragment;
+import com.nothingsoft.nicolassaad.garagehunter.Fragments.PostFragment;
+import com.nothingsoft.nicolassaad.garagehunter.SlidingTab.SlidingTabLayout;
 
 import java.util.Locale;
 
@@ -36,16 +38,13 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         setSupportActionBar(topToolBar);
 
         topToolBar.setLogo(R.mipmap.ic_garagehunter);
-        topToolBar.setLogoDescription("logo");
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         setUpViewPager();
 
-        requestUserForPermission();
         if (!CheckInternetConnection.isOnline(this)) {
-            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.no_internet), Toast.LENGTH_LONG).show();
         }
-
     }
 
     // Set up the ViewPager with the sections adapter.
@@ -141,26 +140,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         super.onResume();
         if (CheckInternetConnection.isOnline(this)) {
         } else {
-            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.no_internet, Toast.LENGTH_LONG).show();
         }
-    }
-
-    /**
-     * This method will request the user for camera permission
-     *
-     * If a phone is running older OS then Android M, we simply return because
-     * those phone are using the OLD permission model and permissions are granted at
-     * INSTALL time.
-     */
-    @TargetApi(23)
-    private void requestUserForPermission(){
-        int currentApiVersion = android.os.Build.VERSION.SDK_INT;
-        if (currentApiVersion < Build.VERSION_CODES.M){
-            // This OS version is lower then Android M, therefore we have old permission model and should not ask for permission
-            return;
-        }
-        String[] permissions = new String[]{CAMERA_PERMISSION};
-        requestPermissions(permissions, PERMISSION_REQUEST_CODE);
     }
 }
 

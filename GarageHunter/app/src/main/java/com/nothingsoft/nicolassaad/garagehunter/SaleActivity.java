@@ -15,6 +15,8 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
+import com.nothingsoft.nicolassaad.garagehunter.Fragments.MapsFragment;
+import com.nothingsoft.nicolassaad.garagehunter.Models.GarageSale;
 
 import java.util.ArrayList;
 import java.util.Iterator;
