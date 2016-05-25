@@ -70,6 +70,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         LocationListener {
 
     private Button hideSearchButton;
+    private Button clearButton;
     private EditText searchLocEdit;
     public static LinearLayout searchLayout;
     private Spinner searchByDay;
@@ -81,11 +82,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     private LocationRequest mLocationRequest;
     private GoogleMap mMap;
+    private Marker userMarker;
     private GoogleApiClient mGoogleApiClient;
     private SupportMapFragment fragment;
 
     private Query query;
-    private Firebase mFirebase;
+    private Firebase mFireBase;
 
     private String address;
 
@@ -104,11 +106,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
         searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
         searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
+        clearButton = (Button) view.findViewById(R.id.clear_button);
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mMap.clear();
+//                mMap.clear();
                 if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
@@ -148,10 +151,17 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             }
         });
 
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchLocEdit.setText("");
+            }
+        });
+
         settingLocationRequest();
         settingGoogleApiClient();
 
-        mFirebase = new Firebase("https://garagesalehunter.firebaseio.com/");
+        mFireBase = new Firebase("https://garagesalehunter.firebaseio.com/");
 
         searchButton.setOnClickListener(searchListeners);
 // TODO: 5/13/16 MOVE INTO ITS OWN METHOD
@@ -163,7 +173,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                     Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
                     showNetworkNotAvailableNotification();
                 }
-                query = mFirebase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
+                query = mFireBase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
                 query.addListenerForSingleValueEvent(valueEventListener);
             }
 
@@ -309,16 +319,22 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
      * @param location
      */
     private void handleNewLocation(Location location) {
+
         Log.d(TAG, location.toString());
         Log.d("MainActivity", "Handling new location");
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
 
+
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
         if (mMap != null) {
-            mMap.clear();
-            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
+//            mMap.clear();
+//            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
+            if (userMarker != null) {
+                userMarker.remove();
+            }
+            userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
 

@@ -15,34 +15,7 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical" />
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--android:layout_marginTop="5dp">-->
-
-    <!--<ImageView-->
-    <!--android:id="@+id/sale_image_holder1"-->
-    <!--android:layout_width="100dp"-->
-    <!--android:layout_height="100dp"-->
-    <!--android:src="@drawable/image_holder"-->
-    <!--android:layout_marginRight="5dp"-->
-    <!--android:layout_marginEnd="5dp"/>-->
-    <!--<ImageView-->
-    <!--android:id="@+id/sale_image_holder2"-->
-    <!--android:layout_width="100dp"-->
-    <!--android:layout_height="100dp"-->
-    <!--android:src="@drawable/image_holder"-->
-    <!--android:layout_marginRight="5dp"-->
-    <!--android:layout_marginEnd="5dp"/>-->
-    <!--<ImageView-->
-    <!--android:id="@+id/sale_image_holder3"-->
-    <!--android:layout_width="100dp"-->
-    <!--android:layout_height="100dp"-->
-    <!--android:src="@drawable/image_holder" />-->
-
-    <!--</LinearLayout>-->
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -55,71 +28,67 @@
             android:id="@+id/sale_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/thirty"
-            android:layout_marginLeft="@dimen/thirty"
-            android:layout_marginRight="@dimen/thirty"
-            android:layout_marginStart="@dimen/thirty"
-            android:layout_marginTop="@dimen/ten"
+            android:layout_marginEnd="@dimen/ten"
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_marginRight="@dimen/ten"
+            android:layout_marginStart="@dimen/ten"
+            android:layout_marginTop="@dimen/five"
             android:gravity="start"
-            android:textStyle="italic"
             android:hint="@string/description"
-            android:textSize="@dimen/eighteen" />
+            android:textSize="@dimen/sixteen" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/address_prompt_text"
+                android:layout_below="@id/sale_desc"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/fifteen"
-                android:layout_marginEnd="@dimen/ten"
-                android:layout_marginRight="@dimen/ten"
+                android:layout_marginEnd="@dimen/five"
+                android:layout_marginRight="@dimen/five"
                 android:layout_marginTop="@dimen/fifteen"
-                android:gravity="center_horizontal"
                 android:text="@string/address_colon"
                 android:textSize="@dimen/eighteen"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/sale_address_text"
+                android:layout_below="@id/sale_desc"
+                android:layout_toEndOf="@id/address_prompt_text"
+                android:layout_toRightOf="@id/address_prompt_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/fifteen"
                 android:layout_marginTop="@dimen/fifteen"
-                android:gravity="center_horizontal"
                 android:text="@string/address"
-                android:textSize="@dimen/eighteen" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                android:textSize="@dimen/sixteen" />
 
             <TextView
+                android:id="@+id/day_prompt_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/ten"
-                android:layout_marginRight="@dimen/ten"
+                android:layout_marginEnd="@dimen/five"
+                android:layout_marginRight="@dimen/five"
+                android:layout_marginTop="@dimen/five"
                 android:text="@string/day_colon"
                 android:textSize="@dimen/eighteen"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_below="@id/address_prompt_text"/>
 
             <TextView
                 android:id="@+id/sale_DOW"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/fifteen"
+                android:layout_marginTop="@dimen/five"
                 android:gravity="start"
                 android:text="@string/day_of_week"
-                android:textSize="@dimen/eighteen" />
-        </LinearLayout>
+                android:textSize="@dimen/sixteen"
+                android:layout_below="@id/address_prompt_text"
+                android:layout_toRightOf="@id/day_prompt_text"
+                android:layout_toEndOf="@id/day_prompt_text"/>
 
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -143,9 +112,9 @@
 
             </RelativeLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
 

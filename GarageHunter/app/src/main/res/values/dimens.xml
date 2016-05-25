@@ -14,4 +14,5 @@
     <dimen name="two_hundred">200dp</dimen>
     <dimen name="forty_five">45dp</dimen>
     <dimen name="twenty">20dp</dimen>
+    <dimen name="sixteen">16sp</dimen>
 </resources>

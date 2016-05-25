@@ -7,7 +7,8 @@
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    tools:context=".Fragments.PostFragment">
+    tools:context=".Fragments.PostFragment"
+    android:clickable="false">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +35,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_description"
-            android:lines="4"
+            android:lines="5"
+            android:maxLines="5"
+            android:maxEms="5"
             android:maxHeight="@dimen/two_hundred" />
     </LinearLayout>
 
@@ -68,21 +71,13 @@
             android:layout_height="match_parent"
             android:gravity="end">
 
-            <Button
-                android:id="@+id/add_pic_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/accent_color"
-                android:text="@string/add_pictures"
-                android:textAllCaps="false" />
-
         </RelativeLayout>
 
     </LinearLayout>
     <!-- WILL BE REPLACED WITH MINI RECYCLERVIEW OR REGULAR SIZE
      IF REG SIZE THEN WE NEED A NESTEDSCROLLVIEW-->
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -94,21 +89,50 @@
             android:layout_height="100dp"
             android:src="@drawable/image_holder"
             android:layout_marginRight="5dp"
-            android:layout_marginEnd="5dp"/>
+            android:layout_marginEnd="5dp"
+            android:clickable="true" />
         <ImageView
             android:id="@+id/post_image_holder2"
+            android:layout_toEndOf="@id/post_image_holder1"
+            android:layout_toRightOf="@id/post_image_holder1"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/image_holder"
             android:layout_marginRight="5dp"
-            android:layout_marginEnd="5dp"/>
+            android:layout_marginEnd="5dp"
+            android:clickable="true" />
         <ImageView
             android:id="@+id/post_image_holder3"
+            android:layout_toRightOf="@id/post_image_holder2"
+            android:layout_toEndOf="@id/post_image_holder2"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/image_holder" />
+            android:src="@drawable/image_holder"
+            android:clickable="true" />
+        <ImageView
+            android:id="@+id/edit_icon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/edit_photo_icon"
+            android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/edit_icon2"
+            android:layout_toEndOf="@id/post_image_holder1"
+            android:layout_toRightOf="@id/post_image_holder1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/edit_photo_icon"
+            android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/edit_icon3"
+            android:layout_toEndOf="@id/post_image_holder2"
+            android:layout_toRightOf="@id/post_image_holder2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/edit_photo_icon"
+            android:visibility="invisible"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
