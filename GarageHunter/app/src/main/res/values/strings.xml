@@ -48,6 +48,7 @@
     <string name="clear">Clear</string>
     <string name="network_not_available">Network is Not available!</string>
     <string name="please_check_your_network">Please check your network connection!</string>
+    <string name="show_search">Show Search</string>
 </resources>
 
 

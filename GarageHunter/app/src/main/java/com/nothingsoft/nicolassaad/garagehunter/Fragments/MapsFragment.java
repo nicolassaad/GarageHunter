@@ -147,11 +147,11 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             public void onClick(View v) {
                 if (buttonCounter % 2 == 0) {
                     searchLayout.setVisibility(View.GONE);
-                    hideSearchButton.setText("Show Search");
+                    hideSearchButton.setText(R.string.show_search);
                     buttonCounter++;
                 } else {
                     searchLayout.setVisibility(View.VISIBLE);
-                    hideSearchButton.setText("Hide Search");
+                    hideSearchButton.setText(R.string.hide_search);
                     buttonCounter++;
                 }
             }
@@ -477,11 +477,13 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 }
             }
             progressBar.setProgress(0);
+            int markerCount = 0;
             while (iterator.hasNext()) {
                 GarageSale daySearch = iterator.next().getValue(GarageSale.class);
                 Log.d(TAG, daySearch.toString());
                 // Displays markers for all matching entries
                 mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
+                markerCount++;
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick(Marker marker) {
@@ -493,7 +495,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 });
             }
             progressBar.setVisibility(View.GONE);
-            Snackbar.make(getView(), "Results loaded", Snackbar.LENGTH_SHORT).show();
+            int resultsLoaded = markerCount;
+            Snackbar.make(getView(), resultsLoaded + " garage sale results loaded", Snackbar.LENGTH_SHORT).show();
         }
 
         @Override
