@@ -6,8 +6,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
@@ -34,6 +32,7 @@ public class SaleActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<String> imageList = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +40,7 @@ public class SaleActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button backButton = (Button) findViewById(R.id.sale_back_button);
+//        Button backButton = (Button) findViewById(R.id.sale_back_button);
         final TextView saleDOW = (TextView) findViewById(R.id.sale_DOW);
         final TextView saleAddress = (TextView) findViewById(R.id.sale_address_text);
         final TextView saleDesc = (TextView) findViewById(R.id.sale_desc);
@@ -99,12 +98,12 @@ public class SaleActivity extends AppCompatActivity {
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
 
     }
 

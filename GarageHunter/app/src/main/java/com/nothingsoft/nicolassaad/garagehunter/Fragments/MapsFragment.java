@@ -32,7 +32,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
@@ -90,11 +92,11 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     private Query query;
     private Firebase mFireBase;
-
     private String address;
-    private ProgressBar progressBar;
-    private Integer count = 1;
 
+    private ProgressBar progressBar;
+    private RelativeLayout progressLayout;
+    private TextView progressText;
 
     public MapsFragment() {
     }
@@ -111,7 +113,9 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
         searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
         clearButton = (Button) view.findViewById(R.id.clear_button);
+        progressLayout = (RelativeLayout) view.findViewById(R.id.progress_bar_layout);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        progressText = (TextView) view.findViewById(R.id.hunting_sales_text);
         progressBar.setMax(10);
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -179,8 +183,11 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                     Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
                     showNetworkNotAvailableNotification();
                 }
-                progressBar.setVisibility(View.VISIBLE);
-                progressBar.setProgress(0);
+                showProgressLayout();
+//                progressLayout.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.VISIBLE);
+//                progressText.setVisibility(View.VISIBLE);
+//                progressBar.setProgress(0);
                 query = mFireBase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
                 query.addListenerForSingleValueEvent(valueEventListener);
             }
@@ -301,6 +308,19 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             view = new View(activity);
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void hideProgressLayout() {
+        progressBar.setVisibility(View.GONE);
+        progressLayout.setVisibility(View.GONE);
+        progressText.setVisibility(View.GONE);
+    }
+
+    private void showProgressLayout() {
+        progressLayout.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+        progressText.setVisibility(View.VISIBLE);
+        progressBar.setProgress(0);
     }
 
     /**
@@ -494,9 +514,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                     }
                 });
             }
-            progressBar.setVisibility(View.GONE);
+            hideProgressLayout();
+//            progressBar.setVisibility(View.GONE);
+//            progressLayout.setVisibility(View.GONE);
+//            progressText.setVisibility(View.GONE);
             int resultsLoaded = markerCount;
-            Snackbar.make(getView(), resultsLoaded + " garage sale results loaded", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(getView(), resultsLoaded + getString(R.string.sales_found_nearby), Snackbar.LENGTH_SHORT).show();
         }
 
         @Override

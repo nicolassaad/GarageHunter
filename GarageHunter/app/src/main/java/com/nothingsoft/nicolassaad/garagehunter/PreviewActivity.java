@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -62,13 +60,13 @@ public class PreviewActivity extends AppCompatActivity {
 
         setInfo();
 
-        Button backButton = (Button) findViewById(R.id.preview_back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+//        Button backButton = (Button) findViewById(R.id.preview_back_button);
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
         setViews();
     }
 
@@ -93,21 +91,28 @@ public class PreviewActivity extends AppCompatActivity {
             dayOfWeek.setText(previewItems.get(3));
             URI uri1 = URI.create(previewItems.get(4));
             f = new File(uri1);
-            Picasso.with(this).load(f).centerCrop().resize(350, 400).into(image1);
+
+            Picasso.with(this).load(f).centerCrop().resize(400, 375).into(image1);
+
+
 //        Bitmap takenImage = BitmapFactory.decodeFile(uri1.getPath());
 //        image1.setImageBitmap(takenImage);
 //        imageList.add(previewItems.get(4));
 
             URI uri2 = URI.create(previewItems.get(5));
             f2 = new File(uri2);
-            Picasso.with(this).load(f2).centerCrop().resize(350, 400).into(image2);
+
+            Picasso.with(this).load(f2).centerCrop().resize(400, 375).into(image2);
+
 //        imageList.add(previewItems.get(5));
 //        Bitmap takenImage2 = BitmapFactory.decodeFile(uri2.getPath());
 //        image2.setImageBitmap(takenImage2);
 
             URI uri3 = URI.create(previewItems.get(6));
             f3 = new File(uri3);
-            Picasso.with(this).load(f3).centerCrop().resize(350, 400).into(image3);
+
+            Picasso.with(this).load(f3).centerCrop().resize(400, 375).into(image3);
+
 //        Bitmap takenImage3 = BitmapFactory.decodeFile(uri3.getPath());
 //        image3.setImageBitmap(takenImage3);
 //        imageList.add(previewItems.get(6));

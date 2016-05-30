@@ -6,6 +6,7 @@ package com.nothingsoft.nicolassaad.garagehunter.Fragments;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -41,6 +42,7 @@ import com.nothingsoft.nicolassaad.garagehunter.R;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -130,9 +132,9 @@ public class PostFragment extends Fragment {
 
                     if (checkForNulls() == 1) {
                         garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
-                            editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString(),
-                            imageFile1, imageFile2, imageFile3);
-                    mFireBaseRef.push().setValue(garageSale);
+                                editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString(),
+                                imageFile1, imageFile2, imageFile3);
+                        mFireBaseRef.push().setValue(garageSale);
 
                         Intent intent = new Intent(v.getContext(), MainActivity.class);
                         intent.putExtra(LAT_KEY, lat);
@@ -203,7 +205,7 @@ public class PostFragment extends Fragment {
         Bitmap bmp = Bitmap.createBitmap(bMapScaled); //image1
         ByteArrayOutputStream bYtE = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, 25, bYtE);
-        bmp.recycle();
+//        bmp.recycle();
         byte[] byteArray = bYtE.toByteArray();
         imageFile1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
@@ -212,7 +214,7 @@ public class PostFragment extends Fragment {
         Bitmap bmp2 = Bitmap.createBitmap(bMapScaled2); //image2
         ByteArrayOutputStream bYtE2 = new ByteArrayOutputStream();
         bmp2.compress(Bitmap.CompressFormat.JPEG, 25, bYtE2);
-        bmp2.recycle();
+//        bmp2.recycle();
         byte[] byteArray2 = bYtE2.toByteArray();
         imageFile2 = Base64.encodeToString(byteArray2, Base64.DEFAULT);
     }
@@ -221,7 +223,7 @@ public class PostFragment extends Fragment {
         Bitmap bmp3 = Bitmap.createBitmap(bMapScaled3); //image3
         ByteArrayOutputStream bYtE3 = new ByteArrayOutputStream();
         bmp3.compress(Bitmap.CompressFormat.JPEG, 25, bYtE3);
-        bmp3.recycle();
+//        bmp3.recycle();
         byte[] byteArray3 = bYtE3.toByteArray();
         imageFile3 = Base64.encodeToString(byteArray3, Base64.DEFAULT);
     }
@@ -343,22 +345,35 @@ public class PostFragment extends Fragment {
                 Log.d(TAG, counter + "photo.jpg is being processed");
                 if (counter == 0) {
                     takenPhoto1 = getPhotoFileUri(counter + photoFileName);
-                    // TODO: 5/26/16 scaling bitmap seems to be stretching it for some phones
-                    bMapScaled = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
-                    // Calling the rotateImage method
-                    bMapScaled = rotateImage(bMapScaled, takenPhoto1);
+                    try {
+                        bMapScaled = handleSamplingAndRotationBitmap(getContext(), takenPhoto1);
+                        bMapScaled = rotateImage(bMapScaled, takenPhoto1);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     image1.setImageBitmap(bMapScaled);
                     editIcon1.setVisibility(View.VISIBLE);
                 } else if (counter == 1) {
                     takenPhoto2 = getPhotoFileUri(counter + photoFileName);
-                    bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
-                    bMapScaled2 = rotateImage(bMapScaled2, takenPhoto2);
+                    try {
+                        bMapScaled2 = handleSamplingAndRotationBitmap(getContext(), takenPhoto2);
+                        bMapScaled2 = rotateImage(bMapScaled2, takenPhoto2);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     image2.setImageBitmap(bMapScaled2);
                     editIcon2.setVisibility(View.VISIBLE);
                 } else if (counter == 2) {
                     takenPhoto3 = getPhotoFileUri(counter + photoFileName);
-                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
-                    bMapScaled3 = rotateImage(bMapScaled3, takenPhoto3);
+                    try {
+                        bMapScaled3 = handleSamplingAndRotationBitmap(getContext(), takenPhoto3);
+                        bMapScaled3 = rotateImage(bMapScaled3, takenPhoto3);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+//                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
+//                    bMapScaled3 = rotateImage(bMapScaled3, takenPhoto3);
                     image3.setImageBitmap(bMapScaled3);
                     editIcon3.setVisibility(View.VISIBLE);
                 }
@@ -366,6 +381,87 @@ public class PostFragment extends Fragment {
                 Toast.makeText(getContext(), R.string.pic_wasnt_taken, Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    /**
+     * This method is responsible for solving the rotation issue if exist. Also scale the images to
+     * 1024x1024 resolution
+     *
+     * @param context       The current context
+     * @param selectedImage The Image URI
+     * @return Bitmap image results
+     * @throws IOException
+     */
+    public Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage)
+            throws IOException {
+        int MAX_HEIGHT = 1024;
+        int MAX_WIDTH = 1024;
+
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        InputStream imageStream = context.getContentResolver().openInputStream(selectedImage);
+        BitmapFactory.decodeStream(imageStream, null, options);
+        imageStream.close();
+
+        // Calculate inSampleSize
+        options.inSampleSize = calculateInSampleSize(options, MAX_WIDTH, MAX_HEIGHT);
+
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        imageStream = context.getContentResolver().openInputStream(selectedImage);
+        Bitmap img = BitmapFactory.decodeStream(imageStream, null, options);
+
+        return img;
+    }
+
+    /**
+     * Calculate an inSampleSize for use in a {@link BitmapFactory.Options} object when decoding
+     * bitmaps using the decode* methods from {@link BitmapFactory}. This implementation calculates
+     * the closest inSampleSize that will result in the final decoded bitmap having a width and
+     * height equal to or larger than the requested width and height. This implementation does not
+     * ensure a power of 2 is returned for inSampleSize which can be faster when decoding but
+     * results in a larger bitmap which isn't as useful for caching purposes.
+     *
+     * @param options   An options object with out* params already populated (run through a decode*
+     *                  method with inJustDecodeBounds==true
+     * @param reqWidth  The requested width of the resulting bitmap
+     * @param reqHeight The requested height of the resulting bitmap
+     * @return The value to be used for inSampleSize
+     */
+    private static int calculateInSampleSize(BitmapFactory.Options options,
+                                             int reqWidth, int reqHeight) {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+
+            // Calculate ratios of height and width to requested height and width
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+
+            // Choose the smallest ratio as inSampleSize value, this will guarantee a final image
+            // with both dimensions larger than or equal to the requested height and width.
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+
+            // This offers some additional logic in case the image has a strange
+            // aspect ratio. For example, a panorama may have a much larger
+            // width than height. In these cases the total pixels might still
+            // end up being too large to fit comfortably in memory, so we should
+            // be more aggressive with sample down the image (=larger inSampleSize).
+
+            final float totalPixels = width * height;
+
+            // Anything more than 2x the requested pixels we'll sample down further
+            final float totalReqPixelsCap = reqWidth * reqHeight * 2;
+
+            while (totalPixels / (inSampleSize * inSampleSize) > totalReqPixelsCap) {
+                inSampleSize++;
+            }
+        }
+        return inSampleSize;
     }
 
     /**
@@ -385,10 +481,15 @@ public class PostFragment extends Fragment {
             Matrix matrix = new Matrix();
             if (orientation == 6) {
                 matrix.postRotate(90);
+                bMapScaled = Bitmap.createScaledBitmap(bMapScaled, 586, 450, true);
             } else if (orientation == 3) {
                 matrix.postRotate(180);
+                bMapScaled = Bitmap.createScaledBitmap(bMapScaled, 586, 450, true);
             } else if (orientation == 8) {
                 matrix.postRotate(270);
+                bMapScaled = Bitmap.createScaledBitmap(bMapScaled, 586, 450, true);
+            } else {
+                bMapScaled = Bitmap.createScaledBitmap(bMapScaled, 450, 586, true);
             }
             bMapScaled = Bitmap.createBitmap(bMapScaled, 0, 0, bMapScaled.getWidth(), bMapScaled.getHeight(), matrix, true); // rotating bitmap
         } catch (Exception e) {
@@ -426,7 +527,7 @@ public class PostFragment extends Fragment {
 
     /**
      * This method will request the user for camera permission
-     * <p>
+     * <p/>
      * If a phone is running older OS then Android M, we simply return because
      * those phone are using the OLD permission model and permissions are granted at
      * INSTALL time.

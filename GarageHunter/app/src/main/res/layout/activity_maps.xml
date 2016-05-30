@@ -119,20 +119,48 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_margin="@dimen/fab_margin"
+            android:layout_margin="@dimen/five"
+            android:alpha=".75"
+            android:scaleX=".8"
+            android:scaleY=".8"
             android:background="@android:color/transparent"
             android:scaleType="center"
             android:src="@drawable/getuserlocbutt" />
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
+        <RelativeLayout
+            android:id="@+id/progress_bar_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:visibility="gone" />
+            android:background="@color/white_color"
+            android:padding="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/hunting_sales_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/five"
+                android:layout_marginRight="@dimen/five"
+                android:layout_marginTop="@dimen/ten"
+                android:gravity="center_horizontal"
+                android:text="@string/hunting_sales"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/eighteen" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toEndOf="@id/hunting_sales_text"
+                android:layout_toRightOf="@id/hunting_sales_text" />
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 

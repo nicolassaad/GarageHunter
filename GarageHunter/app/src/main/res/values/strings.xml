@@ -49,6 +49,8 @@
     <string name="network_not_available">Network is Not available!</string>
     <string name="please_check_your_network">Please check your network connection!</string>
     <string name="show_search">Show Search</string>
+    <string name="hunting_sales">Hunting sales…</string>
+    <string name="sales_found_nearby">" sales found nearby"</string>
 </resources>
 
 
