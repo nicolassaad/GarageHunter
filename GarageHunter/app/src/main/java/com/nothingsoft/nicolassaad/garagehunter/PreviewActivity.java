@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nothingsoft.nicolassaad.garagehunter.Fragments.PostFragment;
-import com.nothingsoft.nicolassaad.garagehunter.R;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -22,12 +21,18 @@ import java.util.ArrayList;
  * It grabs the data via an intent from the PostFragment and displays it.
  */
 public class PreviewActivity extends AppCompatActivity {
-    TextView descText;
-    TextView addressText;
-    TextView dayOfWeek;
-    ImageView image1;
-    ImageView image2;
-    ImageView image3;
+    private TextView descText;
+    private TextView addressText;
+    private TextView dayOfWeek;
+    private ImageView image1;
+    private ImageView image2;
+    private ImageView image3;
+    private ArrayList<String> previewItems;
+    private File f;
+    private File f2;
+    private File f3;
+
+
 //    private ImagesAdapter mAdapter;
 //    private RecyclerView recyclerView;
 //    private List<String> imageList = new ArrayList<>();
@@ -79,7 +84,7 @@ public class PreviewActivity extends AppCompatActivity {
         clearImages(image1);
         clearImages(image2);
         clearImages(image3);
-        final ArrayList<String> previewItems = getIntent().getStringArrayListExtra(PostFragment.PREVIEW_KEY);
+        previewItems = getIntent().getStringArrayListExtra(PostFragment.PREVIEW_KEY);
         for (int j = 0; j < previewItems.size(); j++) {
             Log.d(TAG, previewItems.get(j));
             setTitle(previewItems.get(0));
@@ -87,21 +92,21 @@ public class PreviewActivity extends AppCompatActivity {
             addressText.setText(previewItems.get(2));
             dayOfWeek.setText(previewItems.get(3));
             URI uri1 = URI.create(previewItems.get(4));
-            File f = new File(uri1);
+            f = new File(uri1);
             Picasso.with(this).load(f).centerCrop().resize(350, 400).into(image1);
 //        Bitmap takenImage = BitmapFactory.decodeFile(uri1.getPath());
 //        image1.setImageBitmap(takenImage);
 //        imageList.add(previewItems.get(4));
 
             URI uri2 = URI.create(previewItems.get(5));
-            File f2 = new File(uri2);
+            f2 = new File(uri2);
             Picasso.with(this).load(f2).centerCrop().resize(350, 400).into(image2);
 //        imageList.add(previewItems.get(5));
 //        Bitmap takenImage2 = BitmapFactory.decodeFile(uri2.getPath());
 //        image2.setImageBitmap(takenImage2);
 
             URI uri3 = URI.create(previewItems.get(6));
-            File f3 = new File(uri3);
+            f3 = new File(uri3);
             Picasso.with(this).load(f3).centerCrop().resize(350, 400).into(image3);
 //        Bitmap takenImage3 = BitmapFactory.decodeFile(uri3.getPath());
 //        image3.setImageBitmap(takenImage3);
@@ -121,11 +126,13 @@ public class PreviewActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setInfo();
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        f.deleteOnExit();
+        f2.deleteOnExit();
+        f3.deleteOnExit();
     }
 }

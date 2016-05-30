@@ -15,4 +15,6 @@
     <dimen name="forty_five">45dp</dimen>
     <dimen name="twenty">20dp</dimen>
     <dimen name="sixteen">16sp</dimen>
+    <dimen name="skinny_button_height35">35dp</dimen>
+    <dimen name="three">3dp</dimen>
 </resources>

@@ -58,8 +58,6 @@ public class PostFragment extends Fragment {
     private ImageView editIcon1;
     private ImageView editIcon2;
     private ImageView editIcon3;
-    private Uri takenPhotoUri;
-    private Bitmap takenImage;
     private Uri takenPhoto1;
     private Uri takenPhoto2;
     private Uri takenPhoto3;
@@ -71,17 +69,19 @@ public class PostFragment extends Fragment {
     public static final String LNG_KEY = "LonKey";
     public static final String TITLE_KEY = "TitleKey";
 
-    GarageSale garageSale;
+    private GarageSale garageSale;
 
     private String title;
     private String desc;
     private String address;
     private String dayOfWeek;
 
-    ArrayList<String> previewItems;
+    private ArrayList<String> previewItems;
 
-    Firebase mFireBaseRef;
-    int counter;
+    private Firebase mFireBaseRef;
+    private int counter;
+
+    private File mediaStorageDir;
 
     public final String APP_TAG = "MyCustomApp";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
@@ -93,6 +93,7 @@ public class PostFragment extends Fragment {
     private String imageFile2;
     private String imageFile3;
     int hasPermission;
+    private Intent toPreviewIntent;
 
     public PostFragment() {
     }
@@ -101,7 +102,6 @@ public class PostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
         setViews(view);
-        Log.d(TAG, "FRAGMENT IS CREATED");
         mFireBaseRef = new Firebase(getString(R.string.firebase_address));
 
         setImageClickListeners(image1, 0);
@@ -119,20 +119,21 @@ public class PostFragment extends Fragment {
                     List<Address> addresses = geocoder.getFromLocationName(address, 1);
                     checkForNulls();
                     if (checkForNulls() == 1) {
-                        Log.d("PostFragment", addresses.get(0).getLatitude() + "");
-                        Log.d("PostFragment", addresses.get(0).getLongitude() + "");
+                        Log.d(TAG, addresses.get(0).getLatitude() + "");
+                        Log.d(TAG, addresses.get(0).getLongitude() + "");
                         lat = addresses.get(0).getLatitude();
                         lng = addresses.get(0).getLongitude();
                         picsToString();
                         picsToString2();
                         picsToString3();
                     }
-                    garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
+
+                    if (checkForNulls() == 1) {
+                        garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
                             editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString(),
                             imageFile1, imageFile2, imageFile3);
                     mFireBaseRef.push().setValue(garageSale);
 
-                    if (checkForNulls() == 1) {
                         Intent intent = new Intent(v.getContext(), MainActivity.class);
                         intent.putExtra(LAT_KEY, lat);
                         intent.putExtra(LNG_KEY, lng);
@@ -154,7 +155,7 @@ public class PostFragment extends Fragment {
             public void onClick(View v) {
                 settingPreviewIntent();
                 if (checkForNulls() == 1) {
-                    Intent toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
+                    toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
                     toPreviewIntent.putStringArrayListExtra(PREVIEW_KEY, previewItems);
                     startActivity(toPreviewIntent);
                 }
@@ -185,8 +186,7 @@ public class PostFragment extends Fragment {
                 hasPermission = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA);
                 if (hasPermission == PackageManager.PERMISSION_GRANTED) {
                     counter = position;
-                    Log.d("PostFragment", counter + "");
-
+                    Log.d(TAG, counter + "photo.jpg is being taken");
                     onLaunchCamera(v);
                 }
 
@@ -202,7 +202,7 @@ public class PostFragment extends Fragment {
     private void picsToString() {
         Bitmap bmp = Bitmap.createBitmap(bMapScaled); //image1
         ByteArrayOutputStream bYtE = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 20, bYtE);
+        bmp.compress(Bitmap.CompressFormat.JPEG, 25, bYtE);
         bmp.recycle();
         byte[] byteArray = bYtE.toByteArray();
         imageFile1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
@@ -211,7 +211,7 @@ public class PostFragment extends Fragment {
     private void picsToString2() {
         Bitmap bmp2 = Bitmap.createBitmap(bMapScaled2); //image2
         ByteArrayOutputStream bYtE2 = new ByteArrayOutputStream();
-        bmp2.compress(Bitmap.CompressFormat.JPEG, 20, bYtE2);
+        bmp2.compress(Bitmap.CompressFormat.JPEG, 25, bYtE2);
         bmp2.recycle();
         byte[] byteArray2 = bYtE2.toByteArray();
         imageFile2 = Base64.encodeToString(byteArray2, Base64.DEFAULT);
@@ -220,7 +220,7 @@ public class PostFragment extends Fragment {
     private void picsToString3() {
         Bitmap bmp3 = Bitmap.createBitmap(bMapScaled3); //image3
         ByteArrayOutputStream bYtE3 = new ByteArrayOutputStream();
-        bmp3.compress(Bitmap.CompressFormat.JPEG, 20, bYtE3);
+        bmp3.compress(Bitmap.CompressFormat.JPEG, 25, bYtE3);
         bmp3.recycle();
         byte[] byteArray3 = bYtE3.toByteArray();
         imageFile3 = Base64.encodeToString(byteArray3, Base64.DEFAULT);
@@ -242,6 +242,14 @@ public class PostFragment extends Fragment {
         previewItems.add(1, desc);
         previewItems.add(2, address);
         previewItems.add(3, dayOfWeek);
+        if (takenPhoto1 == null || takenPhoto2 == null || takenPhoto3 == null) {
+            //User is asked to enter three pictures
+            Toast.makeText(getContext(), R.string.please_add_pics, Toast.LENGTH_SHORT).show();
+        } else {
+            previewItems.add(4, takenPhoto1.toString());
+            previewItems.add(5, takenPhoto2.toString());
+            previewItems.add(6, takenPhoto3.toString());
+        }
 
         checkForNulls();
     }
@@ -272,10 +280,6 @@ public class PostFragment extends Fragment {
             //User is asked to enter three pictures
             Toast.makeText(getContext(), R.string.please_add_pics, Toast.LENGTH_SHORT).show();
             return -1;
-        } else {
-            previewItems.add(4, takenPhoto1.toString());
-            previewItems.add(5, takenPhoto2.toString());
-            previewItems.add(6, takenPhoto3.toString());
         }
         return 1;
     }
@@ -315,7 +319,6 @@ public class PostFragment extends Fragment {
         // So as long as the result is not null, it's safe to use the intent.
         if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
             // Start the image capture intent to take photo
-//            requestUserForPermission();
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
     }
@@ -332,15 +335,15 @@ public class PostFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == getActivity().RESULT_OK) {
-                takenPhotoUri = getPhotoFileUri(counter + photoFileName);
-                Log.d("PostFragment", takenPhotoUri.toString());
+                Uri takenPhotoUri = getPhotoFileUri(counter + photoFileName);
+                Log.d(TAG, takenPhotoUri.toString());
                 // by this point we have the camera photo on disk
-                takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+                Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
                 // Load the taken image into a preview
-                Log.d("PostFragment", counter + "");
+                Log.d(TAG, counter + "photo.jpg is being processed");
                 if (counter == 0) {
                     takenPhoto1 = getPhotoFileUri(counter + photoFileName);
-//                    image1 = (ImageView) getActivity().findViewById(R.id.post_image_holder1);
+                    // TODO: 5/26/16 scaling bitmap seems to be stretching it for some phones
                     bMapScaled = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
                     // Calling the rotateImage method
                     bMapScaled = rotateImage(bMapScaled, takenPhoto1);
@@ -348,14 +351,12 @@ public class PostFragment extends Fragment {
                     editIcon1.setVisibility(View.VISIBLE);
                 } else if (counter == 1) {
                     takenPhoto2 = getPhotoFileUri(counter + photoFileName);
-//                    image2 = (ImageView) getActivity().findViewById(R.id.post_image_holder2);
                     bMapScaled2 = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
                     bMapScaled2 = rotateImage(bMapScaled2, takenPhoto2);
                     image2.setImageBitmap(bMapScaled2);
                     editIcon2.setVisibility(View.VISIBLE);
                 } else if (counter == 2) {
                     takenPhoto3 = getPhotoFileUri(counter + photoFileName);
-//                    image3 = (ImageView) getActivity().findViewById(R.id.post_image_holder3);
                     bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
                     bMapScaled3 = rotateImage(bMapScaled3, takenPhoto3);
                     image3.setImageBitmap(bMapScaled3);
@@ -403,7 +404,7 @@ public class PostFragment extends Fragment {
             // Get safe storage directory for photos
             // Use `getExternalFilesDir` on Context to access package-specific directories.
             // This way, we don't need to request external read/write runtime permissions.
-            File mediaStorageDir = new File(
+            mediaStorageDir = new File(
                     getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
 
             // Create the storage directory if it does not exist

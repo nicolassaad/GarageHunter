@@ -56,7 +56,7 @@ public class SaleActivity extends AppCompatActivity {
         String saleTitle = getIntent().getStringExtra(MapsFragment.SALE_KEY1);
         setTitle(saleTitle);
 
-        mFirebase = new Firebase("https://garagesalehunter.firebaseio.com/");
+        mFirebase = new Firebase(getString(R.string.firebase_address));
 
         query = mFirebase.orderByChild("title").equalTo(saleTitle);
         query.addListenerForSingleValueEvent(new ValueEventListener() {

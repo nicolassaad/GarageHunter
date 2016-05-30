@@ -25,18 +25,15 @@
         <ImageView
             android:id="@+id/preview_image_holder1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_holder" />
+            android:layout_height="wrap_content"/>
         <ImageView
             android:id="@+id/preview_image_holder2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_holder" />
+            android:layout_height="wrap_content" />
         <ImageView
             android:id="@+id/preview_image_holder3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_holder" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 <LinearLayout

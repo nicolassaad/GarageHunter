@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -30,6 +31,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -51,11 +53,11 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.nothingsoft.nicolassaad.garagehunter.MainActivity;
-import com.nothingsoft.nicolassaad.garagehunter.SaleActivity;
 import com.nothingsoft.nicolassaad.garagehunter.CheckInternetConnection;
+import com.nothingsoft.nicolassaad.garagehunter.MainActivity;
 import com.nothingsoft.nicolassaad.garagehunter.Models.GarageSale;
 import com.nothingsoft.nicolassaad.garagehunter.R;
+import com.nothingsoft.nicolassaad.garagehunter.SaleActivity;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -90,6 +92,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private Firebase mFireBase;
 
     private String address;
+    private ProgressBar progressBar;
+    private Integer count = 1;
 
 
     public MapsFragment() {
@@ -107,6 +111,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
         searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
         clearButton = (Button) view.findViewById(R.id.clear_button);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        progressBar.setMax(10);
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,7 +136,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
                         handleNewLocation(location);
                     } else {
-                        Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
                         handleNewLocation(location);
                     }
                 }
@@ -161,7 +167,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         settingLocationRequest();
         settingGoogleApiClient();
 
-        mFireBase = new Firebase("https://garagesalehunter.firebaseio.com/");
+        mFireBase = new Firebase(getString(R.string.firebase_address));
 
         searchButton.setOnClickListener(searchListeners);
 // TODO: 5/13/16 MOVE INTO ITS OWN METHOD
@@ -170,9 +176,11 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (CheckInternetConnection.isOnline(getContext())) {
                 } else {
-                    Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
                     showNetworkNotAvailableNotification();
                 }
+                progressBar.setVisibility(View.VISIBLE);
+                progressBar.setProgress(0);
                 query = mFireBase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
                 query.addListenerForSingleValueEvent(valueEventListener);
             }
@@ -190,7 +198,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         try {
             List<Address> addresses = geocoder.getFromLocationName(address, 1);
             if (addresses.size() == 0) {
-                Toast.makeText(getContext(), "Please enter a valid address", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.enter_valid_address, Toast.LENGTH_LONG).show();
             } else {
                 addUserPosition(addresses);
             }
@@ -203,8 +211,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private void addUserPosition(List<Address> addresses) {
         double lat = 0.0, lng = 0.0;
 
-        Log.d("PostFragment", addresses.get(0).getLatitude() + "");
-        Log.d("PostFragment", addresses.get(0).getLongitude() + "");
+        Log.d(TAG, addresses.get(0).getLatitude() + "");
+        Log.d(TAG, addresses.get(0).getLongitude() + "");
         lat = addresses.get(0).getLatitude();
         lng = addresses.get(0).getLongitude();
 
@@ -236,8 +244,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getContext());
         mBuilder.setStyle(bigPictureStyle.bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.ihatethisapp)));
         mBuilder.setSmallIcon(R.drawable.icon);
-        mBuilder.setContentText("Network is Not available!");
-        mBuilder.setContentTitle("Please check your network connection!");
+        mBuilder.setContentText(getString(R.string.network_not_available));
+        mBuilder.setContentTitle(getString(R.string.please_check_your_network));
         mBuilder.setContentIntent(pIntent);
         mBuilder.setPriority(Notification.PRIORITY_MAX);
         mBuilder.setStyle(bigPictureStyle);
@@ -321,7 +329,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private void handleNewLocation(Location location) {
 
         Log.d(TAG, location.toString());
-        Log.d("MainActivity", "Handling new location");
+        Log.d(TAG, "Handling new location");
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
 
@@ -329,8 +337,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
         if (mMap != null) {
-//            mMap.clear();
-//            mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
             if (userMarker != null) {
                 userMarker.remove();
             }
@@ -346,7 +352,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     }
 
-    // TODO: 5/19/16 THIS METHOD MIGHT BE USELESS
     /**
      * This searchForLocation is designed for when the user is searching a specific location.
      * While the user is querying a specific place, this searchForLocation runs which
@@ -357,20 +362,16 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
      */
     private void handleNewLocNoCamAnim(Location location) {
         Log.d(TAG, location.toString());
-        Log.d("MainActivity", "Handling new location");
+        Log.d(TAG, "Handling new location");
 
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
-
-        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
         if (mMap != null) {
             mMap.clear();
             mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).icon(BitmapDescriptorFactory.fromResource(R.drawable.user_marker)));
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         } else {
             Log.d(TAG, "Map is null");
@@ -443,7 +444,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 // do your search
                 searchForLocation();
             } else {
-                Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
                 showNetworkNotAvailableNotification();
             }
         }
@@ -475,9 +476,10 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                     handleNewLocNoCamAnim(location);
                 }
             }
+            progressBar.setProgress(0);
             while (iterator.hasNext()) {
                 GarageSale daySearch = iterator.next().getValue(GarageSale.class);
-                Log.d("MapsFragment", daySearch.toString());
+                Log.d(TAG, daySearch.toString());
                 // Displays markers for all matching entries
                 mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -490,10 +492,15 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                     }
                 });
             }
+            progressBar.setVisibility(View.GONE);
+            Snackbar.make(getView(), "Results loaded", Snackbar.LENGTH_SHORT).show();
         }
 
         @Override
         public void onCancelled(FirebaseError firebaseError) {
+
         }
     };
+
+
 }
