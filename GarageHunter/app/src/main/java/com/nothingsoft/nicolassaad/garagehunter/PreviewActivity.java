@@ -121,7 +121,7 @@ public class PreviewActivity extends AppCompatActivity {
     }
 
     private void clearImages(ImageView image) {
-        image.setBackground(getResources().getDrawable(R.drawable.image_holder));
+        image.setBackground(null);
     }
 
     private void setViews() {

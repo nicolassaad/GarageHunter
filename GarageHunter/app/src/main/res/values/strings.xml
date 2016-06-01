@@ -51,6 +51,7 @@
     <string name="show_search">Show Search</string>
     <string name="hunting_sales">Hunting sales…</string>
     <string name="sales_found_nearby">" sales found nearby"</string>
+    <string name="loading_progress_text">Loading page…</string>
 </resources>
 
 

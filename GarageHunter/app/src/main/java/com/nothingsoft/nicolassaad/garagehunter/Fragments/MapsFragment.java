@@ -178,16 +178,13 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 if (CheckInternetConnection.isOnline(getContext())) {
                 } else {
                     Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
                     showNetworkNotAvailableNotification();
                 }
                 showProgressLayout();
-//                progressLayout.setVisibility(View.VISIBLE);
-//                progressBar.setVisibility(View.VISIBLE);
-//                progressText.setVisibility(View.VISIBLE);
-//                progressBar.setProgress(0);
                 query = mFireBase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
                 query.addListenerForSingleValueEvent(valueEventListener);
             }
@@ -283,6 +280,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         super.onResume();
         setUpMapIfNeeded();
         mGoogleApiClient.connect();
+
     }
 
     @Override
@@ -311,13 +309,18 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     }
 
     private void hideProgressLayout() {
-        progressBar.setVisibility(View.GONE);
-        progressLayout.setVisibility(View.GONE);
-        progressText.setVisibility(View.GONE);
+        progressLayout.animate().translationXBy(progressLayout.getWidth() + 15).alpha(0.0f).setDuration(500);
+
+//        progressLayout.setVisibility(View.GONE);
+//        progressBar.setVisibility(View.GONE);
+//        progressLayout.setVisibility(View.GONE);
+//        progressText.setVisibility(View.GONE);
+
     }
 
     private void showProgressLayout() {
         progressLayout.setVisibility(View.VISIBLE);
+        progressLayout.animate().translationX(-progressLayout.getWidth() - 15).alpha(1.0f).setDuration(900);
         progressBar.setVisibility(View.VISIBLE);
         progressText.setVisibility(View.VISIBLE);
         progressBar.setProgress(0);
@@ -515,11 +518,8 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 });
             }
             hideProgressLayout();
-//            progressBar.setVisibility(View.GONE);
-//            progressLayout.setVisibility(View.GONE);
-//            progressText.setVisibility(View.GONE);
             int resultsLoaded = markerCount;
-            Snackbar.make(getView(), resultsLoaded + getString(R.string.sales_found_nearby), Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(getView(), resultsLoaded + getString(R.string.sales_found_nearby) + " for " + searchByDay.getSelectedItem().toString(), Snackbar.LENGTH_SHORT).show();
         }
 
         @Override
@@ -528,5 +528,20 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     };
 
+    public class RelativeView extends RelativeLayout {
+
+        public RelativeView(Context context) {
+            super(context);
+        }
+
+        @Override
+        public void onAnimationEnd() {
+            super.onAnimationEnd();
+            progressLayout.setVisibility(GONE);
+
+        }
+    }
 
 }
+
+

@@ -6,6 +6,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
@@ -31,6 +34,9 @@ public class SaleActivity extends AppCompatActivity {
     private ImagesAdapter mAdapter;
     private RecyclerView recyclerView;
     private List<String> imageList = new ArrayList<>();
+    private RelativeLayout progressLayout;
+    private ProgressBar progressBar;
+    private TextView progressText;
 
 
     @Override
@@ -44,7 +50,10 @@ public class SaleActivity extends AppCompatActivity {
         final TextView saleDOW = (TextView) findViewById(R.id.sale_DOW);
         final TextView saleAddress = (TextView) findViewById(R.id.sale_address_text);
         final TextView saleDesc = (TextView) findViewById(R.id.sale_desc);
-
+        progressLayout = (RelativeLayout) findViewById(R.id.progress_bar_layout);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        progressText = (TextView) findViewById(R.id.hunting_sales_text);
+        progressBar.setMax(10);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mAdapter = new ImagesAdapter(imageList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -52,6 +61,7 @@ public class SaleActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
+        showProgressLayout();
         String saleTitle = getIntent().getStringExtra(MapsFragment.SALE_KEY1);
         setTitle(saleTitle);
 
@@ -90,6 +100,7 @@ public class SaleActivity extends AppCompatActivity {
                 imageList.add(pic2);
                 imageList.add(pic3);
                 mAdapter.notifyDataSetChanged();
+                hideProgressLayout();
             }
 
             @Override
@@ -105,6 +116,24 @@ public class SaleActivity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    private void hideProgressLayout() {
+
+        progressLayout.animate().translationXBy(progressLayout.getWidth() + 15).setDuration(900);
+//        progressBar.setVisibility(View.GONE);
+//        progressLayout.setVisibility(View.GONE);
+//        progressText.setVisibility(View.GONE);
+    }
+
+    private void showProgressLayout() {
+
+        progressLayout.setVisibility(View.VISIBLE);
+
+        progressLayout.animate().translationX(-progressLayout.getWidth() - 15).setDuration(1250);
+        progressBar.setVisibility(View.VISIBLE);
+        progressText.setVisibility(View.VISIBLE);
+        progressBar.setProgress(0);
     }
 
 }
