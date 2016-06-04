@@ -26,9 +26,6 @@ public class PreviewActivity extends AppCompatActivity {
     private ImageView image2;
     private ImageView image3;
     private ArrayList<String> previewItems;
-    private File f;
-    private File f2;
-    private File f3;
 
 
 //    private ImagesAdapter mAdapter;
@@ -43,31 +40,15 @@ public class PreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_preview);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 //        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 //        mAdapter = new ImagesAdapter(imageList);
 //        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
 //        recyclerView.setLayoutManager(mLayoutManager);
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
 //        recyclerView.setAdapter(mAdapter);
-
-        descText = (TextView) findViewById(R.id.preview_desc_text);
-        addressText = (TextView) findViewById(R.id.preview_address);
-        dayOfWeek = (TextView) findViewById(R.id.preview_DOW);
-        image1 = (ImageView) findViewById(R.id.preview_image_holder1);
-        image2 = (ImageView) findViewById(R.id.preview_image_holder2);
-        image3 = (ImageView) findViewById(R.id.preview_image_holder3);
-
-        setInfo();
-
-//        Button backButton = (Button) findViewById(R.id.preview_back_button);
-//        backButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
         setViews();
+        setInfo();
+        clearApplicationData();
     }
 
     /**
@@ -89,27 +70,26 @@ public class PreviewActivity extends AppCompatActivity {
             descText.setText(previewItems.get(1));
             addressText.setText(previewItems.get(2));
             dayOfWeek.setText(previewItems.get(3));
+
             URI uri1 = URI.create(previewItems.get(4));
-            f = new File(uri1);
+            File f = new File(uri1);
 
             Picasso.with(this).load(f).centerCrop().resize(400, 375).into(image1);
-
 
 //        Bitmap takenImage = BitmapFactory.decodeFile(uri1.getPath());
 //        image1.setImageBitmap(takenImage);
 //        imageList.add(previewItems.get(4));
 
             URI uri2 = URI.create(previewItems.get(5));
-            f2 = new File(uri2);
+            File f2 = new File(uri2);
 
             Picasso.with(this).load(f2).centerCrop().resize(400, 375).into(image2);
-
 //        imageList.add(previewItems.get(5));
 //        Bitmap takenImage2 = BitmapFactory.decodeFile(uri2.getPath());
 //        image2.setImageBitmap(takenImage2);
 
             URI uri3 = URI.create(previewItems.get(6));
-            f3 = new File(uri3);
+            File f3 = new File(uri3);
 
             Picasso.with(this).load(f3).centerCrop().resize(400, 375).into(image3);
 
@@ -125,7 +105,12 @@ public class PreviewActivity extends AppCompatActivity {
     }
 
     private void setViews() {
-
+        descText = (TextView) findViewById(R.id.preview_desc_text);
+        addressText = (TextView) findViewById(R.id.preview_address);
+        dayOfWeek = (TextView) findViewById(R.id.preview_DOW);
+        image1 = (ImageView) findViewById(R.id.preview_image_holder1);
+        image2 = (ImageView) findViewById(R.id.preview_image_holder2);
+        image3 = (ImageView) findViewById(R.id.preview_image_holder3);
     }
 
     @Override
@@ -136,8 +121,32 @@ public class PreviewActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        f.deleteOnExit();
-        f2.deleteOnExit();
-        f3.deleteOnExit();
+    }
+    public void clearApplicationData()
+    {
+        File cache = getCacheDir();
+        File appDir = new File(cache.getParent());
+        if (appDir.exists()) {
+            String[] children = appDir.list();
+            for (String s : children) {
+                if (!s.equals("lib")) {
+                    deleteDir(new File(appDir, s));Log.i("TAG", "**************** File /data/data/APP_PACKAGE/" + s + " DELETED *******************");
+                }
+            }
+        }
+    }
+
+    public static boolean deleteDir(File dir)
+    {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
     }
 }

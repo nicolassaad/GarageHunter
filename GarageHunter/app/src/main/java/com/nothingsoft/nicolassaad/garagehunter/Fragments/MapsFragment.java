@@ -78,25 +78,23 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private EditText searchLocEdit;
     public static LinearLayout searchLayout;
     private Spinner searchByDay;
-
     private int buttonCounter;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     public static final int NOTIFICATION_NOT_AVAILABLE = 2;
     public final static String SALE_KEY1 = "Title";
-
     private LocationRequest mLocationRequest;
     private GoogleMap mMap;
     private Marker userMarker;
     private GoogleApiClient mGoogleApiClient;
     private SupportMapFragment fragment;
-
     private Query query;
+    private Query query2;
     private Firebase mFireBase;
     private String address;
-
     private ProgressBar progressBar;
     private RelativeLayout progressLayout;
     private TextView progressText;
+    private Button searchButton;
 
     public MapsFragment() {
     }
@@ -107,21 +105,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.activity_maps, container, false);
-        Button searchButton = (Button) view.findViewById(R.id.search_button);
-        searchLayout = (LinearLayout) view.findViewById(R.id.search_layout);
-        hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
-        searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
-        searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
-        clearButton = (Button) view.findViewById(R.id.clear_button);
-        progressLayout = (RelativeLayout) view.findViewById(R.id.progress_bar_layout);
-        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
-        progressText = (TextView) view.findViewById(R.id.hunting_sales_text);
-        progressBar.setMax(10);
+        setViews(view);
+
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                mMap.clear();
                 if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
@@ -170,6 +159,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         settingLocationRequest();
         settingGoogleApiClient();
+//        setRemovableET(searchLocEdit, clearButton);
 
         mFireBase = new Firebase(getString(R.string.firebase_address));
 
@@ -179,14 +169,18 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if (CheckInternetConnection.isOnline(getContext())) {
-                } else {
+                if (!CheckInternetConnection.isOnline(getContext())) {
                     Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
                     showNetworkNotAvailableNotification();
                 }
                 showProgressLayout();
                 query = mFireBase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
-                query.addListenerForSingleValueEvent(valueEventListener);
+                if (searchByDay.getSelectedItem().equals(getString(R.string.all_sales))) {
+                    query2 = mFireBase.orderByChild("title").getRef();
+                    query2.addListenerForSingleValueEvent(valueEventListener);
+                } else {
+                    query.addListenerForSingleValueEvent(valueEventListener);
+                }
             }
 
             @Override
@@ -195,6 +189,33 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         });
         return view;
     }
+
+    private void setViews(View view) {
+        searchButton = (Button) view.findViewById(R.id.search_button);
+        searchLayout = (LinearLayout) view.findViewById(R.id.search_layout);
+        hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
+        searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
+        searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
+        clearButton = (Button) view.findViewById(R.id.clear_button);
+        progressLayout = (RelativeLayout) view.findViewById(R.id.progress_bar_layout);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        progressText = (TextView) view.findViewById(R.id.hunting_sales_text);
+        progressBar.setMax(10);
+    }
+
+    private void setRemovableET(final EditText et, final Button resetIB) {
+
+        et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus && et.getText().toString().length() > 0)
+                    resetIB.setVisibility(View.VISIBLE);
+                else
+                    resetIB.setVisibility(View.INVISIBLE);
+            }
+        });
+    }
+
 
     private void searchForLocation() {
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
@@ -206,7 +227,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             } else {
                 addUserPosition(addresses);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -219,14 +239,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         Log.d(TAG, addresses.get(0).getLongitude() + "");
         lat = addresses.get(0).getLatitude();
         lng = addresses.get(0).getLongitude();
-
         double currentLatitude = lat;
         double currentLongitude = lng;
-
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
         if (mMap != null) {
             hideKeyboard(getActivity());
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12.0f).build();
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         } else {
             Log.d(TAG, "Map is null");
@@ -309,8 +327,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     }
 
     private void hideProgressLayout() {
-        progressLayout.animate().translationXBy(progressLayout.getWidth() + 15).alpha(0.0f).setDuration(500);
-
+        progressLayout.animate().translationXBy(progressLayout.getWidth() + 15).setDuration(500);
 //        progressLayout.setVisibility(View.GONE);
 //        progressBar.setVisibility(View.GONE);
 //        progressLayout.setVisibility(View.GONE);

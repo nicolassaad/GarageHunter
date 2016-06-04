@@ -83,8 +83,6 @@ public class PostFragment extends Fragment {
     private Firebase mFireBaseRef;
     private int counter;
 
-    private File mediaStorageDir;
-
     public final String APP_TAG = "MyCustomApp";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     private static final String CAMERA_PERMISSION = Manifest.permission.CAMERA;
@@ -95,7 +93,7 @@ public class PostFragment extends Fragment {
     private String imageFile2;
     private String imageFile3;
     int hasPermission;
-    private Intent toPreviewIntent;
+//    private Intent toPreviewIntent;
 
     public PostFragment() {
     }
@@ -157,7 +155,7 @@ public class PostFragment extends Fragment {
             public void onClick(View v) {
                 settingPreviewIntent();
                 if (checkForNulls() == 1) {
-                    toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
+                    Intent toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
                     toPreviewIntent.putStringArrayListExtra(PREVIEW_KEY, previewItems);
                     startActivity(toPreviewIntent);
                 }
@@ -248,6 +246,7 @@ public class PostFragment extends Fragment {
             //User is asked to enter three pictures
             Toast.makeText(getContext(), R.string.please_add_pics, Toast.LENGTH_SHORT).show();
         } else {
+
             previewItems.add(4, takenPhoto1.toString());
             previewItems.add(5, takenPhoto2.toString());
             previewItems.add(6, takenPhoto3.toString());
@@ -348,6 +347,7 @@ public class PostFragment extends Fragment {
                     try {
                         bMapScaled = handleSamplingAndRotationBitmap(getContext(), takenPhoto1);
                         bMapScaled = rotateImage(bMapScaled, takenPhoto1);
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -361,7 +361,6 @@ public class PostFragment extends Fragment {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                     image2.setImageBitmap(bMapScaled2);
                     editIcon2.setVisibility(View.VISIBLE);
                 } else if (counter == 2) {
@@ -372,8 +371,6 @@ public class PostFragment extends Fragment {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-//                    bMapScaled3 = Bitmap.createScaledBitmap(takenImage, 450, 586, true);
-//                    bMapScaled3 = rotateImage(bMapScaled3, takenPhoto3);
                     image3.setImageBitmap(bMapScaled3);
                     editIcon3.setVisibility(View.VISIBLE);
                 }
@@ -381,6 +378,7 @@ public class PostFragment extends Fragment {
                 Toast.makeText(getContext(), R.string.pic_wasnt_taken, Toast.LENGTH_SHORT).show();
             }
         }
+
     }
 
     /**
@@ -505,7 +503,7 @@ public class PostFragment extends Fragment {
             // Get safe storage directory for photos
             // Use `getExternalFilesDir` on Context to access package-specific directories.
             // This way, we don't need to request external read/write runtime permissions.
-            mediaStorageDir = new File(
+            File mediaStorageDir = new File(
                     getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
 
             // Create the storage directory if it does not exist

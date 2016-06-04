@@ -2,11 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:elevation="0dp">
 
     <!-- This layout will be hidden when hide search is tapped-->
     <LinearLayout
         android:id="@+id/search_layout"
+        android:background="@color/accent_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -29,7 +31,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/five"
+            android:layout_marginTop="@dimen/ten"
+            android:layout_marginBottom="@dimen/five"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/fifteen"
             android:paddingRight="@dimen/fifteen">
@@ -41,45 +44,81 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/search_by_location"
                 android:maxLines="1"
+                android:padding="@dimen/three"
+                android:background="@android:color/white"
                 android:singleLine="true" />
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="@dimen/skinny_button_height35"
+                android:layout_height="@dimen/skinny_button_height35"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@android:drawable/ic_menu_search"/>
+
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="@dimen/skinny_button_height35"
+                android:layout_height="@dimen/skinny_button_height35"
+                android:layout_marginEnd="@dimen/ten"
+                android:layout_marginRight="@dimen/ten"
+                android:layout_toLeftOf="@id/search_button"
+                android:layout_toStartOf="@id/search_button"
+                android:background="@android:drawable/ic_menu_close_clear_cancel"
+                android:visibility="visible"
+                />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/ten"
             android:paddingRight="@dimen/ten">
 
-            <Spinner
-                android:id="@+id/search_by_day"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
+            <TextView
+                android:layout_width="120dp"
+                android:background="@color/white_color"
+                android:layout_height="35dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:entries="@array/spinnerItems" />
+                android:layout_marginLeft="@dimen/five"
+                android:paddingEnd="@dimen/five"
+                android:paddingRight="@dimen/five"/>
 
-            <Button
-                android:id="@+id/clear_button"
+            <Spinner
+                android:id="@+id/search_by_day"
+                android:layout_marginLeft="@dimen/five"
+                android:layout_marginStart="@dimen/five"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/skinny_button_height35"
-                android:layout_marginEnd="@dimen/ten"
-                android:layout_marginRight="@dimen/ten"
-                android:layout_toLeftOf="@id/search_button"
-                android:layout_toStartOf="@id/search_button"
-                android:background="@color/accent_color"
-                android:text="@string/clear" />
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:entries="@array/spinnerItems2"
+                android:spinnerMode="dialog"
+                android:paddingEnd="@dimen/five"
+                android:paddingRight="@dimen/five"/>
 
-            <Button
-                android:id="@+id/search_button"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/skinny_button_height35"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:background="@color/accent_color"
-                android:text="@string/search" />
+            <!--<Button-->
+                <!--android:id="@+id/clear_button"-->
+                <!--android:layout_width="@dimen/skinny_button_height35"-->
+                <!--android:layout_height="@dimen/skinny_button_height35"-->
+                <!--android:layout_marginEnd="@dimen/ten"-->
+                <!--android:layout_marginRight="@dimen/ten"-->
+                <!--android:layout_toLeftOf="@id/search_button"-->
+                <!--android:layout_toStartOf="@id/search_button"-->
+                <!--android:background="@android:drawable/ic_delete"-->
+                 <!--/>-->
+
+            <!--<Button-->
+                <!--android:id="@+id/search_button"-->
+                <!--android:layout_width="@dimen/skinny_button_height35"-->
+                <!--android:layout_height="@dimen/skinny_button_height35"-->
+                <!--android:layout_alignParentEnd="true"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:background="@android:drawable/ic_menu_search"/>-->
 
 
         </RelativeLayout>

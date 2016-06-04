@@ -17,9 +17,17 @@
     <string name="hide_search">Hide Search</string>
     <string name="search_by_keyword">Search By Keyword</string>
     <string name="search_by_location">Search By Location</string>
-    <string name="search_tab">"Search for Garage Sales "</string>
+    <string name="search_tab">"Search for Sales "</string>
     <string name="post_tab">"Post Your Own Sale "</string>
 
+    <string-array name="spinnerItems2">
+    <item>Thursday</item>
+    <item>Friday</item>
+    <item>Saturday</item>
+    <item>Sunday</item>
+    <item>All Weekend</item>
+    <item>All Sales</item>
+    </string-array>
     <string-array name="spinnerItems">
         <item>Thursday</item>
         <item>Friday</item>
@@ -52,6 +60,12 @@
     <string name="hunting_sales">Hunting sales…</string>
     <string name="sales_found_nearby">" sales found nearby"</string>
     <string name="loading_progress_text">Loading page…</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="all_weekend">All Weekend</string>
+    <string name="all_sales">All Sales</string>
 </resources>
 
 

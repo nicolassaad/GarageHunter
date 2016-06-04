@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -37,6 +39,9 @@ public class SaleActivity extends AppCompatActivity {
     private RelativeLayout progressLayout;
     private ProgressBar progressBar;
     private TextView progressText;
+    private ListView listView;
+    private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<String> saleArrayList;
 
 
     @Override
@@ -46,27 +51,13 @@ public class SaleActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        Button backButton = (Button) findViewById(R.id.sale_back_button);
-        final TextView saleDOW = (TextView) findViewById(R.id.sale_DOW);
-        final TextView saleAddress = (TextView) findViewById(R.id.sale_address_text);
-        final TextView saleDesc = (TextView) findViewById(R.id.sale_desc);
-        progressLayout = (RelativeLayout) findViewById(R.id.progress_bar_layout);
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        progressText = (TextView) findViewById(R.id.hunting_sales_text);
-        progressBar.setMax(10);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mAdapter = new ImagesAdapter(imageList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+        setProgressLayout();
+        setRecyclerView();
+        setUpListView();
 
-        showProgressLayout();
         String saleTitle = getIntent().getStringExtra(MapsFragment.SALE_KEY1);
         setTitle(saleTitle);
-
         mFirebase = new Firebase(getString(R.string.firebase_address));
-
         query = mFirebase.orderByChild("title").equalTo(saleTitle);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -92,9 +83,13 @@ public class SaleActivity extends AppCompatActivity {
 //                image3.setImageBitmap(
 //                        BitmapFactory.decodeByteArray(imageAsBytes3, 0, imageAsBytes3.length));
 
-                saleAddress.setText(address);
-                saleDOW.setText(weekday);
-                saleDesc.setText(desc);
+                if (desc.isEmpty()) {
+                    desc = "no description.";
+                }
+                saleArrayList.add("Description:\n" + desc);
+                saleArrayList.add("Address:\n" + address);
+                saleArrayList.add("Date:\n" + weekday);
+                arrayAdapter.notifyDataSetChanged();
 
                 imageList.add(pic1);
                 imageList.add(pic2);
@@ -108,18 +103,10 @@ public class SaleActivity extends AppCompatActivity {
 
             }
         });
-
-//        backButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
-
     }
 
     private void hideProgressLayout() {
-
+// TODO: 6/3/16 ON ANIMATION END NEEDED HERE TO HIDE PROGRESS LAYOUT BUT ITS NOT WORKING PROPERLY
         progressLayout.animate().translationXBy(progressLayout.getWidth() + 15).setDuration(900);
 //        progressBar.setVisibility(View.GONE);
 //        progressLayout.setVisibility(View.GONE);
@@ -127,13 +114,36 @@ public class SaleActivity extends AppCompatActivity {
     }
 
     private void showProgressLayout() {
-
         progressLayout.setVisibility(View.VISIBLE);
-
         progressLayout.animate().translationX(-progressLayout.getWidth() - 15).setDuration(1250);
         progressBar.setVisibility(View.VISIBLE);
         progressText.setVisibility(View.VISIBLE);
         progressBar.setProgress(0);
+    }
+
+    private void setRecyclerView() {
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mAdapter = new ImagesAdapter(imageList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+    }
+
+    private void setProgressLayout() {
+        progressLayout = (RelativeLayout) findViewById(R.id.progress_bar_layout);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        progressText = (TextView) findViewById(R.id.hunting_sales_text);
+        progressBar.setMax(10);
+        showProgressLayout();
+    }
+
+    private void setUpListView() {
+        listView = (ListView) findViewById(R.id.sale_listview);
+        saleArrayList = new ArrayList<>();
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, saleArrayList);
+        listView.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
     }
 
 }
