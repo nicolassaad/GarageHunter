@@ -43,9 +43,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/search_by_location"
+
                 android:maxLines="1"
-                android:padding="@dimen/three"
-                android:background="@android:color/white"
+
                 android:singleLine="true" />
 
             <Button
@@ -78,15 +78,15 @@
             android:paddingLeft="@dimen/ten"
             android:paddingRight="@dimen/ten">
 
-            <TextView
-                android:layout_width="120dp"
-                android:background="@color/white_color"
-                android:layout_height="35dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="@dimen/five"
-                android:paddingEnd="@dimen/five"
-                android:paddingRight="@dimen/five"/>
+            <!--<TextView-->
+                <!--android:layout_width="120dp"-->
+                <!--android:background="@color/accent_color"-->
+                <!--android:layout_height="35dp"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentStart="true"-->
+                <!--android:layout_marginLeft="@dimen/five"-->
+                <!--android:paddingEnd="@dimen/five"-->
+                <!--android:paddingRight="@dimen/five"/>-->
 
             <Spinner
                 android:id="@+id/search_by_day"

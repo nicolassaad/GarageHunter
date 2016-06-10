@@ -107,6 +107,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         final View view = inflater.inflate(R.layout.activity_maps, container, false);
         setViews(view);
 
+
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
