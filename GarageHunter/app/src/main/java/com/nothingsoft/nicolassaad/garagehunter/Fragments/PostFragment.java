@@ -189,9 +189,7 @@ public class PostFragment extends Fragment {
                     Log.d(TAG, counter + "photo.jpg is being taken");
                     onLaunchCamera(v);
                 }
-
                 if (hasPermission == PackageManager.PERMISSION_DENIED) {
-
                     requestUserForPermission();
                     Toast.makeText(getContext(), R.string.camera_permission, Toast.LENGTH_LONG).show();
                 }
@@ -261,7 +259,7 @@ public class PostFragment extends Fragment {
         if (editTitle.getText().toString().isEmpty()) {
             //User is asked to enter a title
             editTitle.setError(getString(R.string.please_enter_title));
-            return -2;
+            return -1;
         }
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
         address = editAddress.getText().toString();
@@ -271,7 +269,7 @@ public class PostFragment extends Fragment {
             if (addresses.size() == 0) {
                 //User is asked to enter a proper address
                 editAddress.setError(getString(R.string.enter_valid_address));
-                return -3;
+                return -1;
             }
 
         } catch (IOException e) {
@@ -300,9 +298,10 @@ public class PostFragment extends Fragment {
     }
 
     private void clearImages() {
-        image1.setBackground(getResources().getDrawable(R.drawable.image_holder));
-        image2.setBackground(getResources().getDrawable(R.drawable.image_holder));
-        image3.setBackground(getResources().getDrawable(R.drawable.image_holder));
+        image1.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        image2.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+        image3.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+
     }
 
     /**

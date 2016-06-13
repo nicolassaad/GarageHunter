@@ -49,7 +49,6 @@ public class PreviewActivity extends AppCompatActivity {
 //        recyclerView.setAdapter(mAdapter);
         setViews();
         setInfo();
-        clearApplicationData();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -131,7 +130,9 @@ public class PreviewActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        clearApplicationData();
     }
+
     public void clearApplicationData()
     {
         File cache = getCacheDir();
