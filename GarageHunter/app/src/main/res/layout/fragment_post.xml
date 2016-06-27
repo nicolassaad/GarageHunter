@@ -64,7 +64,8 @@
             android:id="@+id/post_spinner"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/forty_five"
-            android:entries="@array/spinnerItems"/>
+            android:entries="@array/spinnerItems"
+            android:spinnerMode="dialog" />
 
         <RelativeLayout
             android:layout_width="match_parent"

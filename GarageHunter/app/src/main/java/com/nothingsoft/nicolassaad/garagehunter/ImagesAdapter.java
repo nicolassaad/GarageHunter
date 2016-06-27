@@ -47,8 +47,7 @@ import java.util.List;
         public void onBindViewHolder(MyViewHolder holder, int position) {
             String pic1 = imagesList.get(position);
             byte[] imageAsBytes = Base64.decode(pic1.getBytes(), Base64.DEFAULT);
-            holder.image.setImageBitmap(
-                    BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
+            holder.image.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
         }
 
         @Override

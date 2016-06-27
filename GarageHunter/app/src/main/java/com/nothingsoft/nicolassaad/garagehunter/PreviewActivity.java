@@ -1,12 +1,17 @@
 package com.nothingsoft.nicolassaad.garagehunter;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.nothingsoft.nicolassaad.garagehunter.Fragments.PostFragment;
 import com.squareup.picasso.Picasso;
@@ -14,24 +19,30 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PreviewActivity allows the user to see how their post will look before they post it.
  * It grabs the data via an intent from the PostFragment and displays it.
  */
 public class PreviewActivity extends AppCompatActivity {
-    private TextView descText;
-    private TextView addressText;
-    private TextView dayOfWeek;
-    private ImageView image1;
-    private ImageView image2;
-    private ImageView image3;
+
     private ArrayList<String> previewItems;
+    private ArrayList<String> previewItemsCopy;
+    private ArrayAdapter<String> previewArrayAdapter;
+    private ListView previewListView;
+    private String title;
+    private String desc;
+    private String address;
+    private String weekday;
 
+    private ImagesAdapter2 mAdapter;
+    private RecyclerView recyclerView;
+    private List<String> imageList = new ArrayList<>();
 
-//    private ImagesAdapter mAdapter;
-//    private RecyclerView recyclerView;
-//    private List<String> imageList = new ArrayList<>();
+    private File f;
+    private File f2;
+    private File f3;
 
     private static final String TAG = "PreviewActivity";
 
@@ -41,13 +52,9 @@ public class PreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_preview);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-//        mAdapter = new ImagesAdapter(imageList);
-//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-//        recyclerView.setLayoutManager(mLayoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.setAdapter(mAdapter);
-        setViews();
+
+        setUpListView();
+        setRecyclerView();
         setInfo();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,62 +71,41 @@ public class PreviewActivity extends AppCompatActivity {
      * Takes data from the intent coming from PostFragment and populates this activity will text
      * and images
      */
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     private void setInfo() {
         setTitle("");
-        descText.setText("");
-        addressText.setText("");
-        dayOfWeek.setText("");
-        clearImages(image1);
-        clearImages(image2);
-        clearImages(image3);
         previewItems = getIntent().getStringArrayListExtra(PostFragment.PREVIEW_KEY);
         for (int j = 0; j < previewItems.size(); j++) {
             Log.d(TAG, previewItems.get(j));
+        }
             setTitle(previewItems.get(0));
-            descText.setText(previewItems.get(1));
-            addressText.setText(previewItems.get(2));
-            dayOfWeek.setText(previewItems.get(3));
 
             URI uri1 = URI.create(previewItems.get(4));
-            File f = new File(uri1);
-
-            Picasso.with(this).load(f).centerCrop().resize(400, 375).into(image1);
-
-//        Bitmap takenImage = BitmapFactory.decodeFile(uri1.getPath());
-//        image1.setImageBitmap(takenImage);
-//        imageList.add(previewItems.get(4));
+            f = new File(uri1);
+            imageList.add(f.toString());
 
             URI uri2 = URI.create(previewItems.get(5));
-            File f2 = new File(uri2);
-
-            Picasso.with(this).load(f2).centerCrop().resize(400, 375).into(image2);
-//        imageList.add(previewItems.get(5));
-//        Bitmap takenImage2 = BitmapFactory.decodeFile(uri2.getPath());
-//        image2.setImageBitmap(takenImage2);
+            f2 = new File(uri2);
+            imageList.add(f2.toString());
 
             URI uri3 = URI.create(previewItems.get(6));
-            File f3 = new File(uri3);
-
-            Picasso.with(this).load(f3).centerCrop().resize(400, 375).into(image3);
-
-//        Bitmap takenImage3 = BitmapFactory.decodeFile(uri3.getPath());
-//        image3.setImageBitmap(takenImage3);
-//        imageList.add(previewItems.get(6));
-//        mAdapter.notifyDataSetChanged();
+            f3 = new File(uri3);
+            imageList.add(f3.toString());
         }
+
+
+    private void setRecyclerView() {
+        recyclerView = (RecyclerView) findViewById(R.id.preview_recycler_view);
+        mAdapter = new ImagesAdapter2(imageList, this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
     }
 
-    private void clearImages(ImageView image) {
-        image.setBackground(null);
-    }
-
-    private void setViews() {
-        descText = (TextView) findViewById(R.id.preview_desc_text);
-        addressText = (TextView) findViewById(R.id.preview_address);
-        dayOfWeek = (TextView) findViewById(R.id.preview_DOW);
-        image1 = (ImageView) findViewById(R.id.preview_image_holder1);
-        image2 = (ImageView) findViewById(R.id.preview_image_holder2);
-        image3 = (ImageView) findViewById(R.id.preview_image_holder3);
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override
@@ -130,34 +116,24 @@ public class PreviewActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        clearApplicationData();
+        Picasso.with(this).invalidate(f);
+        Picasso.with(this).invalidate(f2);
+        Picasso.with(this).invalidate(f3);
     }
 
-    public void clearApplicationData()
-    {
-        File cache = getCacheDir();
-        File appDir = new File(cache.getParent());
-        if (appDir.exists()) {
-            String[] children = appDir.list();
-            for (String s : children) {
-                if (!s.equals("lib")) {
-                    deleteDir(new File(appDir, s));Log.i("TAG", "**************** File /data/data/APP_PACKAGE/" + s + " DELETED *******************");
-                }
-            }
-        }
-    }
-
-    public static boolean deleteDir(File dir)
-    {
-        if (dir != null && dir.isDirectory()) {
-            String[] children = dir.list();
-            for (int i = 0; i < children.length; i++) {
-                boolean success = deleteDir(new File(dir, children[i]));
-                if (!success) {
-                    return false;
-                }
-            }
-        }
-        return dir.delete();
+    private void setUpListView() {
+        previewListView = (ListView) findViewById(R.id.preview_listview);
+        previewItems = getIntent().getStringArrayListExtra(PostFragment.PREVIEW_KEY);
+        title = previewItems.get(0);
+        desc = previewItems.get(1);
+        address = previewItems.get(2);
+        weekday = previewItems.get(3);
+        previewItemsCopy = new ArrayList<>();
+        previewItemsCopy.add("Description:\n" + desc);
+        previewItemsCopy.add("Address:\n" + address);
+        previewItemsCopy.add("Date:\n" + weekday);
+        previewArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, previewItemsCopy);
+        previewListView.setAdapter(previewArrayAdapter);
+        previewArrayAdapter.notifyDataSetChanged();
     }
 }

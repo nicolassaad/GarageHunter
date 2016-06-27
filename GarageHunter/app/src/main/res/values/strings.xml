@@ -21,12 +21,12 @@
     <string name="post_tab">"Post Your Own Sale "</string>
 
     <string-array name="spinnerItems2">
-    <item>Thursday</item>
-    <item>Friday</item>
-    <item>Saturday</item>
-    <item>Sunday</item>
-    <item>All Weekend</item>
-    <item>All Sales</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+        <item>All Weekend</item>
+        <item>All Sales</item>
     </string-array>
     <string-array name="spinnerItems">
         <item>Thursday</item>
@@ -66,6 +66,11 @@
     <string name="sunday">Sunday</string>
     <string name="all_weekend">All Weekend</string>
     <string name="all_sales">All Sales</string>
+    <string name="help_section">Help Section:</string>
+    <string name="how_to_post_your_own_sale">How To Post Your Own Sale:</string>
+    <string name="help_post_sale_text">Navigate to the \'\'Post Your Own Sale\'\' tab then proceed to fill in the prompts with the title of your sale as well as your address, a description, and three pictures. Three pictures are required to post so if you only have one item for sale make sure to take multiple angles of it.</string>
+    <string name="how_to_search_for_sales">How To Search for Sales:</string>
+    <string name="how_to_search_for_sales_text">To search for garage sales, navigate to the \'\'Search For Sales\'\' tab and then use the map to locate a sale. Use the drop down menu to search for sales organized by day of the week. You can also search for different locations using the search box. To navigate back to your location on the map press the crosshair button located at the top right of the map. Press the \'\'Hide Search\'\' button to make the map fullscreen.</string>
 </resources>
 
 

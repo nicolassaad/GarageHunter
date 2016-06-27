@@ -12,8 +12,8 @@ android {
         applicationId "com.nothingsoft.nicolassaad.garagehunter"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 6
-        versionName "1.06"
+        versionCode 8
+        versionName "1.08"
         multiDexEnabled true
     }
     buildTypes {
@@ -35,9 +35,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
     compile 'com.android.support:design:24.0.0-alpha2'
-    compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.firebase:firebase-client-android:2.3.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:recyclerview-v7:23.3.0'
     compile 'com.android.support:multidex:1.0.1'
+    compile 'com.google.android.gms:play-services:8.4.0'
 }

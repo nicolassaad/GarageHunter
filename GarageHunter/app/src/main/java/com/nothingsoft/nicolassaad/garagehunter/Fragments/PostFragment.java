@@ -244,7 +244,7 @@ public class PostFragment extends Fragment {
             //User is asked to enter three pictures
             Toast.makeText(getContext(), R.string.please_add_pics, Toast.LENGTH_SHORT).show();
         } else {
-
+            Log.d(TAG, "URIs have been added to previewItems");
             previewItems.add(4, takenPhoto1.toString());
             previewItems.add(5, takenPhoto2.toString());
             previewItems.add(6, takenPhoto3.toString());
@@ -338,8 +338,8 @@ public class PostFragment extends Fragment {
                 Uri takenPhotoUri = getPhotoFileUri(counter + photoFileName);
                 Log.d(TAG, takenPhotoUri.toString());
                 // by this point we have the camera photo on disk
-                Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
-                // Load the taken image into a preview
+//                Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+//                 Load the taken image into a preview
                 Log.d(TAG, counter + "photo.jpg is being processed");
                 if (counter == 0) {
                     takenPhoto1 = getPhotoFileUri(counter + photoFileName);
@@ -540,5 +540,7 @@ public class PostFragment extends Fragment {
         requestPermissions(permissions, PERMISSION_REQUEST_CODE);
 
     }
+
+
 
 }
