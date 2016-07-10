@@ -164,7 +164,7 @@ public class PostFragment extends Fragment {
         return view;
     }
 
-    private void setViews(View view) {
+    protected void setViews(View view) {
         image1 = (ImageView) view.findViewById(R.id.post_image_holder1);
         image2 = (ImageView) view.findViewById(R.id.post_image_holder2);
         image3 = (ImageView) view.findViewById(R.id.post_image_holder3);
@@ -253,15 +253,21 @@ public class PostFragment extends Fragment {
         checkForNulls();
     }
 
-    private int checkForNulls() {
+    
+    
+    // TODO: 7/4/16 split up logic for checking different edit texts 
+    //jUnit will take 
+    protected int checkForNulls() {
         title = editTitle.getText().toString();
         address = editAddress.getText().toString();
         if (editTitle.getText().toString().isEmpty()) {
             //User is asked to enter a title
-            editTitle.setError(getString(R.string.please_enter_title));
+            //editTitle.setError(getString(R.string.please_enter_title));
             return -1;
         }
+        // TODO: 7/4/16 mock geocoder in jUnit and pass it in to PostFragmentTest 
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
+        // TODO: 7/4/16 how to much address? 
         address = editAddress.getText().toString();
 
         try {
