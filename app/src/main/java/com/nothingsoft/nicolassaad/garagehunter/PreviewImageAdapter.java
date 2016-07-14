@@ -21,13 +21,13 @@ import java.util.List;
 
 /**
  * RecyclerView Adapter that sets up and populates the recycler_image_layout with images that
- * are received as Strings from Firebase and converted to Bitmaps.
+ * are received via an intent from the PostFragment and is displayed in the PreviewActivity
  */
-public class ImagesAdapter2 extends RecyclerView.Adapter<ImagesAdapter2.MyViewHolder> {
+public class PreviewImageAdapter extends RecyclerView.Adapter<PreviewImageAdapter.MyViewHolder> {
 
     private List<String> imagesList;
     private Context context;
-    private static final String TAG = "ImagesAdapter2";
+    private static final String TAG = "PreviewImageAdapter";
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
@@ -38,7 +38,7 @@ public class ImagesAdapter2 extends RecyclerView.Adapter<ImagesAdapter2.MyViewHo
         }
     }
 
-    public ImagesAdapter2(List<String> imagesList, Context context) {
+    public PreviewImageAdapter(List<String> imagesList, Context context) {
         this.imagesList = imagesList;
         this.context = context;
 

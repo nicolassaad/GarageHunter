@@ -36,7 +36,7 @@ public class PreviewActivity extends AppCompatActivity {
     private String address;
     private String weekday;
 
-    private ImagesAdapter2 mAdapter;
+    private PreviewImageAdapter mAdapter;
     private RecyclerView recyclerView;
     private List<String> imageList = new ArrayList<>();
 
@@ -96,7 +96,7 @@ public class PreviewActivity extends AppCompatActivity {
 
     private void setRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.preview_recycler_view);
-        mAdapter = new ImagesAdapter2(imageList, this);
+        mAdapter = new PreviewImageAdapter(imageList, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

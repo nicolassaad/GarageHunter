@@ -33,7 +33,7 @@ public class SaleActivity extends AppCompatActivity {
 
     private Query query;
     private Firebase mFirebase;
-    private ImagesAdapter mAdapter;
+    private SaleImageAdapter mAdapter;
     private RecyclerView recyclerView;
     private List<String> imageList = new ArrayList<>();
     private RelativeLayout progressLayout;
@@ -132,7 +132,7 @@ public class SaleActivity extends AppCompatActivity {
 
     private void setRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mAdapter = new ImagesAdapter(imageList);
+        mAdapter = new SaleImageAdapter(imageList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

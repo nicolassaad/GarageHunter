@@ -17,8 +17,10 @@ import java.util.List;
 /**
  * RecyclerView Adapter that sets up and populates the recycler_image_layout with images that
  * are received as Strings from Firebase and converted to Bitmaps.
+ *
+ * Utilized in the SaleActivity where Firebase data is recalled from the server
  */
-    public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.MyViewHolder> {
+    public class SaleImageAdapter extends RecyclerView.Adapter<SaleImageAdapter.MyViewHolder> {
 
         private List<String> imagesList;
 
@@ -31,7 +33,7 @@ import java.util.List;
             }
         }
 
-        public ImagesAdapter(List<String> imagesList) {
+        public SaleImageAdapter(List<String> imagesList) {
             this.imagesList = imagesList;
         }
 
