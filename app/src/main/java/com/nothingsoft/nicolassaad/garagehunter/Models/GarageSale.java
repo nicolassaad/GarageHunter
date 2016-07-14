@@ -8,6 +8,9 @@ public class GarageSale {
     private String title, description, address, weekday, image1, image2, image3;
     private double lat, lon;
 
+    public GarageSale() {
+    }
+
 
     public GarageSale(String title, String description, String address, double lat, double lon, String weekday, String image1,
                       String image2, String image3) {

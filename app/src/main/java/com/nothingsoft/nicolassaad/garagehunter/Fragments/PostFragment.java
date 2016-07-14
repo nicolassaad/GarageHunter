@@ -267,7 +267,7 @@ public class PostFragment extends Fragment {
         }
         // TODO: 7/4/16 mock geocoder in jUnit and pass it in to PostFragmentTest 
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
-        // TODO: 7/4/16 how to much address? 
+        // TODO: 7/4/16 how to much address?
         address = editAddress.getText().toString();
 
         try {
