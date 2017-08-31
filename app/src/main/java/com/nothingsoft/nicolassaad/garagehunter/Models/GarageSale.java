@@ -5,20 +5,20 @@ package com.nothingsoft.nicolassaad.garagehunter.Models;
  * using an object
  */
 public class GarageSale {
-    private String title, description, address, weekday, image1, image2, image3;
+    private String title, description, address, startDate, endDate, image1, image2, image3;
     private double lat, lon;
 
     public GarageSale() {
     }
 
-
-    public GarageSale(String title, String description, String address, double lat, double lon, String weekday, String image1,
+    public GarageSale(String title, String description, String address, double lat, double lon, String startDate, String endDate, String image1,
                       String image2, String image3) {
 
         setTitle(title);
         this.description = description;
         this.address = address;
-        this.weekday = weekday;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.lat = lat;
         this.lon = lon;
         this.image1 = image1;
@@ -28,7 +28,7 @@ public class GarageSale {
 
     @Override
     public String toString() {
-        return "GarageSale{title='" + title + "', description='" + description + "', address='" + address + "', lat='" + lat + "', lon='" + lon + "', weekday='" + weekday + "'}";
+        return "GarageSale{title='" + title + "', description='" + description + "', address='" + address + "', lat='" + lat + "', lon='" + lon + "', startDate='" + startDate + "', endDate='" + endDate + "'}";
     }
 
     public String getTitle() {
@@ -56,14 +56,6 @@ public class GarageSale {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getWeekday() {
-        return weekday;
-    }
-
-    public void setWeekday(String weekday) {
-        this.weekday = weekday;
     }
 
     public double getLat() {
@@ -94,16 +86,18 @@ public class GarageSale {
         return image2;
     }
 
-    public void setImage2(String image2) {
-        this.image2 = image2;
-    }
+    public void setImage2(String image2) {this.image2 = image2;}
 
-    public String getImage3() {
-        return image3;
-    }
+    public String getImage3() {return image3;}
 
-    public void setImage3(String image3) {
-        this.image3 = image3;
-    }
+    public void setImage3(String image3) {this.image3 = image3;}
+
+    public String getStartDate() {return startDate;}
+
+    public void setStartDate(String startDate) {this.startDate = startDate;}
+
+    public String getEndDate() {return endDate;}
+
+    public void setEndDate(String endDate) {this.endDate = endDate;}
 }
 

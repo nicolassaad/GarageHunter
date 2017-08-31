@@ -1,0 +1,274 @@
+[
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_icon_light_disabled.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_icon_light_focused.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_media_route_on_mono_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_media_route_on_mono_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/powered_by_google_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/8d6f869d74878e1f3b80e5f90549e75eac425491/output/res/drawable-hdpi/powered_by_google_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_media_route_on_2_mono_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_media_route_on_2_mono_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_text_light_pressed.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_text_light_disabled.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_text_light_disabled.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_icon_dark_pressed.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_media_route_off_mono_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_media_route_off_mono_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/places_ic_clear.png",
+        "source": "/Users/nicolassaad/.android/build-cache/8d6f869d74878e1f3b80e5f90549e75eac425491/output/res/drawable-hdpi/places_ic_clear.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_plusone_tall_off_client.png",
+        "source": "/Users/nicolassaad/.android/build-cache/c662bd060adeceac384b64eb8c95f987e2b90640/output/res/drawable-hdpi/ic_plusone_tall_off_client.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_text_light_normal.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/cast_ic_notification_1.png",
+        "source": "/Users/nicolassaad/.android/build-cache/143ca3a3d9685c8f17bb97de0247e630111a9eac/output/res/drawable-hdpi/cast_ic_notification_1.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_icon_dark_focused.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_text_light_focused.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_light_focused.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_plusone_small_off_client.png",
+        "source": "/Users/nicolassaad/.android/build-cache/c662bd060adeceac384b64eb8c95f987e2b90640/output/res/drawable-hdpi/ic_plusone_small_off_client.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_text_dark_disabled.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_media_route_disabled_mono_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_media_route_disabled_mono_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_cast_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_cast_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_media_play.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_media_play.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_icon_light_pressed.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_icon_light_pressed.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_text_dark_normal.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_pause_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_pause_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_text_light_normal.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_icon_dark_disabled.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_icon_light_normal.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_cast_on_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_cast_on_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_text_dark_focused.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_text_dark_focused.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_plusone_standard_off_client.png",
+        "source": "/Users/nicolassaad/.android/build-cache/c662bd060adeceac384b64eb8c95f987e2b90640/output/res/drawable-hdpi/ic_plusone_standard_off_client.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_full_open_on_phone.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_text_dark_normal.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_icon_dark_focused.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_text_light_pressed.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_text_dark_focused.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_dark_focused.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/cast_ic_notification_on.png",
+        "source": "/Users/nicolassaad/.android/build-cache/143ca3a3d9685c8f17bb97de0247e630111a9eac/output/res/drawable-hdpi/cast_ic_notification_on.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/cast_ic_notification_0.png",
+        "source": "/Users/nicolassaad/.android/build-cache/143ca3a3d9685c8f17bb97de0247e630111a9eac/output/res/drawable-hdpi/cast_ic_notification_0.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_icon_light_disabled.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_ic_googleplayservices.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_icon_dark_pressed.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_icon_dark_disabled.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_icon_light_normal.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_setting_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_setting_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/powered_by_google_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/8d6f869d74878e1f3b80e5f90549e75eac425491/output/res/drawable-hdpi/powered_by_google_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_play_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_play_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_cast_on_0_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_cast_on_0_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/places_ic_search.png",
+        "source": "/Users/nicolassaad/.android/build-cache/8d6f869d74878e1f3b80e5f90549e75eac425491/output/res/drawable-hdpi/places_ic_search.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_setting_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_setting_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_pause_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_pause_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_icon_dark_normal.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_play_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_play_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_media_route_on_1_mono_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_media_route_on_1_mono_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_text_light_disabled.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_light_disabled.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_cast_on_1_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_cast_on_1_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_cast_off_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_cast_off_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_text_dark_pressed.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_dark_pressed.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_icon_light_pressed.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_icon_light_pressed.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_cast_disabled_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_cast_disabled_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_text_light_focused.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_text_light_focused.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_media_route_on_0_mono_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_media_route_on_0_mono_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_text_dark_disabled.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/cast_ic_notification_2.png",
+        "source": "/Users/nicolassaad/.android/build-cache/143ca3a3d9685c8f17bb97de0247e630111a9eac/output/res/drawable-hdpi/cast_ic_notification_2.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_plusone_medium_off_client.png",
+        "source": "/Users/nicolassaad/.android/build-cache/c662bd060adeceac384b64eb8c95f987e2b90640/output/res/drawable-hdpi/ic_plusone_medium_off_client.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_media_pause.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_media_pause.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_cast_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_cast_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_cast_on_2_light.png",
+        "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_cast_on_2_light.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_plus_signin_btn_icon_light_focused.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_icon_dark_normal.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/drawable-hdpi/common_google_signin_btn_text_dark_pressed.9.png",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_google_signin_btn_text_dark_pressed.9.png"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
+        "source": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_garagehunter.png",
+        "source": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/res/mipmap-mdpi/ic_garagehunter.png"
+    }
+]

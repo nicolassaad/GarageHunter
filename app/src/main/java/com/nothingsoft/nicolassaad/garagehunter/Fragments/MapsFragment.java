@@ -27,13 +27,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,7 +75,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private Button clearButton;
     private EditText searchLocEdit;
     public static LinearLayout searchLayout;
-    private Spinner searchByDay;
     private int buttonCounter;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     public static final int NOTIFICATION_NOT_AVAILABLE = 2;
@@ -101,12 +98,12 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     private static final String TAG = "MapsFragment";
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.activity_maps, container, false);
         setViews(view);
-
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -165,43 +162,30 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         mFireBase = new Firebase(getString(R.string.firebase_address));
 
         searchButton.setOnClickListener(searchListeners);
-// TODO: 5/13/16 MOVE INTO ITS OWN METHOD
-        searchByDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        showProgressLayout();
+        query2 = mFireBase.orderByChild("title").getRef();
+        query2.addListenerForSingleValueEvent(valueEventListener);
 
-                if (!CheckInternetConnection.isOnline(getContext())) {
-                    Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
-                    showNetworkNotAvailableNotification();
-                }
-                showProgressLayout();
-                query = mFireBase.orderByChild("weekday").equalTo(searchByDay.getSelectedItem().toString());
-                if (searchByDay.getSelectedItem().equals(getString(R.string.all_sales))) {
-                    query2 = mFireBase.orderByChild("title").getRef();
-                    query2.addListenerForSingleValueEvent(valueEventListener);
-                } else {
-                    query.addListenerForSingleValueEvent(valueEventListener);
-                }
-            }
+        if (!CheckInternetConnection.isOnline(getContext())) {
+            Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
+            showNetworkNotAvailableNotification();
+        }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
         return view;
-    }
+}
+
 
     private void setViews(View view) {
         searchButton = (Button) view.findViewById(R.id.search_button);
         searchLayout = (LinearLayout) view.findViewById(R.id.search_layout);
         hideSearchButton = (Button) view.findViewById(R.id.hide_search_button);
-        searchByDay = (Spinner) view.findViewById(R.id.search_by_day);
         searchLocEdit = (EditText) view.findViewById(R.id.search_loc_edit);
         clearButton = (Button) view.findViewById(R.id.clear_button);
         progressLayout = (RelativeLayout) view.findViewById(R.id.progress_bar_layout);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
         progressText = (TextView) view.findViewById(R.id.hunting_sales_text);
         progressBar.setMax(10);
+
     }
 
     private void setRemovableET(final EditText et, final Button resetIB) {
@@ -299,7 +283,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         super.onResume();
         setUpMapIfNeeded();
         mGoogleApiClient.connect();
-
     }
 
     @Override
@@ -328,7 +311,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     }
 
     private void hideProgressLayout() {
-        progressLayout.animate().translationXBy(progressLayout.getWidth() + 15).setDuration(500);
+        progressLayout.animate().translationXBy(progressLayout.getWidth() + 585).setDuration(500);
 //        progressLayout.setVisibility(View.GONE);
 //        progressBar.setVisibility(View.GONE);
 //        progressLayout.setVisibility(View.GONE);
@@ -338,7 +321,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     private void showProgressLayout() {
         progressLayout.setVisibility(View.VISIBLE);
-        progressLayout.animate().translationX(-progressLayout.getWidth() - 15).alpha(1.0f).setDuration(900);
+        progressLayout.animate().translationXBy(-585).alpha(1.0f).setDuration(900);
         progressBar.setVisibility(View.VISIBLE);
         progressText.setVisibility(View.VISIBLE);
         progressBar.setProgress(0);
@@ -385,7 +368,9 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
             Log.d(TAG, currentLatitude + " " + currentLongitude);
 
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
+            // TODO: 8/25/17 WHEN BACKING OUT FROM A SALEACTIVITY THIS CODE RECENTERS MAP ON USER. WE WANT THE MAP TO STAY STILL SOMEHOW
+            // TODO: 8/25/17 MAKING SALEACTIVITY A FRAGMENT COULD POTENTIALLY FIX THIS ISSUE
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(10.0f).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         } else {
@@ -486,6 +471,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
                 searchForLocation();
             } else {
                 Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
+                // TODO: 7/14/16 Include a popup that informs the user in a more apparent way 
                 showNetworkNotAvailableNotification();
             }
         }
@@ -537,7 +523,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             }
             hideProgressLayout();
             int resultsLoaded = markerCount;
-            Snackbar.make(getView(), resultsLoaded + getString(R.string.sales_found_nearby) + " for " + searchByDay.getSelectedItem().toString(), Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(getView(), resultsLoaded + getString(R.string.sales_found_nearby), Snackbar.LENGTH_LONG).show();
         }
 
         @Override
@@ -546,19 +532,19 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     };
 
-    public class RelativeView extends RelativeLayout {
+public class RelativeView extends RelativeLayout {
 
-        public RelativeView(Context context) {
-            super(context);
-        }
-
-        @Override
-        public void onAnimationEnd() {
-            super.onAnimationEnd();
-            progressLayout.setVisibility(GONE);
-
-        }
+    public RelativeView(Context context) {
+        super(context);
     }
+
+    @Override
+    public void onAnimationEnd() {
+        super.onAnimationEnd();
+        progressLayout.setVisibility(GONE);
+
+    }
+}
 
 }
 

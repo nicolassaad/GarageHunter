@@ -6,6 +6,7 @@ package com.nothingsoft.nicolassaad.garagehunter.Fragments;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,6 +22,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
@@ -30,7 +32,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
@@ -43,7 +44,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -53,7 +56,8 @@ public class PostFragment extends Fragment {
     private EditText editAddress;
     private Button postButton;
     private Button previewButton;
-    private Spinner spinnerDay;
+    private Button startDateButton;
+    private Button endDateButton;
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
@@ -76,7 +80,6 @@ public class PostFragment extends Fragment {
     private String title;
     private String desc;
     private String address;
-    private String dayOfWeek;
 
     private ArrayList<String> previewItems;
 
@@ -93,15 +96,25 @@ public class PostFragment extends Fragment {
     private String imageFile2;
     private String imageFile3;
     int hasPermission;
-//    private Intent toPreviewIntent;
+
+    private static final int REQUEST_START_DATE = 0;
+    private static final int REQUEST_END_DATE = 1;
+    private static final String DIALOG_START_DATE = "StartDate";
+    private static final String DIALOG_END_DATE = "EndDate";
+    private Date startDate;
+    private Date endDate;
+
 
     public PostFragment() {
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
         setViews(view);
+        setDateButtons();
+
         mFireBaseRef = new Firebase(getString(R.string.firebase_address));
 
         setImageClickListeners(image1, 0);
@@ -114,6 +127,7 @@ public class PostFragment extends Fragment {
                 double lat = 0.0, lng = 0.0;
                 Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
                 address = editAddress.getText().toString();
+                DateFormat shortDF = DateFormat.getDateInstance(DateFormat.SHORT);
 
                 try {
                     List<Address> addresses = geocoder.getFromLocationName(address, 1);
@@ -130,7 +144,7 @@ public class PostFragment extends Fragment {
 
                     if (checkForNulls() == 1) {
                         garageSale = new GarageSale(editTitle.getText().toString(), editDesc.getText().toString(),
-                                editAddress.getText().toString(), lat, lng, spinnerDay.getSelectedItem().toString(),
+                                editAddress.getText().toString(), lat, lng, shortDF.format(startDate), shortDF.format(endDate),
                                 imageFile1, imageFile2, imageFile3);
                         mFireBaseRef.push().setValue(garageSale);
 
@@ -154,10 +168,47 @@ public class PostFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 settingPreviewIntent();
+
+                if (checkForNulls() < 1) {
+                    Toast.makeText(getContext(), R.string.complete_fields_correctly, Toast.LENGTH_SHORT).show();
+                }
+
                 if (checkForNulls() == 1) {
                     Intent toPreviewIntent = new Intent(v.getContext(), PreviewActivity.class);
                     toPreviewIntent.putStringArrayListExtra(PREVIEW_KEY, previewItems);
                     startActivity(toPreviewIntent);
+                }
+            }
+        });
+
+        startDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                if (startDate != null) {
+                    StartDateFragment dialog = StartDateFragment.newInstance(startDate);
+                    dialog.setTargetFragment(PostFragment.this, REQUEST_START_DATE);
+                    dialog.show(fragmentManager, DIALOG_START_DATE);
+                } else {
+                    StartDateFragment dialog = StartDateFragment.newInstance(new Date());
+                    dialog.setTargetFragment(PostFragment.this, REQUEST_START_DATE);
+                    dialog.show(fragmentManager, DIALOG_START_DATE);
+                }
+            }
+        });
+
+        endDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                if (endDate != null) {
+                    EndDateFragment dialog = EndDateFragment.newInstance(endDate);
+                    dialog.setTargetFragment(PostFragment.this, REQUEST_END_DATE);
+                    dialog.show(fragmentManager, DIALOG_END_DATE);
+                } else {
+                    EndDateFragment dialog = EndDateFragment.newInstance(new Date());
+                    dialog.setTargetFragment(PostFragment.this, REQUEST_END_DATE);
+                    dialog.show(fragmentManager, DIALOG_END_DATE);
                 }
             }
         });
@@ -176,7 +227,17 @@ public class PostFragment extends Fragment {
         editAddress = (EditText) view.findViewById(R.id.post_address);
         editTitle = (EditText) view.findViewById(R.id.post_title);
         editDesc = (EditText) view.findViewById(R.id.post_desc);
-        spinnerDay = (Spinner) view.findViewById(R.id.post_spinner);
+        startDateButton = (Button) view.findViewById(R.id.start_date_button);
+        endDateButton = (Button) view.findViewById(R.id.end_date_button);
+    }
+
+    private void setDateButtons() {
+        if (startDate == null) {
+            startDateButton.setText(R.string.add_date_alert);
+        }
+        if (endDate == null) {
+            endDateButton.setText(R.string.add_date_alert);
+        }
     }
 
     private void setImageClickListeners(ImageView image, final int position) {
@@ -231,41 +292,17 @@ public class PostFragment extends Fragment {
      * @return
      */
     private void settingPreviewIntent() {
+        checkForNulls();
+
         previewItems = new ArrayList<>();
         title = editTitle.getText().toString();
         desc = editDesc.getText().toString();
         address = editAddress.getText().toString();
-        dayOfWeek = (String) spinnerDay.getSelectedItem();
         previewItems.add(0, title);
         previewItems.add(1, desc);
-        previewItems.add(2, address);
-        previewItems.add(3, dayOfWeek);
-        if (takenPhoto1 == null || takenPhoto2 == null || takenPhoto3 == null) {
-            //User is asked to enter three pictures
-            Toast.makeText(getContext(), R.string.please_add_pics, Toast.LENGTH_SHORT).show();
-        } else {
-            Log.d(TAG, "URIs have been added to previewItems");
-            previewItems.add(4, takenPhoto1.toString());
-            previewItems.add(5, takenPhoto2.toString());
-            previewItems.add(6, takenPhoto3.toString());
-        }
 
-        checkForNulls();
-    }
 
-    
-    
-    // TODO: 7/4/16 split up logic for checking different edit texts 
-    //jUnit will take 
-    protected int checkForNulls() {
-        title = editTitle.getText().toString();
-        address = editAddress.getText().toString();
-        if (editTitle.getText().toString().isEmpty()) {
-            //User is asked to enter a title
-            //editTitle.setError(getString(R.string.please_enter_title));
-            return -1;
-        }
-        // TODO: 7/4/16 mock geocoder in jUnit and pass it in to PostFragmentTest 
+        // TODO: 7/4/16 mock geocoder in jUnit and pass it in to PostFragmentTest
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
         // TODO: 7/4/16 how to much address?
         address = editAddress.getText().toString();
@@ -275,17 +312,109 @@ public class PostFragment extends Fragment {
             if (addresses.size() == 0) {
                 //User is asked to enter a proper address
                 editAddress.setError(getString(R.string.enter_valid_address));
-                return -1;
             }
 
         } catch (IOException e) {
             e.printStackTrace();
+            editAddress.setError(getString(R.string.enter_valid_address));
+
         }
-        if (takenPhoto1 == null || takenPhoto2 == null || takenPhoto3 == null) {
+        previewItems.add(2, address);
+
+        if (startDate == null) {
+            Toast.makeText(getContext(), getString(R.string.add_start_date_alert), Toast.LENGTH_SHORT).show();
+            startDateButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+        } else {
+            DateFormat shortDF = DateFormat.getDateInstance(DateFormat.SHORT);
+            previewItems.add(3, shortDF.format(startDate));
+            Log.d("PostFragment", "startDate = " + startDate);
+        }
+
+        if (endDate == null) {
+            Toast.makeText(getContext(), getString(R.string.add_end_date_alert), Toast.LENGTH_SHORT).show();
+            endDateButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+        } else {
+            DateFormat shortDF = DateFormat.getDateInstance(DateFormat.SHORT);
+            previewItems.add(4, shortDF.format(endDate));
+            Log.d("PostFragment", "endDate = " + endDate);
+        }
+
+        if (takenPhoto1 == null || takenPhoto2 == null || takenPhoto3 == null || title == null
+                || desc == null || address == null || startDate == null || endDate == null) {
             //User is asked to enter three pictures
-            Toast.makeText(getContext(), R.string.please_add_pics, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.some_fields_not_filled, Toast.LENGTH_SHORT).show();
+        } else {
+            Log.d(TAG, "URIs have been added to previewItems");
+            previewItems.add(5, takenPhoto1.toString());
+            previewItems.add(6, takenPhoto2.toString());
+            previewItems.add(7, takenPhoto3.toString());
+        }
+    }
+
+    protected int checkForNulls() {
+
+        title = editTitle.getText().toString();
+        address = editAddress.getText().toString();
+        desc = editDesc.getText().toString();
+        if (editTitle.getText().toString().isEmpty()) {
+            //User is asked to enter a title
+            editTitle.setError(getString(R.string.please_enter_title));
             return -1;
         }
+
+        if (editDesc.getText().toString().isEmpty()) {
+            editDesc.setError(getString(R.string.please_enter_short_desc));
+            return -2;
+        }
+
+        if (takenPhoto1 == null || takenPhoto2 == null || takenPhoto3 == null) {
+            //User is asked to enter three pictures
+            Toast.makeText(getContext(), R.string.please_add_three_pics, Toast.LENGTH_SHORT).show();
+            return -5;
+        }
+
+        // TODO: 7/4/16 mock geocoder in jUnit and pass it in to PostFragmentTest
+        Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
+        // TODO: 7/4/16 how to match address?
+
+        try {
+            List<Address> addresses = geocoder.getFromLocationName(address, 1);
+            if (addresses.size() == 0) {
+                //User is asked to enter a proper address
+                editAddress.setError(getString(R.string.enter_valid_address));
+                return -3;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            editAddress.setError(getString(R.string.enter_valid_address));
+            return -3;
+        }
+
+        if (startDate == null) {
+            Toast.makeText(getContext(), R.string.add_start_date_alert, Toast.LENGTH_SHORT).show();
+            startDateButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+            return -4;
+        }
+
+        if (endDate == null) {
+            Toast.makeText(getContext(), R.string.add_end_date_alert, Toast.LENGTH_SHORT).show();
+            endDateButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+            return -4;
+        }
+
+        if (endDate.getTime() < startDate.getTime()) {
+            Toast.makeText(getActivity(), getString(R.string.end_date_earlier_text), Toast.LENGTH_SHORT).show();
+            endDateButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+            return -6;
+        }
+
+        if (startDate.getTime() > endDate.getTime()) {
+            Toast.makeText(getActivity(), R.string.start_date_later_text, Toast.LENGTH_SHORT).show();
+            startDateButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+            return  -6;
+        }
+
         return 1;
     }
 
@@ -297,12 +426,17 @@ public class PostFragment extends Fragment {
         editTitle.setText("");
         editDesc.setText("");
         editAddress.setText("");
-        spinnerDay.dispatchDisplayHint(View.VISIBLE);
         editIcon1.setVisibility(View.INVISIBLE);
         editIcon2.setVisibility(View.INVISIBLE);
         editIcon3.setVisibility(View.INVISIBLE);
+        startDateButton.setText(R.string.add_date_alert);
+        endDateButton.setText(R.string.add_date_alert);
     }
 
+    /**
+     * This method doesn't seem to work and could be the cause of the PostFragment bug where the images
+     * are not disappearing
+     */
     private void clearImages() {
         image1.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         image2.setBackgroundColor(getResources().getColor(android.R.color.transparent));
@@ -384,6 +518,35 @@ public class PostFragment extends Fragment {
             }
         }
 
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == REQUEST_START_DATE) {
+            startDate = (Date) data.getSerializableExtra(StartDateFragment.EXTRA_START_DATE);
+            DateFormat shortDF = DateFormat.getDateInstance(DateFormat.SHORT);
+            startDateButton.setText(shortDF.format(startDate));
+            startDateButton.setBackgroundColor(getResources().getColor(R.color.accent_color));
+        }
+
+        if (requestCode == REQUEST_END_DATE) {
+            endDate = (Date) data.getSerializableExtra(EndDateFragment.EXTRA_END_DATE);
+            DateFormat shortDF = DateFormat.getDateInstance(DateFormat.SHORT);
+            endDateButton.setText(shortDF.format(endDate));
+            endDateButton.setBackgroundColor(getResources().getColor(R.color.accent_color));
+        }
+
+        // TODO: 8/23/17 factor into own method for checking that start date and end date are correct before posting
+        // TODO: 8/23/17 do something other than a toast for catching this error 
+        if (startDate != null && endDate != null) {
+            if (endDate.getTime() < startDate.getTime()) {
+                Toast.makeText(getActivity(), R.string.end_date_earlier_text, Toast.LENGTH_LONG).show();
+                endDateButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+            } else {
+                startDateButton.setBackgroundColor(getResources().getColor(R.color.accent_color));
+                endDateButton.setBackgroundColor(getResources().getColor(R.color.accent_color));
+            }
+        }
     }
 
     /**
@@ -544,9 +707,5 @@ public class PostFragment extends Fragment {
         }
         String[] permissions = new String[]{CAMERA_PERMISSION};
         requestPermissions(permissions, PERMISSION_REQUEST_CODE);
-
     }
-
-
-
 }

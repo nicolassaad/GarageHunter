@@ -1,0 +1,325 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:2:1-76:12
+	package
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:3:5-55
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:10:5-67
+MERGED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-analytics:8.4.0] /Users/nicolassaad/.android/build-cache/2dd56ef1e6b3d70b30cba8596a09b5b38a2e0096/output/AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:19:5-67
+MERGED from [com.google.android.gms:play-services-gcm:8.4.0] /Users/nicolassaad/.android/build-cache/ad2dc5e5118eeb28b9f831554938bb2f5e261eeb/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-maps:8.4.0] /Users/nicolassaad/.android/build-cache/3b90056f8a94ae07a68d954f2b840128178eb120/output/AndroidManifest.xml:21:5-66
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:10:22-64
+uses-permission#android.permission.CAMERA
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:11:5-65
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:11:22-62
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:13:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:14:5-79
+MERGED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-analytics:8.4.0] /Users/nicolassaad/.android/build-cache/2dd56ef1e6b3d70b30cba8596a09b5b38a2e0096/output/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-nearby:8.4.0] /Users/nicolassaad/.android/build-cache/9f041e10568be7dfab63c8046f3a483e1ff85b00/output/AndroidManifest.xml:19:5-79
+MERGED from [com.google.android.gms:play-services-maps:8.4.0] /Users/nicolassaad/.android/build-cache/3b90056f8a94ae07a68d954f2b840128178eb120/output/AndroidManifest.xml:20:5-78
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:14:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:15:5-81
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:15:22-78
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:16:5-98
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:16:22-95
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:17:5-80
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:17:22-77
+application
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:20:5-74:19
+MERGED from [com.android.support:design:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/5f2952097618f05940932815a224839af64dcd76/output/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services:8.4.0] /Users/nicolassaad/.android/build-cache/09264c989cb7e33b9252c31302f996e323324170/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:24:5-32:19
+MERGED from [com.google.android.gms:play-services-analytics:8.4.0] /Users/nicolassaad/.android/build-cache/2dd56ef1e6b3d70b30cba8596a09b5b38a2e0096/output/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.gms:play-services-appindexing:8.4.0] /Users/nicolassaad/.android/build-cache/3add91913f09e0adec877bdfd9ba5aa00328d143/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:20:5-30:19
+MERGED from [com.google.android.gms:play-services-appstate:8.4.0] /Users/nicolassaad/.android/build-cache/c6ef52bede41cce373a74a9bff71dfd2e0d2fc43/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:20:5-32:19
+MERGED from [com.google.android.gms:play-services-cast:8.4.0] /Users/nicolassaad/.android/build-cache/143ca3a3d9685c8f17bb97de0247e630111a9eac/output/AndroidManifest.xml:19:5-20
+MERGED from [com.android.support:mediarouter-v7:23.0.0] /Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/eb8ae60178132da4f9275d5b7e4a49beabb41b68/output/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/42ce502afae839771b36971aca47503ce78d3833/output/AndroidManifest.xml:23:5-20
+MERGED from [com.google.android.gms:play-services-fitness:8.4.0] /Users/nicolassaad/.android/build-cache/d22982531fbd0a2e37715cf17d68ddadb18a7487/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-games:8.4.0] /Users/nicolassaad/.android/build-cache/e62305b95093f8ccb3f17e05daead3e81fd60dce/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-drive:8.4.0] /Users/nicolassaad/.android/build-cache/f7aafb0c92fe430a27eed94afb4ba49f8077846e/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-gcm:8.4.0] /Users/nicolassaad/.android/build-cache/ad2dc5e5118eeb28b9f831554938bb2f5e261eeb/output/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.gms:play-services-location:8.4.0] /Users/nicolassaad/.android/build-cache/8d6f869d74878e1f3b80e5f90549e75eac425491/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:26:5-46:19
+MERGED from [com.google.android.gms:play-services-nearby:8.4.0] /Users/nicolassaad/.android/build-cache/9f041e10568be7dfab63c8046f3a483e1ff85b00/output/AndroidManifest.xml:20:5-20
+MERGED from [com.google.android.gms:play-services-panorama:8.4.0] /Users/nicolassaad/.android/build-cache/137820bb6b85bd19d04ff63bea11a7ddc9973574/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-plus:8.4.0] /Users/nicolassaad/.android/build-cache/c662bd060adeceac384b64eb8c95f987e2b90640/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-safetynet:8.4.0] /Users/nicolassaad/.android/build-cache/d0997752576f19fd8ad29541aa14c95b18d04340/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-vision:8.4.0] /Users/nicolassaad/.android/build-cache/82922798a27ab3a59a43ce30dbbe48537764b719/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-identity:8.4.0] /Users/nicolassaad/.android/build-cache/678192ec25e429ddabd2eeb02254152278af68c5/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-maps:8.4.0] /Users/nicolassaad/.android/build-cache/3b90056f8a94ae07a68d954f2b840128178eb120/output/AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-wearable:8.4.0] /Users/nicolassaad/.android/build-cache/c4b47c4d864e2848d74318682f805554beed3435/output/AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] /Users/nicolassaad/.android/build-cache/e0ad04e8b313eacdda6f965f92669f8d413a20ee/output/AndroidManifest.xml:20:5-24:19
+MERGED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:26:5-40:19
+MERGED from [com.android.support:support-v4:25.0.0] /Users/nicolassaad/.android/build-cache/0d120feb3b838c18cb03b2b44a29c0a5dc392b72/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.0.0] /Users/nicolassaad/.android/build-cache/305b4e70a8832fd5195e59ef6e4ae8efffdf6eaa/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.0.0] /Users/nicolassaad/.android/build-cache/36f7f0860c9e856cedffdb93b2f614d1014c69a1/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.0.0] /Users/nicolassaad/.android/build-cache/cf6111be8537d696372495f305caedac3cafb328/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.0.0] /Users/nicolassaad/.android/build-cache/aa389348c5964ecc216917d3338e322505072817/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.0.0] /Users/nicolassaad/.android/build-cache/e35f3e4685e9e3977693dcd346f5e99221dc968b/output/AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:24:9-41
+	android:supportsRtl
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:25:9-35
+	android:allowBackup
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:22:9-35
+	android:icon
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:23:9-49
+	android:theme
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:26:9-65
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:21:9-38
+activity#com.nothingsoft.nicolassaad.garagehunter.MainActivity
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:27:9-38:20
+	android:screenOrientation
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:31:13-49
+	android:label
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:30:13-56
+	android:configChanges
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:29:13-74
+	android:theme
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:32:13-69
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:28:13-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:33:13-37:29
+action#android.intent.action.MAIN
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:34:17-69
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:34:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:36:17-77
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:36:27-74
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:47:9-49:71
+	android:value
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:49:13-68
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:48:13-58
+meta-data#com.google.android.gms.version
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:50:9-52:69
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] /Users/nicolassaad/.android/build-cache/e0ad04e8b313eacdda6f965f92669f8d413a20ee/output/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:52:13-66
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:51:13-58
+activity#com.nothingsoft.nicolassaad.garagehunter.SaleActivity
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:54:9-60:20
+	android:screenOrientation
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:57:13-49
+	android:label
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:56:13-56
+	android:theme
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:58:13-69
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:55:13-41
+activity#com.nothingsoft.nicolassaad.garagehunter.PreviewActivity
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:61:9-67:20
+	android:screenOrientation
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:64:13-49
+	android:label
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:63:13-59
+	android:theme
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:65:13-69
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:62:13-44
+activity#com.nothingsoft.nicolassaad.garagehunter.HelpActivity
+ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:68:9-72:20
+	android:label
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:70:13-49
+	android:theme
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:69:13-69
+	android:name
+		ADDED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml:68:19-47
+uses-sdk
+INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] /Users/nicolassaad/.android/build-cache/3c313a95a8027697266415481c8d548fcd40c785/output/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:design:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/5f2952097618f05940932815a224839af64dcd76/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/820d4b40af06027bc0d902e9eba2a18765961557/output/AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services:8.4.0] /Users/nicolassaad/.android/build-cache/09264c989cb7e33b9252c31302f996e323324170/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-analytics:8.4.0] /Users/nicolassaad/.android/build-cache/2dd56ef1e6b3d70b30cba8596a09b5b38a2e0096/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appindexing:8.4.0] /Users/nicolassaad/.android/build-cache/3add91913f09e0adec877bdfd9ba5aa00328d143/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appstate:8.4.0] /Users/nicolassaad/.android/build-cache/c6ef52bede41cce373a74a9bff71dfd2e0d2fc43/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-cast:8.4.0] /Users/nicolassaad/.android/build-cache/143ca3a3d9685c8f17bb97de0247e630111a9eac/output/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:mediarouter-v7:23.0.0] /Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/eb8ae60178132da4f9275d5b7e4a49beabb41b68/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/42ce502afae839771b36971aca47503ce78d3833/output/AndroidManifest.xml:21:5-43
+MERGED from [com.google.android.gms:play-services-fitness:8.4.0] /Users/nicolassaad/.android/build-cache/d22982531fbd0a2e37715cf17d68ddadb18a7487/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-games:8.4.0] /Users/nicolassaad/.android/build-cache/e62305b95093f8ccb3f17e05daead3e81fd60dce/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-drive:8.4.0] /Users/nicolassaad/.android/build-cache/f7aafb0c92fe430a27eed94afb4ba49f8077846e/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-gcm:8.4.0] /Users/nicolassaad/.android/build-cache/ad2dc5e5118eeb28b9f831554938bb2f5e261eeb/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-location:8.4.0] /Users/nicolassaad/.android/build-cache/8d6f869d74878e1f3b80e5f90549e75eac425491/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-nearby:8.4.0] /Users/nicolassaad/.android/build-cache/9f041e10568be7dfab63c8046f3a483e1ff85b00/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-panorama:8.4.0] /Users/nicolassaad/.android/build-cache/137820bb6b85bd19d04ff63bea11a7ddc9973574/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-plus:8.4.0] /Users/nicolassaad/.android/build-cache/c662bd060adeceac384b64eb8c95f987e2b90640/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-safetynet:8.4.0] /Users/nicolassaad/.android/build-cache/d0997752576f19fd8ad29541aa14c95b18d04340/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-vision:8.4.0] /Users/nicolassaad/.android/build-cache/82922798a27ab3a59a43ce30dbbe48537764b719/output/AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-wallet:8.4.0] /Users/nicolassaad/.android/build-cache/0fdb5ccf337f7ec1a785d8fc34ce17f18bad0b49/output/AndroidManifest.xml:19:5-42
+MERGED from [com.google.android.gms:play-services-identity:8.4.0] /Users/nicolassaad/.android/build-cache/678192ec25e429ddabd2eeb02254152278af68c5/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-maps:8.4.0] /Users/nicolassaad/.android/build-cache/3b90056f8a94ae07a68d954f2b840128178eb120/output/AndroidManifest.xml:26:5-42
+MERGED from [com.google.android.gms:play-services-wearable:8.4.0] /Users/nicolassaad/.android/build-cache/c4b47c4d864e2848d74318682f805554beed3435/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:8.4.0] /Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] /Users/nicolassaad/.android/build-cache/e0ad04e8b313eacdda6f965f92669f8d413a20ee/output/AndroidManifest.xml:18:5-42
+MERGED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-v4:25.0.0] /Users/nicolassaad/.android/build-cache/0d120feb3b838c18cb03b2b44a29c0a5dc392b72/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.0.0] /Users/nicolassaad/.android/build-cache/305b4e70a8832fd5195e59ef6e4ae8efffdf6eaa/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.0.0] /Users/nicolassaad/.android/build-cache/36f7f0860c9e856cedffdb93b2f614d1014c69a1/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.0.0] /Users/nicolassaad/.android/build-cache/cf6111be8537d696372495f305caedac3cafb328/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.0.0] /Users/nicolassaad/.android/build-cache/aa389348c5964ecc216917d3338e322505072817/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.0.0] /Users/nicolassaad/.android/build-cache/e35f3e4685e9e3977693dcd346f5e99221dc968b/output/AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/src/main/AndroidManifest.xml
+activity#com.google.android.gms.ads.AdActivity
+ADDED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:26:9-29:64
+	android:configChanges
+		ADDED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:28:13-122
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:29:13-61
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:27:13-65
+activity#com.google.android.gms.ads.purchase.InAppPurchaseActivity
+ADDED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:30:9-31:52
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:31:13-50
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:30:19-91
+activity#com.google.android.gms.appinvite.PreviewActivity
+ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:21:9-29:20
+	android:exported
+		ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:23:17-40
+	android:theme
+		ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:24:17-63
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:22:17-48
+intent-filter#android.intent.category.DEFAULT+com.google.android.gms.appinvite.ACTION_PREVIEW
+ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:25:13-28:29
+action#com.google.android.gms.appinvite.ACTION_PREVIEW
+ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:26:17-89
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:26:25-87
+category#android.intent.category.DEFAULT
+ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:27:17-75
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:8.4.0] /Users/nicolassaad/.android/build-cache/56227966bb432396a6046c123f4893c6ccf1a96a/output/AndroidManifest.xml:27:27-73
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:21:9-24:46
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:23:19-52
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:24:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:22:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:21:19-72
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:28:9-31:110
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:30:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:31:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:29:13-62
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.android.gms:play-services-gcm:8.4.0] /Users/nicolassaad/.android/build-cache/ad2dc5e5118eeb28b9f831554938bb2f5e261eeb/output/AndroidManifest.xml:21:5-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-gcm:8.4.0] /Users/nicolassaad/.android/build-cache/ad2dc5e5118eeb28b9f831554938bb2f5e261eeb/output/AndroidManifest.xml:21:22-79
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:24:22-65
+provider#com.google.android.gms.measurement.AppMeasurementContentProvider
+ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:28:7-31:37
+	android:authorities
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:29:11-76
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:31:11-35
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:30:11-90
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:33:7-39:18
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:35:11-33
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:34:11-83
+intent-filter#com.google.android.gms.measurement.UPLOAD
+ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:36:9-38:25
+action#com.google.android.gms.measurement.UPLOAD
+ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:37:11-77
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:37:19-75
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:41:7-44:37
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:43:11-33
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:44:11-35
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:8.4.0] /Users/nicolassaad/.android/build-cache/e87664b4200aec8c552a4a09e2fd70d5c079f5be/output/AndroidManifest.xml:42:11-82
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:8.4.0] /Users/nicolassaad/.android/build-cache/3b90056f8a94ae07a68d954f2b840128178eb120/output/AndroidManifest.xml:22:5-24:33
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:8.4.0] /Users/nicolassaad/.android/build-cache/3b90056f8a94ae07a68d954f2b840128178eb120/output/AndroidManifest.xml:23:8-40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:8.4.0] /Users/nicolassaad/.android/build-cache/3b90056f8a94ae07a68d954f2b840128178eb120/output/AndroidManifest.xml:24:8-31
+service#com.firebase.jobdispatcher.GooglePlayReceiver
+ADDED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:32:9-39:19
+	android:exported
+		ADDED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:34:13-36
+	android:permission
+		ADDED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:35:13-93
+	android:name
+		ADDED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:33:13-73
+intent-filter#com.google.android.gms.gcm.ACTION_TASK_READY
+ADDED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:36:13-38:29
+action#com.google.android.gms.gcm.ACTION_TASK_READY
+ADDED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:37:17-87
+	android:name
+		ADDED from [com.firebase:firebase-jobdispatcher:0.8.0] /Users/nicolassaad/.android/build-cache/525caa1e701a7287f9fa6bf1eb2dea90e263dd96/output/AndroidManifest.xml:37:25-84

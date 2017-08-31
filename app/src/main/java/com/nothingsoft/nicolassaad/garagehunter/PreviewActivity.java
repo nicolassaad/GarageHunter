@@ -34,7 +34,8 @@ public class PreviewActivity extends AppCompatActivity {
     private String title;
     private String desc;
     private String address;
-    private String weekday;
+    private String startDate;
+    private String endDate;
 
     private PreviewImageAdapter mAdapter;
     private RecyclerView recyclerView;
@@ -80,15 +81,15 @@ public class PreviewActivity extends AppCompatActivity {
         }
             setTitle(previewItems.get(0));
 
-            URI uri1 = URI.create(previewItems.get(4));
+            URI uri1 = URI.create(previewItems.get(5));
             f = new File(uri1);
             imageList.add(f.toString());
 
-            URI uri2 = URI.create(previewItems.get(5));
+            URI uri2 = URI.create(previewItems.get(6));
             f2 = new File(uri2);
             imageList.add(f2.toString());
 
-            URI uri3 = URI.create(previewItems.get(6));
+            URI uri3 = URI.create(previewItems.get(7));
             f3 = new File(uri3);
             imageList.add(f3.toString());
         }
@@ -127,11 +128,14 @@ public class PreviewActivity extends AppCompatActivity {
         title = previewItems.get(0);
         desc = previewItems.get(1);
         address = previewItems.get(2);
-        weekday = previewItems.get(3);
+        startDate = previewItems.get(3);
+        Log.d("PreviewActivity", "startDate = " + startDate);
+        endDate = previewItems.get(4);
+        Log.d("PreviewActivity", "endDate = " + endDate);
         previewItemsCopy = new ArrayList<>();
-        previewItemsCopy.add("Description:\n" + desc);
-        previewItemsCopy.add("Address:\n" + address);
-        previewItemsCopy.add("Date:\n" + weekday);
+        previewItemsCopy.add(getString(R.string.desc_sale_text) + "\n" + desc);
+        previewItemsCopy.add(getString(R.string.address_sale_text) + "\n" + address);
+        previewItemsCopy.add(getString(R.string.date_text_1) + " " + startDate + " " +  getString(R.string.date_text_2) + " " + endDate + ".");
         previewArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, previewItemsCopy);
         previewListView.setAdapter(previewArrayAdapter);
         previewArrayAdapter.notifyDataSetChanged();

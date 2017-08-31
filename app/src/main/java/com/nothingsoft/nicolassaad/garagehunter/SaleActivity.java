@@ -66,7 +66,8 @@ public class SaleActivity extends AppCompatActivity {
                 GarageSale daySearch = iterator.next().getValue(GarageSale.class);
                 String address = daySearch.getAddress();
                 String desc = daySearch.getDescription();
-                String weekday = daySearch.getWeekday();
+                String startDate = daySearch.getStartDate();
+                String endDate = daySearch.getEndDate();
 
                 String pic1 = daySearch.getImage1();
 //                byte[] imageAsBytes = Base64.decode(pic1.getBytes(), Base64.DEFAULT);
@@ -83,12 +84,13 @@ public class SaleActivity extends AppCompatActivity {
 //                image3.setImageBitmap(
 //                        BitmapFactory.decodeByteArray(imageAsBytes3, 0, imageAsBytes3.length));
 
+                // Description is required to post but just this is here in case someone tries to get around it
                 if (desc.isEmpty()) {
-                    desc = "no description.";
+                    desc = getString(R.string.no_desc_provided_text);
                 }
-                saleArrayList.add("Description:\n" + desc);
-                saleArrayList.add("Address:\n" + address);
-                saleArrayList.add("Date:\n" + weekday);
+                saleArrayList.add(getString(R.string.desc_sale_text) + "\n" + desc);
+                saleArrayList.add(getString(R.string.address_sale_text) + "\n" + address);
+                saleArrayList.add(getString(R.string.date_text_1) + " " + startDate + " " + getString(R.string.date_text_2) + " " + endDate + ".");
                 arrayAdapter.notifyDataSetChanged();
 
                 imageList.add(pic1);

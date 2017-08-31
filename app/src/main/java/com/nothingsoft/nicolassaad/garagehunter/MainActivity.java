@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             Toast.makeText(this, R.string.no_internet, Toast.LENGTH_LONG).show();
         }
     }
+
 }
 
 

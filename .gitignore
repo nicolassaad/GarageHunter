@@ -1,7 +1,9 @@
-.gradle/
-.idea/
-GarageHunter.iml
-*/app.iml
-*/build/
-local.properties
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
 .DS_Store
+/build
+/captures
+.externalNativeBuild

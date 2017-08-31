@@ -1,0 +1,7 @@
+#Tue Aug 29 02:06:46 PDT 2017
+base.0=/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/transforms/dex/release/folders/1000/1f/main
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/transforms/dex/release/folders/1000/1f/main/classes.dex
+base.1=/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/transforms/dex/release/folders/1000/1f/main
+file.0=/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/transforms/dex/release/folders/1000/1f/main/classes2.dex

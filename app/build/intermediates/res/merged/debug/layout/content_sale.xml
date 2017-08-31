@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".SaleActivity"
+    tools:showIn="@layout/activity_sale">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scrollbars="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/progress_bar_layout"
+        android:layout_below="@id/recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/white_color"
+        android:padding="10dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/hunting_sales_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/five"
+            android:layout_marginRight="@dimen/five"
+            android:layout_marginTop="@dimen/ten"
+            android:gravity="center_horizontal"
+            android:text="@string/loading_progress_text"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/eighteen" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@id/hunting_sales_text"
+            android:layout_toRightOf="@id/hunting_sales_text" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <ListView
+            android:id="@+id/sale_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <!--<TextView-->
+        <!--android:id="@+id/sale_desc"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="@dimen/ten"-->
+        <!--android:layout_marginLeft="@dimen/ten"-->
+        <!--android:layout_marginRight="@dimen/ten"-->
+        <!--android:layout_marginStart="@dimen/ten"-->
+        <!--android:layout_marginTop="@dimen/five"-->
+        <!--android:gravity="start"-->
+        <!--android:hint="@string/description"-->
+        <!--android:textSize="@dimen/sixteen" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/address_prompt_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/sale_desc"-->
+        <!--android:layout_marginBottom="@dimen/fifteen"-->
+        <!--android:layout_marginEnd="@dimen/five"-->
+        <!--android:layout_marginRight="@dimen/five"-->
+        <!--android:layout_marginTop="@dimen/fifteen"-->
+        <!--android:text="@string/address_colon"-->
+        <!--android:textSize="@dimen/eighteen"-->
+        <!--android:textStyle="bold" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/sale_address_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/sale_desc"-->
+        <!--android:layout_marginBottom="@dimen/fifteen"-->
+        <!--android:layout_marginTop="@dimen/fifteen"-->
+        <!--android:layout_toEndOf="@id/address_prompt_text"-->
+        <!--android:layout_toRightOf="@id/address_prompt_text"-->
+        <!--android:textSize="@dimen/sixteen" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/day_prompt_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/address_prompt_text"-->
+        <!--android:layout_marginEnd="@dimen/five"-->
+        <!--android:layout_marginRight="@dimen/five"-->
+        <!--android:layout_marginTop="@dimen/five"-->
+        <!--android:text="@string/day_colon"-->
+        <!--android:textSize="@dimen/eighteen"-->
+        <!--android:textStyle="bold" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/sale_DOW"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/address_prompt_text"-->
+        <!--android:layout_marginBottom="@dimen/fifteen"-->
+        <!--android:layout_marginTop="@dimen/five"-->
+        <!--android:layout_toEndOf="@id/day_prompt_text"-->
+        <!--android:layout_toRightOf="@id/day_prompt_text"-->
+        <!--android:gravity="start"-->
+        <!--android:textSize="@dimen/sixteen" />-->
+
+        <!--</RelativeLayout>-->
+        <!--</android.support.v4.widget.NestedScrollView>-->
+
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginEnd="@dimen/five"-->
+        <!--android:layout_marginRight="@dimen/five"-->
+        <!--android:layout_marginTop="-50dp">-->
+        <!--<Button-->
+        <!--android:id="@+id/sale_back_button"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:background="@color/accent_color"-->
+        <!--android:clickable="true"-->
+        <!--android:paddingBottom="@dimen/ten"-->
+        <!--android:paddingLeft="@dimen/ten"-->
+        <!--android:paddingRight="@dimen/ten"-->
+        <!--android:paddingTop="@dimen/ten"-->
+        <!--android:text="@string/go_back"-->
+        <!--android:textAllCaps="false" />-->
+    </RelativeLayout>
+</RelativeLayout>
+
+
+

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_launcher.png",
+        "source": "/Users/nicolassaad/Documents/GarageHunter/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/mipmap-hdpi-v4/ic_garagehunter.png",
+        "source": "/Users/nicolassaad/Documents/GarageHunter/app/src/main/res/mipmap-hdpi/ic_garagehunter.png"
+    }
+]

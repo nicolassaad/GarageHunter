@@ -70,6 +70,7 @@
             android:label="@string/help_section">
 
         </activity>
+
     </application>
 
 </manifest>

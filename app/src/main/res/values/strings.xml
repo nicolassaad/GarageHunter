@@ -4,14 +4,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Help</string>
+    <string name="action_settings">Help Section</string>
     <string name="title_activity_main">Garage Sale Hunter</string>
     <string name="title_activity_maps">Map</string>
     <string name="enter_title">Enter Title</string>
     <string name="enter_description">Enter Description</string>
     <string name="enter_address">Enter Address</string>
     <string name="go_back">Go Back</string>
-    <string name="post">Post</string>
+    <string name="post_sale">Post Sale</string>
     <string name="preview_post">Preview Post</string>
     <string name="search">Search</string>
     <string name="hide_search">Hide Search</string>
@@ -45,20 +45,20 @@
     <string name="day_colon">DAY:</string>
     <string name="no_address">No Address</string>
     <string name="add_pictures">Add Pictures</string>
-    <string name="no_internet">No Internet Connection</string>
-    <string name="please_add_pics">Please add three pictures</string>
-    <string name="please_enter_title">Please enter a title</string>
+    <string name="no_internet">No Internet Connection!</string>
+    <string name="please_add_pics">Please add three pictures!</string>
+    <string name="please_enter_title">Please enter a title!</string>
     <string name="pic_wasnt_taken">Picture wasn\'t taken!</string>
-    <string name="failed_create_dir">failed to create directory</string>
+    <string name="failed_create_dir">failed to create directory!</string>
     <string name="firebase_address">https://garagesalehunter.firebaseio.com</string>
-    <string name="enter_valid_address">Please enter valid address</string>
-    <string name="camera_permission">After accepting the Camera permission you can now add pictures</string>
+    <string name="enter_valid_address">Please enter valid address!</string>
+    <string name="camera_permission">You can now tap to add pictures!</string>
     <string name="clear">Clear</string>
     <string name="network_not_available">Network is Not available!</string>
     <string name="please_check_your_network">Please check your network connection!</string>
     <string name="show_search">Show Search</string>
     <string name="hunting_sales">Hunting sales…</string>
-    <string name="sales_found_nearby">" sales found nearby"</string>
+    <string name="sales_found_nearby">" sales found near you!"</string>
     <string name="loading_progress_text">Loading page…</string>
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
@@ -68,9 +68,27 @@
     <string name="all_sales">All Sales</string>
     <string name="help_section">Help Section:</string>
     <string name="how_to_post_your_own_sale">How To Post Your Own Sale:</string>
-    <string name="help_post_sale_text">Navigate to the \'\'Post Your Own Sale\'\' tab then proceed to fill in the prompts with the title of your sale as well as your address, a description, and three pictures. Three pictures are required to post so if you only have one item for sale make sure to take multiple angles of it.</string>
+    <string name="help_post_sale_text">Tap on the \'\'Post Your Own Sale\'\' tab then proceed to fill in the prompts with the title of your sale as well as your address, a description, three pictures, and a start and end date (required fields). Three pictures are required to post so if you only have one item for sale make sure to take multiple angles of it.</string>
     <string name="how_to_search_for_sales">How To Search for Sales:</string>
-    <string name="how_to_search_for_sales_text">To search for garage sales, navigate to the \'\'Search For Sales\'\' tab and then use the map to locate a sale. Use the drop down menu to search for sales organized by day of the week. You can also search for different locations using the search box. To navigate back to your location on the map press the crosshair button located at the top right of the map. Press the \'\'Hide Search\'\' button to make the map fullscreen.</string>
+    <string name="how_to_search_for_sales_text">To search for garage sales, tap on the \'\'Search For Sales\'\' tab and then use the map to locate a sale. You can also search for different locations using the search box by typing in the name of a city or town, then pressing the magnifying glass icon. Press the \'\'Hide Search\'\' button to make the map fullscreen.</string>
+    <string name="start_date_text">Start Date :</string>
+    <string name="end_date_text">End Date :</string>
+    <string name="add_date_alert">Add Date</string>
+    <string name="desc_sale_text">Description: </string>
+    <string name="address_sale_text">Address: </string>
+    <string name="date_text_1">Starts </string>
+    <string name="date_text_2"> and ends on </string>
+    <string name="no_desc_provided_text">no description provided.</string>
+    <string name="end_date_earlier_text">End Date is EARLIER than Start date</string>
+    <string name="start_date_later_text">Start Date is LATER than End date!</string>
+    <string name="add_start_date_alert">Please add a start date!</string>
+    <string name="add_end_date_alert">Please add an end date!</string>
+    <string name="please_add_three_pics">Please add three pictures!</string>
+    <string name="please_enter_short_desc">Please enter a short description!</string>
+    <string name="some_fields_not_filled">Some fields have not been filled out!</string>
+    <string name="complete_fields_correctly">Please complete all fields correctly</string>
+    <string name="gsh_current_build_version">Garage Sale Hunter Build v1.11</string>
+
 </resources>
 
 
