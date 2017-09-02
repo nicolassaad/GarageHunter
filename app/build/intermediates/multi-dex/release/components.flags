@@ -1,5 +1,5 @@
--injars /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/transforms/jarMerging/release/jars/1/1f/combined.jar
--outjars /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/multi-dex/release/componentClasses.jar
+-injars /Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/jarMerging/release/jars/1/1f/combined.jar
+-outjars /Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/multi-dex/release/componentClasses.jar
 
 -libraryjars /Users/nicolassaad/Library/Android/sdk/build-tools/25.0.0/lib/shrinkedAndroid.jar
 
@@ -10,7 +10,7 @@
 -dontpreverify
 -dontnote **
 -dontwarn **
--printconfiguration /Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/multi-dex/release/components.flags
+-printconfiguration /Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/multi-dex/release/components.flags
 
 
 -keep public class * extends android.app.Instrumentation {

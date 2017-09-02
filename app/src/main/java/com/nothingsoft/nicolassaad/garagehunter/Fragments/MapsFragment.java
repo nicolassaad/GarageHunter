@@ -22,6 +22,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.NotificationCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -104,6 +106,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.activity_maps, container, false);
         setViews(view);
+        clearButton.setVisibility(View.INVISIBLE);
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -152,12 +155,13 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             @Override
             public void onClick(View v) {
                 searchLocEdit.setText("");
+                clearButton.setVisibility(View.INVISIBLE);
             }
         });
 
         settingLocationRequest();
         settingGoogleApiClient();
-//        setRemovableET(searchLocEdit, clearButton);
+        //setRemovableET(searchLocEdit, clearButton);
 
         mFireBase = new Firebase(getString(R.string.firebase_address));
 
@@ -172,8 +176,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
 
         return view;
-}
-
+    }
 
     private void setViews(View view) {
         searchButton = (Button) view.findViewById(R.id.search_button);
@@ -193,6 +196,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
+
                 if (hasFocus && et.getText().toString().length() > 0)
                     resetIB.setVisibility(View.VISIBLE);
                 else
@@ -482,6 +486,9 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         public void onDataChange(DataSnapshot dataSnapshot) {
 
             Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+            if (mMap == null ) {
+                setUpMapIfNeeded();
+            }
             mMap.clear();
             if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -524,6 +531,29 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             hideProgressLayout();
             int resultsLoaded = markerCount;
             Snackbar.make(getView(), resultsLoaded + getString(R.string.sales_found_nearby), Snackbar.LENGTH_LONG).show();
+
+            // Code that controls the visibility for the Clear Button in the searchByLocEdit EditText
+            // Does it have to be inside the onDataChange method to work?
+            searchLocEdit.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    // left blank
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (s.length() != 0) {
+                        clearButton.setVisibility(View.VISIBLE);
+                    } else {
+                        clearButton.setVisibility(View.INVISIBLE);
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    // left blank
+                }
+            });
         }
 
         @Override
@@ -532,20 +562,16 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         }
     };
 
-public class RelativeView extends RelativeLayout {
+    public class RelativeView extends RelativeLayout {
 
-    public RelativeView(Context context) {
-        super(context);
-    }
+        public RelativeView(Context context) {
+            super(context);
+        }
 
-    @Override
-    public void onAnimationEnd() {
-        super.onAnimationEnd();
-        progressLayout.setVisibility(GONE);
-
+        @Override
+        public void onAnimationEnd() {
+            super.onAnimationEnd();
+            progressLayout.setVisibility(GONE);
+        }
     }
 }
-
-}
-
-

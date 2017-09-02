@@ -1,10 +1,6 @@
 [
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/raw/gtm_analytics",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.4.0/res/raw/gtm_analytics"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/raw/gtm_analytics",
         "source": "/Users/nicolassaad/.android/build-cache/2dd56ef1e6b3d70b30cba8596a09b5b38a2e0096/output/res/raw/gtm_analytics"
     }
 ]

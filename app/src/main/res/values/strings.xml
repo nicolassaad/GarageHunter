@@ -87,7 +87,8 @@
     <string name="please_enter_short_desc">Please enter a short description!</string>
     <string name="some_fields_not_filled">Some fields have not been filled out!</string>
     <string name="complete_fields_correctly">Please complete all fields correctly</string>
-    <string name="gsh_current_build_version">Garage Sale Hunter Build v1.11</string>
+    <string name="gsh_current_build_version">Garage Sale Hunter Build v1.13</string>
+    <string name="date">Date:</string>
 
 </resources>
 

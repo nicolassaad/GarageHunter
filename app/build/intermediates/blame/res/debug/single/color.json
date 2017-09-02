@@ -1,186 +1,94 @@
 [
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_primary_text_material_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_primary_text_disable_only_material_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_tint_switch_thumb.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_tint_spinner.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_primary_text_material_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_secondary_text_material_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_tint_default.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/switch_thumb_material_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/wallet_secondary_text_holo_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/0fdb5ccf337f7ec1a785d8fc34ce17f18bad0b49/output/res/color/wallet_secondary_text_holo_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_primary_text_disable_only_material_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_light.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/color/common_plus_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/wallet_primary_text_holo_light.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/res/color/wallet_primary_text_holo_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_dark.xml",
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_dark.xml",
         "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/color/common_plus_signin_btn_text_dark.xml"
     },
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_primary_text_material_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_search_url_text.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
         "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/color/common_google_signin_btn_text_light.xml"
     },
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_light.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/color/common_plus_signin_btn_text_light.xml"
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/switch_thumb_material_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
         "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_switch_thumb.xml"
     },
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/wallet_secondary_text_holo_dark.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/res/color/wallet_secondary_text_holo_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_dark.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/color/common_plus_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_secondary_text_material_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/color/common_google_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/switch_thumb_material_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/color/common_google_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
         "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_spinner.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_primary_text_disable_only_material_dark.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_search_url_text.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/wallet_primary_text_holo_light.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/0fdb5ccf337f7ec1a785d8fc34ce17f18bad0b49/output/res/color/wallet_primary_text_holo_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_edittext.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/color/common_google_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_tint_edittext.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
         "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_tint_switch_track.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_secondary_text_material_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/switch_thumb_material_dark.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
-        "source": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/res/color/abc_primary_text_material_light.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_switch_track.xml"
-    },
-    {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
         "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_default.xml"
     },
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter_Backup/GarageHunter-8-19-17/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_primary_text_disable_only_material_dark.xml"
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/wallet_primary_text_holo_light.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/0fdb5ccf337f7ec1a785d8fc34ce17f18bad0b49/output/res/color/wallet_primary_text_holo_light.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_light.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/color/common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/color/wallet_secondary_text_holo_dark.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/0fdb5ccf337f7ec1a785d8fc34ce17f18bad0b49/output/res/color/wallet_secondary_text_holo_dark.xml"
     }
 ]

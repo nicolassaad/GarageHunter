@@ -135,7 +135,11 @@ public class PreviewActivity extends AppCompatActivity {
         previewItemsCopy = new ArrayList<>();
         previewItemsCopy.add(getString(R.string.desc_sale_text) + "\n" + desc);
         previewItemsCopy.add(getString(R.string.address_sale_text) + "\n" + address);
-        previewItemsCopy.add(getString(R.string.date_text_1) + " " + startDate + " " +  getString(R.string.date_text_2) + " " + endDate + ".");
+        if (startDate.equals(endDate)) {
+            previewItemsCopy.add(getString(R.string.date) + "\n" + endDate);
+        } else {
+            previewItemsCopy.add(getString(R.string.date_text_1) + " " + startDate + " " + getString(R.string.date_text_2) + " " + endDate + ".");
+        }
         previewArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, previewItemsCopy);
         previewListView.setAdapter(previewArrayAdapter);
         previewArrayAdapter.notifyDataSetChanged();

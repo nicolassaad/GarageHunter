@@ -90,9 +90,12 @@ public class SaleActivity extends AppCompatActivity {
                 }
                 saleArrayList.add(getString(R.string.desc_sale_text) + "\n" + desc);
                 saleArrayList.add(getString(R.string.address_sale_text) + "\n" + address);
-                saleArrayList.add(getString(R.string.date_text_1) + " " + startDate + " " + getString(R.string.date_text_2) + " " + endDate + ".");
+                if (startDate.equals(endDate)) {
+                    saleArrayList.add(getString(R.string.date) + "\n" + endDate);
+                } else {
+                    saleArrayList.add(getString(R.string.date_text_1) + " " + startDate + " " + getString(R.string.date_text_2) + " " + endDate + ".");
+                }
                 arrayAdapter.notifyDataSetChanged();
-
                 imageList.add(pic1);
                 imageList.add(pic2);
                 imageList.add(pic3);
