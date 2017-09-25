@@ -6,22 +6,22 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1504316395564"
+    timestamp="1506298850186"
     token="-270407900585282725"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1282" />
+        duration="2285" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="43" />
+        duration="56" />
     <task
         name="verifier"
-        duration="5" />
+        duration="7" />
 
     <artifact
         location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -32,7 +32,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1504308563985"
+        timestamp="1506295697328"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
@@ -56,10 +56,10 @@
             location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
             location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
@@ -73,7 +73,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1504315920815"
+        timestamp="1506298505592"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/nicolassaad/Documents/GarageHunter/app/build/outputs/apk/app-debug.apk"
@@ -81,7 +81,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1504316395564"
+        timestamp="1506298850186"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/split-apk/debug/slices/slice_3.apk"

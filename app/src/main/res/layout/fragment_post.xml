@@ -73,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:background="@color/accent_color"
+            android:textColor="@color/white_color"
             tools:text="8/23/17"/>
 
         <TextView
@@ -86,8 +87,9 @@
         <Button
             android:id="@+id/end_date_button"
             android:layout_width="wrap_content"
-            android:background="@color/accent_color"
             android:layout_height="35dp"
+            android:background="@color/accent_color"
+            android:textColor="@color/white_color"
             tools:text="9/1/17"
             />
 
@@ -196,6 +198,7 @@
                 android:paddingRight="@dimen/ten"
                 android:paddingTop="@dimen/ten"
                 android:text="@string/preview_post"
+                android:textColor="@color/white_color"
                 android:textAllCaps="false"/>
 
             <Button
@@ -211,6 +214,7 @@
                 android:paddingRight="@dimen/ten"
                 android:paddingTop="@dimen/ten"
                 android:text="@string/post_sale"
+                android:textColor="@color/white_color"
                 android:textAllCaps="false"/>
         </RelativeLayout>
 

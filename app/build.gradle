@@ -11,8 +11,8 @@ android {
         applicationId "com.nothingsoft.nicolassaad.garagehunter"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 13
-        versionName "1.13"
+        versionCode 17
+        versionName "1.17"
         multiDexEnabled true
     }
     buildTypes {
@@ -33,11 +33,11 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'
-    compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
-    compile 'com.android.support:design:24.0.0-alpha2'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
     compile 'com.firebase:firebase-client-android:2.3.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.android.support:recyclerview-v7:23.3.0'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.firebase:firebase-jobdispatcher:0.8.0'

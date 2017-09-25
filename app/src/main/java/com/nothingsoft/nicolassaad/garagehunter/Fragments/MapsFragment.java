@@ -65,6 +65,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 /**
  * Created by nicolassaad on 5/2/16.
@@ -86,7 +87,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
     private Marker userMarker;
     private GoogleApiClient mGoogleApiClient;
     private SupportMapFragment fragment;
-    private Query query;
     private Query query2;
     private Firebase mFireBase;
     private String address;
@@ -161,7 +161,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
         settingLocationRequest();
         settingGoogleApiClient();
-        //setRemovableET(searchLocEdit, clearButton);
 
         mFireBase = new Firebase(getString(R.string.firebase_address));
 
@@ -174,6 +173,28 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             Toast.makeText(getContext(), R.string.no_internet, Toast.LENGTH_LONG).show();
             showNetworkNotAvailableNotification();
         }
+
+        // Code that controls the visibility for the Clear Button in the searchByLocEdit EditText
+        searchLocEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // left blank
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() != 0) {
+                    clearButton.setVisibility(View.VISIBLE);
+                } else {
+                    clearButton.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // left blank
+            }
+        });
 
         return view;
     }
@@ -191,28 +212,13 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
     }
 
-    private void setRemovableET(final EditText et, final Button resetIB) {
-
-        et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus && et.getText().toString().length() > 0)
-                    resetIB.setVisibility(View.VISIBLE);
-                else
-                    resetIB.setVisibility(View.INVISIBLE);
-            }
-        });
-    }
-
-
     private void searchForLocation() {
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
         address = searchLocEdit.getText().toString();
         try {
             List<Address> addresses = geocoder.getFromLocationName(address, 1);
             if (addresses.size() == 0) {
-                Toast.makeText(getContext(), R.string.enter_valid_address, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.enter_valid_address_loc, Toast.LENGTH_LONG).show();
             } else {
                 addUserPosition(addresses);
             }
@@ -233,7 +239,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
         if (mMap != null) {
             hideKeyboard(getActivity());
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(11.0f).build();
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(15.0f).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         } else {
             Log.d(TAG, "Map is null");
@@ -361,7 +367,6 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
 
-
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
         if (mMap != null) {
@@ -374,7 +379,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
 
             // TODO: 8/25/17 WHEN BACKING OUT FROM A SALEACTIVITY THIS CODE RECENTERS MAP ON USER. WE WANT THE MAP TO STAY STILL SOMEHOW
             // TODO: 8/25/17 MAKING SALEACTIVITY A FRAGMENT COULD POTENTIALLY FIX THIS ISSUE
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(10.0f).build();
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(9.5f).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         } else {
@@ -486,7 +491,7 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
         public void onDataChange(DataSnapshot dataSnapshot) {
 
             Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
-            if (mMap == null ) {
+            if (mMap == null) {
                 setUpMapIfNeeded();
             }
             mMap.clear();
@@ -515,8 +520,13 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             while (iterator.hasNext()) {
                 GarageSale daySearch = iterator.next().getValue(GarageSale.class);
                 Log.d(TAG, daySearch.toString());
+                // Creating the different colors of map markers that will be used to populate the map randomly.
+                float[] colors = { BitmapDescriptorFactory.HUE_AZURE, BitmapDescriptorFactory.HUE_BLUE, BitmapDescriptorFactory.HUE_GREEN
+                        , BitmapDescriptorFactory.HUE_ORANGE, BitmapDescriptorFactory.HUE_RED
+                        , BitmapDescriptorFactory.HUE_YELLOW, BitmapDescriptorFactory.HUE_VIOLET
+                        , BitmapDescriptorFactory.HUE_ROSE,  BitmapDescriptorFactory.HUE_CYAN};
                 // Displays markers for all matching entries
-                mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.blue_marker)));
+                mMap.addMarker(new MarkerOptions().position(new LatLng(daySearch.getLat(), daySearch.getLon())).title(daySearch.getTitle()).icon(BitmapDescriptorFactory.defaultMarker(colors[new Random().nextInt(colors.length)])));
                 markerCount++;
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
@@ -530,30 +540,15 @@ public class MapsFragment extends Fragment implements GoogleApiClient.Connection
             }
             hideProgressLayout();
             int resultsLoaded = markerCount;
-            Snackbar.make(getView(), resultsLoaded + getString(R.string.sales_found_nearby), Snackbar.LENGTH_LONG).show();
+            if (resultsLoaded == 1) {
+                Snackbar.make(getView(), resultsLoaded + getString(R.string.sale_found_worldwide), Snackbar.LENGTH_LONG).show();
 
-            // Code that controls the visibility for the Clear Button in the searchByLocEdit EditText
-            // Does it have to be inside the onDataChange method to work?
-            searchLocEdit.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    // left blank
-                }
+            } else if (resultsLoaded == 0 ) {
+                Snackbar.make(getView(),  getString(R.string.no_sales_found), Snackbar.LENGTH_LONG).show();
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if (s.length() != 0) {
-                        clearButton.setVisibility(View.VISIBLE);
-                    } else {
-                        clearButton.setVisibility(View.INVISIBLE);
-                    }
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    // left blank
-                }
-            });
+            } else {
+                Snackbar.make(getView(), resultsLoaded + getString(R.string.sales_found_worldwide), Snackbar.LENGTH_LONG).show();
+            }
         }
 
         @Override

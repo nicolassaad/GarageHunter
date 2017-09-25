@@ -180,12 +180,12 @@
         "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable-hdpi/common_plus_signin_btn_text_light_pressed.9.png"
     },
     {
-        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/release/drawable-hdpi/powered_by_google_dark.png",
-        "source": "/Users/nicolassaad/.android/build-cache/8d6f869d74878e1f3b80e5f90549e75eac425491/output/res/drawable-hdpi/powered_by_google_dark.png"
-    },
-    {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/release/drawable-hdpi/ic_pause_dark.png",
         "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable-hdpi/ic_pause_dark.png"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/release/drawable-hdpi/powered_by_google_dark.png",
+        "source": "/Users/nicolassaad/.android/build-cache/8d6f869d74878e1f3b80e5f90549e75eac425491/output/res/drawable-hdpi/powered_by_google_dark.png"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/release/drawable-hdpi/ic_setting_light.png",

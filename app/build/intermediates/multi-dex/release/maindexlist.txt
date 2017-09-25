@@ -10,7 +10,6 @@ com/fasterxml/jackson/databind/jsonFormatVisitors/JsonFormatTypes.class
 com/google/android/gms/wearable/MessageApi$FilterType.class
 com/google/android/gms/wallet/fragment/WalletFragmentStyle$BuyButtonText.class
 com/google/android/gms/wearable/MessageApi$SendMessageResult.class
-android/support/design/widget/FloatingActionButtonIcs.class
 com/google/android/gms/internal/zzaw.class
 android/support/v4/view/MenuCompat.class
 com/google/android/gms/ads/internal/reward/client/zze.class
@@ -32,7 +31,6 @@ android/support/multidex/MultiDexExtractor.class
 com/fasterxml/jackson/databind/deser/impl/ObjectIdReader.class
 android/support/v4/media/MediaBrowserCompat$Subscription.class
 com/google/android/gms/internal/zzfd.class
-android/support/v7/widget/AdapterHelper$UpdateOp.class
 com/fasterxml/jackson/databind/annotation/JsonSerialize.class
 com/google/android/gms/analytics/HitBuilders$ItemBuilder.class
 com/fasterxml/jackson/databind/ser/BeanPropertyWriter.class
@@ -46,7 +44,6 @@ com/google/android/gms/internal/zzdc.class
 android/support/design/widget/Snackbar$Callback.class
 android/support/annotation/Dimension.class
 android/support/v7/widget/RecyclerView$ItemAnimator.class
-android/support/design/widget/FloatingActionButtonLollipop.class
 com/google/android/gms/internal/zzig$zza.class
 com/google/ads/mediation/customevent/CustomEventListener.class
 com/firebase/jobdispatcher/JobService$LocalBinder.class
@@ -66,7 +63,6 @@ android/support/v4/app/FragmentTabHost.class
 com/google/android/gms/ads/internal/purchase/zzl.class
 com/google/android/gms/internal/zzdg$zzc.class
 com/fasterxml/jackson/databind/ser/std/NumberSerializers$IntLikeSerializer.class
-android/support/design/widget/FloatingActionButton$1.class
 android/support/v4/util/ArrayMap.class
 com/google/android/gms/wearable/internal/zza.class
 com/fasterxml/jackson/databind/deser/std/NumberDeserializers$BigIntegerDeserializer.class
@@ -99,9 +95,7 @@ com/firebase/client/Query.class
 android/support/v4/view/accessibility/AccessibilityNodeProviderCompat.class
 com/fasterxml/jackson/databind/ser/std/StringSerializer.class
 android/support/v7/appcompat/R.class
-android/support/design/widget/VisibilityAwareImageButton.class
 com/google/android/gms/common/internal/zzx.class
-android/support/v7/view/menu/CascadingMenuPopup$1.class
 com/google/android/gms/fitness/FitnessStatusCodes.class
 com/google/android/gms/appinvite/AppInviteApi.class
 com/google/android/gms/maps/MapView.class
@@ -126,7 +120,6 @@ com/google/android/gms/playlog/internal/PlayLoggerContext.class
 com/fasterxml/jackson/annotation/JsonInclude$Include.class
 com/google/android/gms/internal/zzdr.class
 com/google/android/gms/ads/internal/purchase/zzb.class
-android/support/v7/view/menu/MenuPresenter$Callback.class
 com/google/android/gms/analytics/GoogleAnalytics.class
 com/google/android/gms/internal/zzjp.class
 android/support/v4/widget/SlidingPaneLayout.class
@@ -157,7 +150,6 @@ android/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21.class
 android/support/v4/view/ViewPager$ItemInfo.class
 android/support/annotation/DimenRes.class
 com/google/android/gms/internal/zzbl.class
-android/support/v7/view/menu/ShowableListMenu.class
 android/support/v4/os/UserManagerCompat.class
 com/google/android/gms/internal/zzeo.class
 android/support/v4/app/ServiceCompat$StopForegroundFlags.class
@@ -213,7 +205,6 @@ com/fasterxml/jackson/annotation/JsonIgnoreType.class
 com/google/android/gms/ads/internal/request/LargeParcelTeleporter.class
 android/support/design/widget/HeaderBehavior$FlingRunnable.class
 com/fasterxml/jackson/annotation/JsonFormat.class
-android/support/design/widget/FloatingActionButton$Behavior$1.class
 org/joda/time/base/AbstractDuration.class
 com/google/android/gms/internal/zzfs.class
 com/google/android/gms/wearable/CapabilityApi$AddLocalCapabilityResult.class
@@ -226,7 +217,6 @@ com/google/android/gms/internal/zzdv.class
 org/joda/time/Minutes.class
 com/fasterxml/jackson/databind/ser/impl/StringArraySerializer.class
 com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers$FloatDeser.class
-android/support/design/widget/ShadowViewDelegate.class
 com/google/android/gms/internal/zzjv.class
 android/support/v4/media/session/MediaSessionCompat$Callback.class
 com/firebase/jobdispatcher/FirebaseJobDispatcher$ScheduleResult.class
@@ -306,7 +296,6 @@ org/joda/time/base/AbstractDateTime.class
 android/support/v4/app/FragmentController.class
 com/google/android/gms/internal/zzk.class
 com/google/android/gms/wallet/CountrySpecification.class
-android/support/v7/appcompat/R$layout.class
 com/google/android/gms/internal/zzil.class
 android/support/v4/media/MediaBrowserCompat$MediaItem$1.class
 android/support/design/widget/ViewOffsetBehavior.class
@@ -352,7 +341,6 @@ android/support/design/widget/TabLayout$Mode.class
 android/support/v4/widget/MaterialProgressDrawable$2.class
 android/support/annotation/AnimatorRes.class
 com/fasterxml/jackson/databind/JsonSerializer.class
-android/support/v7/widget/MenuPopupWindow.class
 com/google/android/gms/internal/zzdu.class
 android/support/v7/widget/SimpleItemAnimator.class
 com/google/android/gms/ads/internal/overlay/AdLauncherIntentInfoParcel.class
@@ -368,7 +356,6 @@ com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer$IntKD.class
 com/google/android/gms/games/Game.class
 android/support/v4/media/RatingCompat$1.class
 android/support/v4/view/ViewCompat$JBViewCompatImpl.class
-android/support/v7/view/menu/MenuAdapter.class
 com/google/android/gms/nearby/sharing/SharedContent.class
 com/google/android/gms/internal/zzdp.class
 com/google/android/gms/ads/internal/client/ThinAdSizeParcel.class
@@ -462,7 +449,6 @@ com/google/android/gms/internal/zzgz.class
 android/support/v4/view/ViewPager$LayoutParams.class
 com/google/android/gms/common/internal/zzac.class
 com/google/android/gms/internal/zzqu.class
-android/support/v4/internal/view/SupportMenu.class
 android/support/v4/view/ViewCompatApi24.class
 com/google/android/gms/internal/zzbw.class
 com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers$ByteDeser.class
@@ -570,7 +556,6 @@ com/google/android/gms/internal/zzgv.class
 com/google/android/gms/ads/internal/zzs.class
 com/fasterxml/jackson/databind/deser/std/NumberDeserializers$IntegerDeserializer.class
 org/joda/time/Years.class
-android/support/design/widget/FloatingActionButtonEclairMr1.class
 android/support/v4/app/ServiceCompat$ServiceCompatImpl.class
 android/support/annotation/RestrictTo$Scope.class
 android/support/v7/app/AppCompatDelegate$NightMode.class
@@ -613,7 +598,6 @@ android/support/v7/widget/RecyclerView$ViewHolder.class
 com/fasterxml/jackson/databind/JsonDeserializer.class
 com/google/android/gms/ads/internal/request/zzb$zza.class
 android/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo.class
-android/support/v7/view/menu/MenuPresenter.class
 com/google/android/gms/internal/zzin.class
 android/support/v4/media/RatingCompat$Style.class
 android/support/v7/app/AppCompatDelegate.class
@@ -639,7 +623,6 @@ com/google/android/gms/ads/internal/client/zzaa$zza.class
 com/google/android/gms/internal/zzjd.class
 com/firebase/jobdispatcher/ObservedUri$Flags.class
 android/support/annotation/ColorInt.class
-android/support/design/widget/FloatingActionButtonImpl.class
 android/support/annotation/RawRes.class
 com/fasterxml/jackson/core/JsonProcessingException.class
 android/support/v7/recyclerview/R$styleable.class
@@ -681,7 +664,6 @@ com/google/android/gms/ads/internal/formats/zzd.class
 com/google/android/gms/common/api/PendingResult.class
 com/fasterxml/jackson/core/Versioned.class
 android/support/design/widget/TabLayout$TabLayoutOnPageChangeListener.class
-android/support/design/widget/FloatingActionButton$Behavior.class
 android/support/v4/widget/MaterialProgressDrawable$ProgressDrawableSize.class
 android/support/v4/view/WindowInsetsCompat.class
 com/google/android/gms/cast/Cast$CastOptions.class
@@ -692,7 +674,6 @@ android/support/design/widget/AppBarLayout$Behavior$1.class
 com/fasterxml/jackson/databind/ser/std/StdContainerSerializers.class
 com/google/android/gms/plus/Account.class
 com/google/android/gms/analytics/internal/Command$1.class
-android/support/v7/widget/AppCompatImageHelper.class
 android/support/v4/view/ViewCompatMarshmallow.class
 com/fasterxml/jackson/databind/ser/std/NumberSerializers$LongSerializer.class
 android/support/v4/view/AbsSavedState.class
@@ -706,7 +687,6 @@ com/fasterxml/jackson/databind/KeyDeserializer.class
 com/fasterxml/jackson/databind/ser/std/StdArraySerializers$DoubleArraySerializer.class
 com/google/android/gms/location/places/NearbyAlertRequest.class
 android/support/v7/app/ActionBar$TabListener.class
-android/support/v7/app/AppCompatDelegateImplN.class
 org/joda/time/Hours.class
 com/google/android/gms/internal/zzcv.class
 com/fasterxml/jackson/databind/ser/std/EnumSerializer.class
@@ -736,7 +716,6 @@ com/fasterxml/jackson/annotation/JsonAnyGetter.class
 com/google/android/gms/wallet/MaskedWalletRequest.class
 com/google/android/gms/internal/zzfu.class
 com/google/android/gms/ads/internal/client/zzj.class
-android/support/v7/widget/ListPopupWindow.class
 android/support/v4/view/animation/FastOutSlowInInterpolator.class
 com/fasterxml/jackson/databind/deser/std/StdKeyDeserializers.class
 com/google/ads/mediation/customevent/CustomEventBannerListener.class
@@ -759,7 +738,6 @@ android/support/v7/recyclerview/R.class
 com/firebase/client/MutableData.class
 com/fasterxml/jackson/databind/ser/impl/StringCollectionSerializer.class
 android/support/design/R$dimen.class
-android/support/v7/view/menu/CascadingMenuPopup$HorizPosition.class
 android/support/design/widget/CoordinatorLayout.class
 android/support/v4/view/ViewPager$SavedState.class
 com/google/android/gms/internal/zzfl.class
@@ -813,7 +791,6 @@ android/support/multidex/MultiDexApplication.class
 com/fasterxml/jackson/core/util/VersionUtil.class
 android/support/v7/widget/RecyclerView$4.class
 com/google/android/gms/wearable/CapabilityApi$CapabilityFilterType.class
-android/support/v4/content/res/ConfigurationHelper.class
 com/fasterxml/jackson/databind/deser/BeanDeserializerBuilder.class
 com/google/android/gms/R$styleable.class
 com/google/android/gms/ads/internal/zzj.class
@@ -849,7 +826,6 @@ android/support/v4/widget/SearchViewCompat$OnCloseListenerCompat.class
 com/google/android/gms/internal/zzcb.class
 com/fasterxml/jackson/databind/jsonFormatVisitors/JsonObjectFormatVisitor.class
 android/support/design/widget/Snackbar$SnackbarLayout$OnLayoutChangeListener.class
-android/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo.class
 com/fasterxml/jackson/databind/annotation/JsonValueInstantiator.class
 android/support/v7/widget/AdapterHelper.class
 com/google/android/gms/ads/internal/zze.class
@@ -906,7 +882,6 @@ android/support/v4/graphics/drawable/DrawableCompat.class
 android/support/multidex/ZipUtil$CentralDirectory.class
 com/fasterxml/jackson/annotation/JsonValue.class
 com/google/android/gms/wearable/DataApi$DataListener.class
-android/support/design/widget/FloatingActionButton$Size.class
 android/support/v7/app/ActionBarDrawerToggle.class
 android/support/v7/app/ActionBar$OnMenuVisibilityListener.class
 com/fasterxml/jackson/databind/deser/std/NumberDeserializers$DoubleDeserializer.class
@@ -928,12 +903,9 @@ android/support/v4/media/session/PlaybackStateCompatApi21.class
 com/google/android/gms/internal/zzel.class
 android/support/v4/media/MediaBrowserCompat$MediaItem.class
 com/google/android/gms/internal/zzjo.class
-android/support/v7/view/menu/MenuView.class
-android/support/v7/view/menu/SubMenuBuilder.class
 android/support/v4/view/ViewCompat$ScrollIndicators.class
 com/google/android/gms/internal/zzjt$zza.class
 android/support/v4/media/session/PlaybackStateCompat$1.class
-android/support/design/widget/FloatingActionButton$OnVisibilityChangedListener.class
 com/google/android/gms/auth/firstparty/shared/zzd.class
 com/fasterxml/jackson/databind/MappingIterator.class
 android/support/v4/view/ViewCompatLollipop.class
@@ -949,8 +921,6 @@ com/google/android/gms/internal/zzcw.class
 com/google/android/gms/auth/GoogleAuthUtil.class
 android/support/v7/app/AppCompatDelegateImplBase.class
 com/google/android/gms/ads/internal/reward/mediation/client/RewardItemParcel.class
-android/support/v7/view/menu/CascadingMenuPopup.class
-android/support/v7/view/menu/MenuBuilder.class
 com/google/android/gms/internal/zzdg$zzb.class
 com/google/android/gms/internal/zzhu.class
 android/support/v4/view/ViewCompat$ICSViewCompatImpl.class
@@ -960,7 +930,6 @@ com/fasterxml/jackson/annotation/JsonRootName.class
 com/squareup/picasso/Picasso$Builder.class
 com/google/android/gms/location/places/PlaceFilter.class
 android/support/design/widget/CoordinatorLayout$DefaultBehavior.class
-android/support/v7/widget/MenuItemHoverListener.class
 android/support/v4/view/ViewCompat$FocusRealDirection.class
 android/support/v4/text/util/LinkifyCompat$LinkSpec.class
 com/google/android/gms/ads/internal/client/SearchAdRequestParcel.class
@@ -983,7 +952,6 @@ com/google/android/gms/internal/zzjt.class
 android/support/v7/app/ActionBar$Tab.class
 com/fasterxml/jackson/databind/ser/std/NumberSerializers$NumberSerializer.class
 com/google/android/gms/ads/internal/formats/zzc.class
-android/support/v7/view/menu/CascadingMenuPopup$2.class
 android/support/v4/view/ViewCompatKitKat.class
 android/support/design/widget/CoordinatorLayout$HierarchyChangeListener.class
 com/google/android/gms/games/internal/experience/ExperienceEvent.class
@@ -1003,7 +971,6 @@ com/google/android/gms/internal/zzga.class
 android/support/v4/view/ViewPager$OnPageChangeListener.class
 android/support/annotation/RequiresPermission$Write.class
 com/google/android/gms/internal/zzhi.class
-android/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener.class
 com/fasterxml/jackson/databind/deser/std/NumberDeserializers$ByteDeserializer.class
 com/google/android/gms/common/zzc.class
 android/support/design/R.class
@@ -1074,7 +1041,6 @@ com/google/android/gms/common/api/internal/zzv.class
 com/google/android/gms/internal/zzbc.class
 com/google/android/gms/ads/internal/overlay/zzo.class
 com/google/android/gms/wallet/FullWallet.class
-android/support/v4/view/InputDeviceCompat.class
 android/support/v7/widget/RecyclerView$OnItemTouchListener.class
 android/support/v4/media/session/PlaybackStateCompat.class
 com/fasterxml/jackson/databind/ser/std/IterableSerializer.class
@@ -1090,7 +1056,6 @@ android/support/v4/view/ViewCompat$FocusRelativeDirection.class
 com/fasterxml/jackson/databind/deser/CreatorProperty.class
 com/fasterxml/jackson/databind/type/TypeBase.class
 android/support/design/widget/TabLayout$TabView.class
-android/support/v4/internal/view/SupportMenuItem.class
 com/google/android/gms/internal/zzaz.class
 com/google/android/gms/common/internal/safeparcel/zza$zza.class
 android/support/v4/os/BuildCompat.class
@@ -1130,7 +1095,6 @@ com/google/android/gms/internal/zzhq.class
 android/support/v4/view/ViewCompatICSMr1.class
 com/google/android/gms/games/Games.class
 com/google/android/gms/maps/MapFragment.class
-android/support/v7/appcompat/R$dimen.class
 android/support/v4/app/FragmentManager.class
 com/google/android/gms/internal/zzjm.class
 com/google/android/gms/internal/zzec.class
@@ -1163,7 +1127,6 @@ android/support/design/widget/CoordinatorLayout$OnPreDrawListener.class
 android/support/annotation/IntRange.class
 com/google/android/gms/wallet/WalletConstants.class
 android/support/v7/widget/ViewUtils.class
-android/support/design/widget/FloatingActionButton$ShadowDelegateImpl.class
 com/google/android/gms/ads/internal/overlay/zze.class
 org/joda/time/Weeks.class
 android/support/v4/media/session/PlaybackStateCompat$CustomAction.class
@@ -1194,7 +1157,6 @@ android/support/annotation/UiThread.class
 android/support/v4/view/accessibility/AccessibilityManagerCompat$AccessibilityStateChangeListenerCompat.class
 com/firebase/jobdispatcher/Job.class
 com/firebase/jobdispatcher/RetryStrategy.class
-android/support/v7/widget/AppCompatDrawableManager.class
 com/google/android/gms/wallet/firstparty/GetBuyFlowInitializationTokenRequest.class
 android/support/v4/net/ConnectivityManagerCompatJellyBean.class
 android/support/design/widget/Snackbar$SnackbarLayout$OnAttachStateChangeListener.class
@@ -1214,7 +1176,6 @@ com/fasterxml/jackson/databind/ser/std/SqlDateSerializer.class
 android/support/design/widget/ViewGroupUtils.class
 com/google/android/gms/maps/SupportStreetViewPanoramaFragment.class
 org/joda/time/LocalDateTime.class
-android/support/v7/view/menu/MenuPopup.class
 com/google/android/gms/location/places/AutocompleteFilter.class
 com/fasterxml/jackson/annotation/JsonAutoDetect$Visibility.class
 android/support/v4/media/MediaBrowserCompat$ItemReceiver.class

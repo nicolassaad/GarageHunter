@@ -1,11 +1,11 @@
 [
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_seekbar_track_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_seekbar_track_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_btn_default_mtrl_shape.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/icon.png",
@@ -13,7 +13,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_ratingbar_small_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_ratingbar_small_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_copy_material.xml",
@@ -21,11 +21,11 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_list_selector_holo_light.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_textfield_search_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_textfield_search_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/garagesale_icon.png",
@@ -41,7 +41,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_cab_background_top_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_cab_background_top_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_text_dark.xml",
@@ -57,7 +57,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_item_background_holo_dark.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/side_nav_bar.xml",
@@ -65,7 +65,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/blue_marker.png",
@@ -73,7 +73,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_tab_indicator_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_tab_indicator_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_on_mtrl.xml",
@@ -81,7 +81,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_spinner_textfield_background_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/mr_ic_cast_dark.xml",
@@ -89,11 +89,15 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_cab_background_internal_bg.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_btn_check_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_dark.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_dialog_material_background_dark.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/search_show_hide.png",
@@ -105,11 +109,15 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark.xml",
         "source": "/Users/nicolassaad/.android/build-cache/3b8c4224dd23ef618577ec6881712173f54d2c51/output/res/drawable/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_full_material.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_ratingbar_full_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
@@ -145,7 +153,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_btn_colored_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_btn_colored_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/noservice.png",
@@ -188,12 +196,16 @@
         "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable/mr_ic_settings_light.xml"
     },
     {
+        "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_light.xml",
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_dialog_material_background_light.xml"
+    },
+    {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/mr_ic_play_dark.xml",
         "source": "/Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/res/drawable/mr_ic_play_dark.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/design_snackbar_background.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/5f2952097618f05940932815a224839af64dcd76/output/res/drawable/design_snackbar_background.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/ecfd3fc64fd52d36e80bafc32a30b8799118c0a0/output/res/drawable/design_snackbar_background.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_paste_material.xml",
@@ -213,7 +225,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_btn_borderless_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_btn_borderless_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
@@ -225,11 +237,11 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/design_fab_background.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/5f2952097618f05940932815a224839af64dcd76/output/res/drawable/design_fab_background.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/ecfd3fc64fd52d36e80bafc32a30b8799118c0a0/output/res/drawable/design_fab_background.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_text_cursor_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_text_cursor_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_btn_checkbox_unchecked_mtrl.xml",
@@ -237,7 +249,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_seekbar_thumb_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/common_plus_signin_btn_icon_light.xml",
@@ -253,7 +265,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_edit_text_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_edit_text_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_off_mtrl.xml",
@@ -277,7 +289,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_btn_radio_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_btn_radio_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_material.xml",
@@ -289,7 +301,7 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_switch_thumb_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_switch_thumb_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/mr_ic_media_route_connecting_mono_light.xml",
@@ -297,14 +309,14 @@
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_list_selector_holo_dark.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_ratingbar_indicator_material.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_ratingbar_indicator_material.xml"
     },
     {
         "merged": "/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
-        "source": "/Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/res/drawable/abc_item_background_holo_light.xml"
+        "source": "/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/res/drawable/abc_item_background_holo_light.xml"
     }
 ]

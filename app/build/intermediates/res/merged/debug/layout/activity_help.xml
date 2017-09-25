@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.nothingsoft.nicolassaad.garagehunter.HelpActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              tools:context="com.nothingsoft.nicolassaad.garagehunter.HelpActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="54dp"
+        app:titleTextColor="@color/white_color"
         android:background="@color/accent_color"
         android:minHeight="?attr/actionBarSize">
 
@@ -21,7 +23,8 @@
         android:padding="@dimen/ten">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/version_number_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/five"
             android:paddingBottom="@dimen/five"
@@ -31,6 +34,12 @@
             android:text="@string/gsh_current_build_version"
             android:textSize="18sp"
             />
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/blue_marker"
+    android:layout_toRightOf="@id/version_number_text"
+    android:layout_marginLeft="@dimen/five"/>
 
     </RelativeLayout>
 

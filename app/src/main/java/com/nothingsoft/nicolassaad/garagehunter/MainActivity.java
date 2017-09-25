@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         Toolbar topToolBar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(topToolBar);
 
-        topToolBar.setLogo(R.mipmap.ic_garagehunter);
+        topToolBar.setLogo(R.mipmap.garagesale_icon);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         setUpViewPager();

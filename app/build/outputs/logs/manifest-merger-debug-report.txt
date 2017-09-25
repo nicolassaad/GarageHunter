@@ -58,7 +58,7 @@ ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifes
 		ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml:17:22-77
 application
 ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml:20:5-74:19
-MERGED from [com.android.support:design:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/5f2952097618f05940932815a224839af64dcd76/output/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:23.4.0] /Users/nicolassaad/.android/build-cache/ecfd3fc64fd52d36e80bafc32a30b8799118c0a0/output/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services:8.4.0] /Users/nicolassaad/.android/build-cache/09264c989cb7e33b9252c31302f996e323324170/output/AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.android.gms:play-services-analytics:8.4.0] /Users/nicolassaad/.android/build-cache/2dd56ef1e6b3d70b30cba8596a09b5b38a2e0096/output/AndroidManifest.xml:24:5-20
@@ -68,9 +68,9 @@ MERGED from [com.google.android.gms:play-services-appstate:8.4.0] /Users/nicolas
 MERGED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:20:5-32:19
 MERGED from [com.google.android.gms:play-services-cast:8.4.0] /Users/nicolassaad/.android/build-cache/143ca3a3d9685c8f17bb97de0247e630111a9eac/output/AndroidManifest.xml:19:5-20
 MERGED from [com.android.support:mediarouter-v7:23.0.0] /Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/eb8ae60178132da4f9275d5b7e4a49beabb41b68/output/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/42ce502afae839771b36971aca47503ce78d3833/output/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /Users/nicolassaad/.android/build-cache/409a664727fffd894935e708ebcde4a461aa18d5/output/AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/nicolassaad/.android/build-cache/ea291aac9d2d27dae9787185f1e5c882746ffab1/output/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-fitness:8.4.0] /Users/nicolassaad/.android/build-cache/d22982531fbd0a2e37715cf17d68ddadb18a7487/output/AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-games:8.4.0] /Users/nicolassaad/.android/build-cache/e62305b95093f8ccb3f17e05daead3e81fd60dce/output/AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-drive:8.4.0] /Users/nicolassaad/.android/build-cache/f7aafb0c92fe430a27eed94afb4ba49f8077846e/output/AndroidManifest.xml:19:5-20
@@ -110,7 +110,7 @@ ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifes
 	android:screenOrientation
 		ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml:31:13-49
 	android:label
-		ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml:30:13-56
+		ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml:30:13-45
 	android:configChanges
 		ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml:29:13-74
 	android:theme
@@ -171,8 +171,8 @@ ADDED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifes
 uses-sdk
 INJECTED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:multidex:1.0.1] /Users/nicolassaad/.android/build-cache/3c313a95a8027697266415481c8d548fcd40c785/output/AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:design:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/5f2952097618f05940932815a224839af64dcd76/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/820d4b40af06027bc0d902e9eba2a18765961557/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:23.4.0] /Users/nicolassaad/.android/build-cache/ecfd3fc64fd52d36e80bafc32a30b8799118c0a0/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.4.0] /Users/nicolassaad/.android/build-cache/d188d010a9e82f2103fefa0b2b1b50a2b94a0e99/output/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.gms:play-services:8.4.0] /Users/nicolassaad/.android/build-cache/09264c989cb7e33b9252c31302f996e323324170/output/AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-ads:8.4.0] /Users/nicolassaad/.android/build-cache/88883a3c90a6311f633a9ac3aab6eb8bdb4c2f8d/output/AndroidManifest.xml:23:5-42
 MERGED from [com.google.android.gms:play-services-analytics:8.4.0] /Users/nicolassaad/.android/build-cache/2dd56ef1e6b3d70b30cba8596a09b5b38a2e0096/output/AndroidManifest.xml:18:5-42
@@ -182,9 +182,9 @@ MERGED from [com.google.android.gms:play-services-appstate:8.4.0] /Users/nicolas
 MERGED from [com.google.android.gms:play-services-auth:8.4.0] /Users/nicolassaad/.android/build-cache/9e980639055047573f71ca968cfa898012c375f5/output/AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-cast:8.4.0] /Users/nicolassaad/.android/build-cache/143ca3a3d9685c8f17bb97de0247e630111a9eac/output/AndroidManifest.xml:18:5-42
 MERGED from [com.android.support:mediarouter-v7:23.0.0] /Users/nicolassaad/.android/build-cache/5b10afeb25448286cbe3a35f6220f02ede18f0e5/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/eb8ae60178132da4f9275d5b7e4a49beabb41b68/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/42ce502afae839771b36971aca47503ce78d3833/output/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:appcompat-v7:23.4.0] /Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] /Users/nicolassaad/.android/build-cache/409a664727fffd894935e708ebcde4a461aa18d5/output/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] /Users/nicolassaad/.android/build-cache/ea291aac9d2d27dae9787185f1e5c882746ffab1/output/AndroidManifest.xml:5:5-43
 MERGED from [com.google.android.gms:play-services-fitness:8.4.0] /Users/nicolassaad/.android/build-cache/d22982531fbd0a2e37715cf17d68ddadb18a7487/output/AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-games:8.4.0] /Users/nicolassaad/.android/build-cache/e62305b95093f8ccb3f17e05daead3e81fd60dce/output/AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-drive:8.4.0] /Users/nicolassaad/.android/build-cache/f7aafb0c92fe430a27eed94afb4ba49f8077846e/output/AndroidManifest.xml:18:5-42
@@ -210,7 +210,7 @@ MERGED from [com.android.support:support-core-ui:25.0.0] /Users/nicolassaad/.and
 MERGED from [com.android.support:support-core-utils:25.0.0] /Users/nicolassaad/.android/build-cache/aa389348c5964ecc216917d3338e322505072817/output/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-compat:25.0.0] /Users/nicolassaad/.android/build-cache/e35f3e4685e9e3977693dcd346f5e99221dc968b/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:24.0.0-alpha2] /Users/nicolassaad/.android/build-cache/277fa0343096424e71d2705d90ca20791f42f217/output/AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:23.4.0] /Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/nicolassaad/Documents/GarageHunter/app/src/main/AndroidManifest.xml

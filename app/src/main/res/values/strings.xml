@@ -17,30 +17,13 @@
     <string name="hide_search">Hide Search</string>
     <string name="search_by_keyword">Search By Keyword</string>
     <string name="search_by_location">Search By Location</string>
-    <string name="search_tab">"Search for Sales "</string>
-    <string name="post_tab">"Post Your Own Sale "</string>
-
-    <string-array name="spinnerItems2">
-        <item>Thursday</item>
-        <item>Friday</item>
-        <item>Saturday</item>
-        <item>Sunday</item>
-        <item>All Weekend</item>
-        <item>All Sales</item>
-    </string-array>
-    <string-array name="spinnerItems">
-        <item>Thursday</item>
-        <item>Friday</item>
-        <item>Saturday</item>
-        <item>Sunday</item>
-        <item>All Weekend</item>
-    </string-array>
+    <string name="search_tab">"Search Sales "</string>
+    <string name="post_tab">"Post a Sale "</string>
     <string name="title_activity_sale">SaleActivity</string>
     <string name="title_activity_preview">PreviewActivity</string>
     <string name="title">Title</string>
     <string name="description">No description given.</string>
     <string name="address">Address</string>
-    <string name="day_of_week">Day of Week</string>
     <string name="address_colon">ADDRESS:</string>
     <string name="day_colon">DAY:</string>
     <string name="no_address">No Address</string>
@@ -51,6 +34,7 @@
     <string name="pic_wasnt_taken">Picture wasn\'t taken!</string>
     <string name="failed_create_dir">failed to create directory!</string>
     <string name="firebase_address">https://garagesalehunter.firebaseio.com</string>
+    <string name="enter_valid_address_loc">Please enter valid address or location!</string>
     <string name="enter_valid_address">Please enter valid address!</string>
     <string name="camera_permission">You can now tap to add pictures!</string>
     <string name="clear">Clear</string>
@@ -58,15 +42,12 @@
     <string name="please_check_your_network">Please check your network connection!</string>
     <string name="show_search">Show Search</string>
     <string name="hunting_sales">Hunting sales…</string>
-    <string name="sales_found_nearby">" sales found near you!"</string>
+    <string name="sale_found_worldwide">" sale found worldwide."</string>
+    <string name="no_sales_found">"No sales found. Try posting your own Sale!"</string>
+    <string name="sales_found_worldwide">" sales found worldwide!"</string>
     <string name="loading_progress_text">Loading page…</string>
-    <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-    <string name="saturday">Saturday</string>
-    <string name="sunday">Sunday</string>
-    <string name="all_weekend">All Weekend</string>
-    <string name="all_sales">All Sales</string>
-    <string name="help_section">Help Section:</string>
+
+    <string name="help_section">HELP SECTION</string>
     <string name="how_to_post_your_own_sale">How To Post Your Own Sale:</string>
     <string name="help_post_sale_text">Tap on the \'\'Post Your Own Sale\'\' tab then proceed to fill in the prompts with the title of your sale as well as your address, a description, three pictures, and a start and end date (required fields). Three pictures are required to post so if you only have one item for sale make sure to take multiple angles of it.</string>
     <string name="how_to_search_for_sales">How To Search for Sales:</string>
@@ -87,7 +68,7 @@
     <string name="please_enter_short_desc">Please enter a short description!</string>
     <string name="some_fields_not_filled">Some fields have not been filled out!</string>
     <string name="complete_fields_correctly">Please complete all fields correctly</string>
-    <string name="gsh_current_build_version">Garage Sale Hunter Build v1.13</string>
+    <string name="gsh_current_build_version">Garage Sale Hunter Build v1.15</string>
     <string name="date">Date:</string>
 
 </resources>

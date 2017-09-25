@@ -1,4 +1,4 @@
-#Fri Sep 01 18:40:00 PDT 2017
+#Sun Sep 24 17:20:57 PDT 2017
 base.0=/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3
 renamed.0=classes.dex
 file.0=/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex

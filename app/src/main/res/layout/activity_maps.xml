@@ -33,12 +33,16 @@
             <EditText
                 android:id="@+id/search_loc_edit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/forty_five"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="9dp"
+                android:paddingLeft="@dimen/ten"
+                android:paddingRight="@dimen/ten"
                 android:hint="@string/search_by_location"
                 android:inputType="textPostalAddress"
+                android:background="@android:color/white"
                 android:maxLines="1"/>
 
             <Button
@@ -47,7 +51,9 @@
                 android:layout_height="@dimen/skinny_button_height35"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:background="@android:drawable/ic_menu_search"/>
+                android:layout_marginTop="@dimen/fifteen"
+                android:layout_marginRight="@dimen/ten"
+                android:background="@android:drawable/ic_search_category_default"/>
 
             <Button
                 android:id="@+id/clear_button"
@@ -55,9 +61,10 @@
                 android:layout_height="@dimen/skinny_button_height35"
                 android:layout_marginEnd="@dimen/ten"
                 android:layout_marginRight="@dimen/ten"
+                android:layout_marginTop="@dimen/fifteen"
                 android:layout_toLeftOf="@id/search_button"
                 android:layout_toStartOf="@id/search_button"
-                android:background="@android:drawable/ic_menu_close_clear_cancel"
+                android:background="@android:drawable/ic_delete"
                 android:visibility="visible"/>
 
         </RelativeLayout>

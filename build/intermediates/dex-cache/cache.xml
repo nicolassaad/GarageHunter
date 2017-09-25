@@ -3,12 +3,30 @@
 
     <item
         is-multidex="true"
+        jar="/Users/nicolassaad/.android/build-cache/91e9f1d61c1d014eb950daca2a2f3156d64285e0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bab0fd6d387bba90ee1916814e85658fe4296690/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c14829b8eb5093d1bd7bf93face19f22ce63b606">
+        sha1="b7b3766d8bbbf8bc5ee2129c4bc23ea82f237a78">
         <dex dex="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_ee13f35d43d3be34b7fbfd2f6ba830e97eb6b50b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nicolassaad/.android/build-cache/ea291aac9d2d27dae9787185f1e5c882746ffab1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3d6f31c3c32b4a7c88224a6e6943110436a4ed7a/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +36,33 @@
         revision="25.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_af02560d157f9bac73bb0ceee12fc1ede903866d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nicolassaad/.android/build-cache/d188d010a9e82f2103fefa0b2b1b50a2b94a0e99/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_acaf487660cfb49d40d3bf67035265800ee81be3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nicolassaad/.android/build-cache/ecfd3fc64fd52d36e80bafc32a30b8799118c0a0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f2bbd8dc472cf1a9ea475f042e525a30c6249f66/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/nicolassaad/.android/build-cache/409a664727fffd894935e708ebcde4a461aa18d5/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/nicolassaad/Documents/GarageHunter/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0fc3dd194d1c1358250764ff100f7c0df84860fd/classes.dex" />
     </item>
 
 </items>
